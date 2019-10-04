@@ -1,0 +1,29 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <Rethinking_x0020_the_x0020_4_x0020_PтАЩs.pdf/>
+    <цИРхКЯф_x2551__x2551_чФЯчЪДщЧЬщН_x2561_тАФEQ.docx/>
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Doc">
+        <folderThumbnail/>
+    </jcr:content>
+    <成功人生的關鍵_x2014_EQ.docx/>
+    <Rethinking_x0020_the_x0020_4_x0020_P_x2019_s.pdf/>
+    <high-availability-clustering-with-alfresco.ppt/>
+    <Adobe_x0020_CQ_x0020_Summary.xlsx/>
+    <_x0039_1070066_CQ_WCM_DS_JPL.pdf/>
+    <Exemplis_AdobeSummit_v6.pptx/>
+    <chanel.doc/>
+    <Amazon_Japan_Price_Alert_on_2015-09-20_23-16_.csv/>
+    <Business_x0020_Flow_x0020_-_x0020_Content_x0020_Preparation_x0020_and_x0020_Web_x0020_Publishing_x0020__x0028_M_x002b__x0029_.html/>
+    <instant_rewards.odt/>
+    <IntelliVault.jar/>
+    <Content_x0020_Structure_x0020_-_x0020_Sample.ods/>
+    <instant_rewards.zip/>
+    <com.mousefeed_1.0.0.jar/>
+    <ALICE_x0027_S_x0020_ADVENTURES_x0020_IN_x0020_WONDERLAND_80701.epub/>
+</jcr:root>

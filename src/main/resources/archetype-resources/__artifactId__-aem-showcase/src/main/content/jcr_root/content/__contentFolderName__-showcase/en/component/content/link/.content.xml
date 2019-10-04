@@ -1,0 +1,204 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Link"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    title="Link: Default"
+                    hideTitle="false"
+                    variant="advsection"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/link"
+                            componentId="link1"
+                            componentModules="[${contentFolderName}-showcase:component-style-module/media/video/popup]"
+                            hitType="event"
+                            linkTarget="_blank"
+                            label="Link: Default"
+                            linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    title="Link: Button"
+                    hideTitle="false"
+                    variant="advsection"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/link"
+                            componentId="link2"
+                            hitType="event"
+                            variant="button"
+                            linkTarget="_blank"
+                            label="Link: Button"
+                            linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    title="Link: Default no Label"
+                    hideTitle="false"
+                    variant="advsection"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/link"
+                            componentId="link3"
+                            hitType="event"
+                            linkTarget="_blank"
+                            linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock3>
+                <contentblock4
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        componentId="contentblock4"
+                        title="Link: Prototype Example"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <linkprimary
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="linkprimary"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button,${contentFolderName}-showcase:component-style-modifier/button/normal/primary]"
+                                label="PRIMARY"
+                                link="Primary"
+                                variant="button"/>
+                        <linksecondary
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="linksecondary"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button,${contentFolderName}-showcase:component-style-modifier/button/normal/secondary]"
+                                label="SECONDARY"
+                                link="Secondary"
+                                variant="button"/>
+                        <linkprimarysmall
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="linkprimarysmall"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button,${contentFolderName}-showcase:component-style-modifier/button/normal/primary,${contentFolderName}-showcase:component-style-modifier/button/size/small]"
+                                label="Primary (small)"
+                                link="Primary (small)"
+                                variant="button"/>
+                        <linksecondarysmall
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="linksecondarysmall"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button,${contentFolderName}-showcase:component-style-modifier/button/normal/secondary,${contentFolderName}-showcase:component-style-modifier/button/size/small]"
+                                label="Secondary (small)"
+                                link="Secondary (small)"
+                                variant="button"/>
+                        <linkplain
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="linkplain"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button,${contentFolderName}-showcase:component-style-modifier/button/normal/link,${contentFolderName}-showcase:component-style-modifier/padding/pb-15,${contentFolderName}-showcase:component-style-modifier/padding/pt-15,${contentFolderName}-showcase:component-style-modifier/padding/pl-15]"
+                                variant="button"/>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                        jcr:primaryType="nt:unstructured"
+                        title="Link: Default no Label"
+                        componentId="contentblock5"
+                        hideTitle="false"
+                        variant="advsection"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="link5"
+                                hitType="event"
+                                linkTarget="_blank"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button]"
+                                linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock5>
+
+                <contentblock6
+                        jcr:primaryType="nt:unstructured"
+                        title="Link: Default with Analytics"
+                        hideTitle="false"
+                        componentId="contentblock6"
+                        variant="advsection"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="link6"
+                                hitType="event"
+                                linkTarget="_blank"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button]"
+                                analyticsEventType="site interaction"
+                                analyticsLinkDescription="link description"
+                                analyticsLinkLocation="link page"
+                                analyticsLinkType="link"
+                                linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock6>
+
+                <contentblock7
+                        jcr:primaryType="nt:unstructured"
+                        title="Link: Button with Analytics"
+                        hideTitle="false"
+                        componentId="contentblock7"
+                        variant="advsection"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <link
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/link"
+                                componentId="link7"
+                                hitType="event"
+                                linkTarget="_blank"
+                                variant="button"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/button]"
+                                analyticsEventType="site interaction"
+                                analyticsLinkDescription="link description"
+                                analyticsLinkLocation="link page"
+                                analyticsLinkType="button"
+                                linkUrl="/content/${contentFolderName}-showcase/en/component/content/link"/>
+                    </par>
+                </contentblock7>
+
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

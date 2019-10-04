@@ -1,0 +1,16 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>FileVault Package Properties</comment>
+<entry key="buildCount">0</entry>
+<entry key="version">${version}</entry>
+<entry key="dependencies" />
+<entry key="packageFormatVersion">2</entry>
+<entry key="description">${groupTitle} training Package</entry>
+<entry key="group">${packageGroup}</entry>
+<entry key="name">${artifactId}-aem-training</entry>
+<entry key="path">/etc/packages/${packageGroup}/${artifactId}-aem-training-${version}.zip</entry>
+</properties>

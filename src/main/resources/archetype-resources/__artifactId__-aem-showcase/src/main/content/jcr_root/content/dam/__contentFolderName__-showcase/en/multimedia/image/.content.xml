@@ -1,0 +1,19 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Image">
+        <folderThumbnail/>
+    </jcr:content>
+    <amazon_step_1.png/>
+    <slide_2.jpg/>
+    <Screenshot_2014-12-06-14-27-00.png/>
+    <tumblr.gif/>
+    <Thinkpadlinux.bmp/>
+    <Gakuseisean.ico/>
+    <_x0032_1253687672_e7cc6860a4_z.tif/>
+</jcr:root>

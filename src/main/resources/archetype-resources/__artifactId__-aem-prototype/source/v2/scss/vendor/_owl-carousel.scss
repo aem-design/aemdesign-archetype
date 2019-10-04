@@ -1,0 +1,32 @@
+$color-base  : #869791;
+$color-white : #FFF;
+$color-gray  : #D6D6D6;
+
+// Nav
+
+$nav-color            : $color-white;
+$nav-color-hover      : $color-white;
+$nav-font-size        : 14px;
+$nav-rounded          : 3px;
+$nav-margin           : 5px;
+$nav-padding          : 4px 7px;
+$nav-background       : $color-gray;
+$nav-background-hover : $color-base;
+$nav-disabled-opacity : 0.5;
+
+// Dots
+
+$dot-width             : 8px;
+$dot-height            : 8px;
+$dot-rounded           : 100%;
+$dot-margin            : 0 rem-calc(10px);
+$dot-background        : transparent;
+$dot-background-active : theme-color('g1');
+
+@import '../../../../node_modules/owl.carousel/src/scss/core',
+'../../../../node_modules/owl.carousel/src/scss/theme'
+;
+
+.owl-dot span {
+  border: 1px solid theme-color('g1');
+}

@@ -1,0 +1,16 @@
+
+.separator:before {
+  content: ' - '
+}
+
+.separator-emdash .separator {
+  &:before {
+    content: ' \2014 '
+  }
+}
+
+.separator-dash .separator {
+  &:before {
+    content: ' - '
+  }
+}

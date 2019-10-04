@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+                      name="basic"
+                      xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+  <requiredProperties>
+
+
+    <!--
+    This is used to create more specific package name Ex: Java package.
+    -->
+    <requiredProperty key="groupId">
+      <defaultValue>design.aem</defaultValue>
+    </requiredProperty>
+
+    <!--
+    used as title for packages
+    -->
+    <requiredProperty key="groupTitle">
+      <defaultValue>AEM.Design</defaultValue>
+    </requiredProperty>
+
+    <!--
+    used as prefix for all artifactid's
+    -->
+    <requiredProperty key="artifactId">
+      <defaultValue>aemdesign</defaultValue>
+    </requiredProperty>
+
+
+
+    <!--
+   this will be used in descriptions and text, should be Title Case
+    -->
+    <requiredProperty key="artifactTitle">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+
+    <!--
+    used as artifactid for parent
+    -->
+
+    <requiredProperty key="parentArtifactId">
+      <defaultValue>${artifactId}-parent</defaultValue>
+    </requiredProperty>
+
+    <!--
+    used as name for parent and used as prefix for moudule name <name>${parentArtifactName} :: config</name>
+    -->
+
+    <requiredProperty key="parentArtifactName">
+      <defaultValue>${groupId} :: ${artifactId} :: parent</defaultValue>
+    </requiredProperty>
+
+
+    <!--
+    used as prefix for all artifactid's
+    -->
+    <requiredProperty key="package">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!--
+     used as group for Vault/CRX packages
+      This is the group identifier for the package. Used with the
+    Package Manager and Package Share.
+    -->
+    <requiredProperty key="packageGroup">
+      <defaultValue>${groupTitle}</defaultValue>
+    </requiredProperty>
+
+
+    <requiredProperty key="version">
+      <defaultValue>0.1-SNAPSHOT</defaultValue>
+    </requiredProperty>
+
+
+    <!--
+    used as component group for component
+    -->
+    <requiredProperty key="componentGroupTitle">
+      <defaultValue>${groupTitle}</defaultValue>
+    </requiredProperty>
+
+
+    <!--
+       This is the folder under /apps into which the bundle and package content will be installed.
+    -->
+    <requiredProperty key="appsParent">
+      <defaultValue>aemdesign</defaultValue>
+    </requiredProperty>
+
+
+    <!--
+       This is the folder under /apps into which the bundle and package content will be installed.
+    -->
+    <requiredProperty key="appsFolderName">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!--
+       This is the folder under /content into which the bundle and package content will be installed.
+    -->
+
+    <requiredProperty key="contentFolderName">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!--
+       This is the folder under /conf into which the bundle and package content will be installed.
+    -->
+
+    <requiredProperty key="confFolderName">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!--
+       This is the folder under /etc/clientlibs into which the bundle and package content will be installed.
+    -->
+
+    <requiredProperty key="clientLibsFolderName">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!--
+       This used as path for service project
+    -->
+
+    <requiredProperty key="classNamespace">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+
+  </requiredProperties>
+
+  <fileSets>
+    <!--include everything for filtering and exclude files that do not need to be filtered-->
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+      <excludes>
+        <exclude>**/*.zip</exclude>
+        <exclude>**/*.jar</exclude>
+        <exclude>**/*.tar.gz</exclude>
+        <exclude>**/*.jpg</exclude>
+        <exclude>**/*.jpeg</exclude>
+        <exclude>**/*.tiff</exclude>
+        <exclude>**/*.ico</exclude>
+        <exclude>**/*.gif</exclude>
+        <exclude>**/*.png</exclude>
+        <exclude>**/*.psd</exclude>
+        <exclude>**/*.cnd</exclude>
+        <exclude>**/*.bat</exclude>
+        <exclude>**/original</exclude>
+        <exclude>**/file</exclude>
+        <exclude>**/folderThumbnail</exclude>
+        <exclude>**/*.woff</exclude>
+        <exclude>**/*.woff2</exclude>
+        <exclude>**/*.eot</exclude>
+        <exclude>**/*.ttf</exclude>
+        <exclude>**/*.mp3</exclude>
+        <exclude>**/*.mp4</exclude>
+        <exclude>**/*.flv</exclude>
+        <exclude>**/*.m4v</exclude>
+        <exclude>**/*.avi</exclude>
+        <exclude>**/*.psd</exclude>
+        <exclude>**/*.pdf</exclude>
+        <exclude>**/*.ogv</exclude>
+        <exclude>**/*.3gp</exclude>
+        <exclude>**/*.webm</exclude>
+        <exclude>**/*.jsx</exclude>
+        <exclude>**/*.svg</exclude>
+        <exclude>**/*.scss</exclude>
+        <exclude>**/*.ts</exclude>
+        <exclude>**/*.gradle</exclude>
+        <exclude>**/*.dmg</exclude>
+        <exclude>**/*.js</exclude>
+        <exclude>**/templateReportCreator/*.ad</exclude>
+        <exclude>**/templateReportCreator/*.md</exclude>
+        <exclude>**/.gitattributes</exclude>
+        <exclude>**/.gitignore</exclude>
+        <exclude>**/.DS_Store</exclude>
+        <exclude>**/scripts/*.sh</exclude>
+        <exclude>**/deploy*</exclude>
+        <exclude>**/package</exclude>
+        <exclude>**/pull</exclude>
+        <exclude>**/stats</exclude>
+        <exclude>**/install*</exclude>
+        <exclude>**/watch</exclude>
+        <exclude>**/serve</exclude>
+        <exclude>**/build</exclude>
+        <exclude>**/test-spec*</exclude>
+        <exclude>**/.babelrc</exclude>
+        <exclude>**/LICENSE</exclude>
+        <exclude>**/config.json</exclude>
+        <exclude>**/.eslintrc</exclude>
+        <exclude>**/.npmrc</exclude>
+        <exclude>**/webpack.config.js</exclude>
+        <exclude>**/.jshintrc</exclude>
+        <exclude>**/generate-archetype</exclude>
+        <exclude>**/.editorconfig</exclude>
+        <exclude>**/yarn.lock</exclude>
+        <exclude>**/.gitignore</exclude>
+        <exclude>**/package.json</exclude>
+        <exclude>**/tslint.json</exclude>
+        <exclude>**/.gitattributes</exclude>
+        <exclude>**/tsconfig.json</exclude>
+        <exclude>**/postcss.config.js</exclude>
+        <exclude>**/asciidoctor*</exclude>
+        <exclude>**/Gemfile*</exclude>
+      </excludes>
+    </fileSet>
+    <!--include all files that dont need filtering-->
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>**/*.zip</include>
+        <include>**/*.jar</include>
+        <include>**/*.tar.gz</include>
+        <include>**/*.jpg</include>
+        <include>**/*.jpeg</include>
+        <include>**/*.tiff</include>
+        <include>**/*.ico</include>
+        <include>**/*.gif</include>
+        <include>**/*.png</include>
+        <include>**/*.psd</include>
+        <include>**/*.cnd</include>
+        <include>**/*.bat</include>
+        <include>**/original</include>
+        <include>**/file</include>
+        <include>**/folderThumbnail</include>
+        <include>**/*.woff</include>
+        <include>**/*.woff2</include>
+        <include>**/*.eot</include>
+        <include>**/*.ttf</include>
+        <include>**/*.mp3</include>
+        <include>**/*.mp4</include>
+        <include>**/*.flv</include>
+        <include>**/*.m4v</include>
+        <include>**/*.avi</include>
+        <include>**/*.psd</include>
+        <include>**/*.pdf</include>
+        <include>**/*.ogv</include>
+        <include>**/*.3gp</include>
+        <include>**/*.webm</include>
+        <include>**/*.jsx</include>
+        <include>**/*.svg</include>
+        <include>**/*.scss</include>
+        <include>**/*.ts</include>
+        <include>**/*.gradle</include>
+        <include>**/*.dmg</include>
+        <include>**/*.js</include>
+        <include>**/templateReportCreator/*.ad</include>
+        <include>**/templateReportCreator/*.md</include>
+        <include>**/.gitattributes</include>
+        <include>**/.gitignore</include>
+        <include>**/scripts/*.sh</include>
+        <include>**/deploy*</include>
+        <include>**/package</include>
+        <include>**/pull</include>
+        <include>**/stats</include>
+        <include>**/install*</include>
+        <include>**/watch</include>
+        <include>**/serve</include>
+        <include>**/build</include>
+        <include>**/test-spec*</include>
+        <include>**/.babelrc</include>
+        <include>**/LICENSE</include>
+        <include>**/config.json</include>
+        <include>**/.eslintrc</include>
+        <include>**/.npmrc</include>
+        <include>**/webpack.config.js</include>
+        <include>**/.jshintrc</include>
+        <include>**/generate-archetype</include>
+        <include>**/.editorconfig</include>
+        <include>**/yarn.lock</include>
+        <include>**/.gitignore</include>
+        <include>**/package.json</include>
+        <include>**/tslint.json</include>
+        <include>**/.gitattributes</include>
+        <include>**/tsconfig.json</include>
+        <include>**/postcss.config.js</include>
+        <exclude>**/asciidoctor*</exclude>
+        <exclude>**/Gemfile*</exclude>
+      </includes>
+      <excludes>
+        <exclude>**/.DS_Store</exclude>
+      </excludes>
+    </fileSet>
+
+    <!--<fileSet packaged="true" encoding="UTF-8">
+      <directory>__packageGroup__-services/src/main/java/__packageGroup__</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+    </fileSet>-->
+
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>archetype-resources/__packageGroup__-author</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-common</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-config</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-content</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-training</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+        <!--<include>**/*.java.__packageGroup__</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-jenkins</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+        <!--<include>**/*.java.__packageGroup__</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-prototype</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+        <!--<include>**/*.java.__packageGroup__</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-testing</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+        <!--<include>**/*.java.__packageGroup__</include>-->
+        <!--<include>**/*.groovy</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+
+    <!--<fileSet filtered="true" packaged="true" encoding="UTF-8">-->
+      <!--<directory>src/main/resources/archetype-resources/__packageGroup__-deploy</directory>-->
+      <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.md</include>-->
+        <!--<include>**/*.html</include>-->
+        <!--<include>**/*.txt</include>-->
+        <!--<include>**/*.vltignore</include>-->
+        <!--<include>**/*.java.__packageGroup__</include>-->
+        <!--<include>**/*.groovy</include>-->
+      <!--</includes>-->
+    <!--</fileSet>-->
+
+  </fileSets>
+</archetype-descriptor>

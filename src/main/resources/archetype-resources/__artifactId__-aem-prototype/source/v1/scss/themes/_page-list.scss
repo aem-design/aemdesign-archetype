@@ -1,0 +1,32 @@
+&--page-list {
+  &-content-list {
+    // this is the theme for page list content
+
+    .card {
+      @include make-row();
+      flex-direction: row;
+      align-items: top;
+
+      &-icon {
+        @include make-col(4);
+        font-size: 60px;
+        padding: 1rem .25rem;
+
+        @include media-breakpoint-up(lg) {
+          padding: 1.25rem;
+        }
+      }
+
+      &-body {
+        @include make-col(8);
+        text-align: left;
+        padding: 1rem .25rem;
+
+        @include media-breakpoint-up(lg) {
+          padding: 1.25rem;
+        }
+      }
+    }
+  }
+}
+

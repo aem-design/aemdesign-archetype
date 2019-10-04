@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "GENERATE NEW PROJECT"
+mvn clean integration-test
+
+echo "PACKAGE THE OUTPUT"
+cd target/test-classes/projects/basic/project/projectx && chmod +x package && ./package && cd -

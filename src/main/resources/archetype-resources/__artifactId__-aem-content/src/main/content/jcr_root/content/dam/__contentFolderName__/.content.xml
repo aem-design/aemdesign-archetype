@@ -1,0 +1,12 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[mix:lockable,rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+            jcr:primaryType="nt:unstructured"
+            jcr:title="${artifactTitle} DAM">
+    </jcr:content>
+</jcr:root>

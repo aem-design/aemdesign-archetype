@@ -1,0 +1,11 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    ptiff.height="{Long}4546"
+    ptiff.md5="26df124e5a8b3e21d59256fe9b3fa858"
+    ptiff.original="{Boolean}true"
+    ptiff.size="{Long}4322956"
+    ptiff.width="{Long}6811"/>

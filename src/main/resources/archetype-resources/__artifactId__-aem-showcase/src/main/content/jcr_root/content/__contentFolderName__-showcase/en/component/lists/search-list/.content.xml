@@ -1,0 +1,91 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Search List"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article"
+            componentId="article_S1O8VMHXP">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"
+                    componentId="page-details_N6XS3PPBY"/>
+                <contentblockmenu1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblockmenu"
+                    componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Search Widget"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentId="text_ABYQQHGZZ"
+                            text="Simple search widget with Feeds specified to enable Quick Search"
+                            textIsRich="true"
+                            variant="simple"/>
+                        <search
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/widgets/search"
+                            componentId="search1"
+                            componentModules="[${contentFolderName}-showcase:component-style-module/widgets/search/quicksearch]"
+                            feedUrl="[/content/${contentFolderName}-showcase/en/component/lists/page-list/_jcr_content/article/par/contentblock9/par/pagelist.rss,/content/${contentFolderName}-showcase/en/component/lists/page-list/_jcr_content/article/par/contentblock10/par/pagelist.feed]"
+                            formAction="/content/${contentFolderName}-showcase/en/component/lists/search-list.html"
+                            variant="quick"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Search Results Default"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentId="text_BHXLLHDM5"
+                            text="Variant: Default"
+                            textIsRich="true"
+                            variant="simple"/>
+                        <text_1102373636
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentId="text_1102373636_YSYH6ERVC"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xd;&${symbol_pound}xa;&lt;p>To see the search list component in action, copy and paste the following piece as an attribute into your browser's address bar&lt;br>&${symbol_pound}xd;&${symbol_pound}xa;&lt;br>&${symbol_pound}xd;&${symbol_pound}xa;q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2F${contentFolderName}-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2F${contentFolderName}-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset&lt;/p>&${symbol_pound}xd;&${symbol_pound}xa;&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xd;&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <searchlist
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/lists/searchlist"
+                            componentId="searchlist1"/>
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+    <child-page-1/>
+    <child-page-2/>
+    <child-page-3/>
+</jcr:root>

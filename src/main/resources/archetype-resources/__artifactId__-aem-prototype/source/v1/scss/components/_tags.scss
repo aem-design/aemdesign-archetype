@@ -1,0 +1,75 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.tags {
+  @include list-unstyled;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  margin-top: rem-calc(10px);
+
+  li {
+    font-size: rem-calc(14px);
+    margin-bottom: rem-calc(10px);
+
+    a {
+      border: 1px solid currentColor;
+      color: theme-color('c1');
+      display: block;
+      padding: rem-calc(3px) rem-calc(12px);
+      transition: $transition-base;
+
+      &:hover {
+        background-color: theme-color('c1');
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: rem-calc(20px);
+    }
+  }
+
+  &--simple {
+    li {
+      margin-bottom: 0;
+
+      a {
+        border-width: 0;
+        color: theme-color('primary');
+        display: inline-block;
+        padding: 0;
+
+        &:hover {
+          background-color: transparent;
+          color: theme-color('primary');
+          text-decoration: underline;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: rem-calc(10px);
+      }
+
+      + li::before {
+        color: theme-color('primary');
+        content: '+';
+        display: inline-block;
+        margin-right: rem-calc(10px);
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}

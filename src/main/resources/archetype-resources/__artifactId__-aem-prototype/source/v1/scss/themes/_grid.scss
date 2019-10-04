@@ -1,0 +1,17 @@
+&--grid {
+  // Forces the grid columns to sit flush together without any space
+  &-flush {
+    @include media-breakpoint-up(sm) {
+      [class*='col'],
+      [class*='#{$aem-prefix-col}'] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      > .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

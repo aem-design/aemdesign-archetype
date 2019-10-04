@@ -1,0 +1,26 @@
+// PLEASE NOTE!!
+//
+// This overrides only styles that aren't configurable by Bootstrap, please take
+// care when making changes as we shouldn't be duplicating styles that Bootstrap
+// generates for us automatically.
+
+.container {
+  @include iphone-x;
+
+  &-full {
+    max-width: 100%;
+  }
+
+}
+
+@include grid-gutter($grid-gutter);
+@include media-breakpoint-up(md) {
+  @include grid-gutter($grid-gutter-sm);
+}
+@include media-breakpoint-up(lg) {
+  @include grid-gutter($grid-gutter-lg);
+}
+@include media-breakpoint-up(xl) {
+  @include grid-gutter($grid-gutter-xl);
+}
+

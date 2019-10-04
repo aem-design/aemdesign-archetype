@@ -1,0 +1,30 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+
+.#{$aem-prefix},
+.#{$aem-prefix}--12 {
+  @include make-container;
+  @include make-container-max-widths;
+  @include iphone-x;
+}
+
+.#{$aem-prefix} {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#{$aem-prefix-col} {
+  @extend .col-sm;
+}
+
+// Generate the column classes
+@each $bp-aem, $bp-bootstrap in $aem-breakpoints {
+  @for $c from 1 through $grid-columns {
+    .#{$aem-prefix-col}--#{$bp-aem}--#{$c} {
+      @extend .col-#{$bp-bootstrap}-#{$c};
+    }
+  }
+}

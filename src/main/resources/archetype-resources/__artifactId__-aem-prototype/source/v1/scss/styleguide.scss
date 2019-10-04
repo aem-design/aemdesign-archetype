@@ -1,0 +1,280 @@
+@charset 'utf-8';
+
+@import
+  // Bootstrap internals
+'../../../node_modules/bootstrap/scss/functions',
+'../../../node_modules/bootstrap/scss/variables',
+'../../../node_modules/bootstrap/scss/bootstrap',
+
+  // RIO internals
+'functions',
+'variables',
+'mixins',
+
+  // Bootstrap reset
+'../../../node_modules/bootstrap/scss/mixins'
+;
+
+@font-face {
+  font-family: 'BrushUp';
+  font-style: normal;
+  src: url('http://localhost:4502/etc.clientlibs/aemdesign/clientlibs/v1/clientlibs-header/resources/fonts/brush-up/BrushUp.eot');
+  src: url('http://localhost:4502/etc.clientlibs/aemdesign/clientlibs/v1/clientlibs-header/resources/fonts/brush-up/BrushUp.eot?#iefix') format('embedded-opentype'),
+  url('http://localhost:4502/etc.clientlibs/aemdesign/clientlibs/v1/clientlibs-header/resources/fonts/brush-up/BrushUp.woff') format('woff'),
+  url('http://localhost:4502/etc.clientlibs/aemdesign/clientlibs/v1/clientlibs-header/resources/fonts/brush-up/BrushUp.ttf') format('truetype');
+}
+
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+
+.card img {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.sg {
+  &-main {
+    margin: 0 auto;
+    max-width: rem-calc(1200px);
+  }
+
+  &-pattern-extra {
+    overflow: auto;
+  }
+
+  &-heading {
+    @include make-container;
+    @include make-container-max-widths;
+
+    border-bottom: 1px solid currentColor;
+    color: $primary;
+
+    &:not(:first-child) {
+      margin-top: rem-calc(40px);
+    }
+  }
+
+  &-pattern-example {
+    .container,
+    .pagelist {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #header-clear,
+    .brand-header__dummy {
+      display: none;
+    }
+
+    .brand-header {
+      position: static !important;
+    }
+  }
+
+  &-pattern-example {
+    position: relative;
+  }
+
+  &-code {
+    color: #fa3a57;
+    font-family: monospace, monospace;
+    padding: 2px;
+  }
+
+  &-pattern-desc code {
+    background-color: #fff;
+    border-radius: 4px;
+    color: #fa3a57;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+#components-contentblock-parsys-parallax.sg-pattern,
+#components-embedsource-parsysParallax.sg-pattern {
+  min-height: 240px;
+}
+
+#sg-patterns {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-left: rem-calc($grid-gutter-width / 2);
+  padding-right: rem-calc($grid-gutter-width / 2);
+
+  .brand-header--stuck {
+    transform: none !important;
+  }
+
+  // Pattern states
+  .sg-pattern-state {
+    color: #02a4d5;
+
+    &.complete {
+      color: #03790f;
+    }
+
+    &.inreview {
+      color: #c7a118;
+    }
+
+    &.deprecated {
+      color: #b00b02;
+    }
+  }
+}
+
+#spreadsheet {
+  height: 100vh;
+  width: 80vw;
+}
+
+#header-clear {
+  height: calc(100vh * 2.2);
+}
+
+.demo-animate {
+  background: #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.sg-colors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 30px 0 !important;
+  [class*="col"] {
+    margin-top: 30px;
+    & > * {
+      padding: 0.3em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  }
+}
+  .sg-swatch {
+    display: block;
+    height: 4em;
+    margin-bottom: 0.3em;
+    border-radius: 5px;
+  }
+
+  .sg-label {
+    font-size: 90%;
+    line-height: 1;
+    & + & {
+      margin-top: 0.4em;
+    }
+  }
+
+  .sg-section {
+    margin-bottom: 2em;
+  }
+
+
+  // Bootstrap grid
+  .grid-item {
+    background-color: #00327f;
+    border: 1px solid #fff;
+    color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+  }
+
+
+  .container {
+    &.my-large,
+    &.my-5 {
+      h1 {
+        margin: 0.6em 0;
+      }
+      & > hr:first-of-type {
+        display: none;
+      }
+    }
+    &.my-large {
+      & > .row {
+        &.icon-list {
+          margin-bottom: 2em;
+          [class*="col-"] {
+            margin-top: 1em;
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .sg-colors,
+  .sg-spacing {
+    [class*="col"] {
+      margin-top: 30px;
+    }
+  }
+
+  //Icons
+  .icon {
+    & > * {
+      display: block;
+      text-align: center;
+    }
+    i,
+    svg{
+      font-size: 3.5em;
+      position: relative;
+      margin: 0.3em auto;
+      display: block;
+    }
+  }
+
+  //Fonts
+  .font {
+    p {
+      font-size: 24px;
+      word-break: break-word;
+    }
+  }
+
+  //Spacing
+  .sg-spacing {
+    .sg-label {
+      text-align: center;
+    }
+    [class*="col"] {
+      min-height: 180px;
+    }
+    h2, hr {
+      display: block;
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
+  .spacing {
+    border: 1px solid #ddd;
+    margin-bottom: 0.5em;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    &,
+    & > * {
+      border-radius: 8px;
+    }
+    & > * {
+      width: 20px;
+      height: 20px;
+      background-color: $tertiary;
+      display: block;
+    }
+  }
+

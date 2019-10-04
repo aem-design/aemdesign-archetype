@@ -1,0 +1,53 @@
+// PLEASE NOTE!!
+//
+// These styles will; like Bootstrap, overrides styles you have applied to the
+// element. Please take care when applying them as they shouldn't be overriden
+// again by a component style for instance.
+
+@import '../../../node_modules/bootstrap/scss/utilities/align',
+'../../../node_modules/bootstrap/scss/utilities/background',
+'../../../node_modules/bootstrap/scss/utilities/borders',
+'../../../node_modules/bootstrap/scss/utilities/clearfix',
+'../../../node_modules/bootstrap/scss/utilities/display',
+'../../../node_modules/bootstrap/scss/utilities/embed',
+'../../../node_modules/bootstrap/scss/utilities/flex',
+'../../../node_modules/bootstrap/scss/utilities/float',
+'../../../node_modules/bootstrap/scss/utilities/position',
+'../../../node_modules/bootstrap/scss/utilities/screenreaders',
+'../../../node_modules/bootstrap/scss/utilities/sizing',
+'../../../node_modules/bootstrap/scss/utilities/spacing',
+'../../../node_modules/bootstrap/scss/utilities/text',
+'../../../node_modules/bootstrap/scss/utilities/visibility',
+
+  // Custom utilities
+'utilities/index'
+;
+
+// Font Open Sans
+
+.grid,
+.container:not(.my-large, .my-5, .guideContainerNode) {
+  @include container();
+}
+
+//Overwrite nested container to prevent more sides padding.
+body > .container:not(.my-large, .my-5, .header),
+.contentblock.container:not(.my-large, .my-5) {
+    max-width: 100% !important;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+body {
+  &.collapsed > .container {
+    @include media-breakpoint-down(md) {
+      overflow: hidden;
+      position: fixed !important;
+    }
+  }
+}
+
+
+
+

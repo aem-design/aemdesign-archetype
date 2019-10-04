@@ -1,0 +1,13 @@
+#!/bin/bash
+
+POM_FILE="../pom.xml"
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+set_term_title "Deploying Package: mvn -Dvault.useProxy=false -DskipTests clean install -P java8,autoInstallPackage,autoInstallBundle "$@""
+echo "- Deploy"
+mvn -Dvault.useProxy=false -DskipTests clean install -P java8,autoInstallPackage "$@"
+set_term_title "Deployed"
+echo "- Deployed"
+

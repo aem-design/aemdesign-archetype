@@ -1,0 +1,77 @@
+div[component].page-details {
+  &:before {
+    background-color: inherit;
+  }
+  &.theme--pagedetail-brand {
+    * {
+      color: $white;
+    }
+    padding: 60px 0 140px 0;
+    background-position: center;
+    @include media-breakpoint-up(md) {
+      background-position: 0 10%;
+      padding: 60px 0 140px 100px;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 65px 0 160px 0;
+    }
+    .pagedescription,
+    .text > * {
+      font-size: 16px;
+      margin: 0;
+    }
+    .pagedescription,
+    .text > *,
+    .pagetitle {
+      max-width: 500px;
+      display: block;
+      font-family: $font-family-open-sans;
+    }
+    .pagetitle {
+      font-size: 28px;
+      margin: 15px 40px 15px 0;
+      line-height: 100%;
+      font-weight: bold;
+      @include media-breakpoint-up(sm) {
+        font-size: 50px;
+        margin: 15px 40px 0 0;
+      }
+    }
+    button, a {
+      margin-top: 20px;
+      font-size: 24px;
+      text-transform: uppercase;
+      padding: 15px;
+      text-align: left;
+    }
+    .description > a,
+    p > a {
+      text-decoration: underline;
+      font-weight: bold;
+      font-size: 16px;
+      text-transform: none;
+      padding: 0;
+      text-align: left;
+      margin-top: 0;
+    }
+    .btn:empty {
+      display: none;
+    }
+    picture {
+      img {
+        margin-left: -1.1%;
+        max-width: 50%;
+        display: block;
+        height: auto;
+        margin-bottom: 15px;
+        min-width: auto;
+        @include media-breakpoint-up(md) {
+          max-width: 400px;
+        }
+        @include media-breakpoint-up(xl) {
+          max-width: 800px;
+        }
+      }
+    }
+  }
+}

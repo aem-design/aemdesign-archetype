@@ -1,0 +1,63 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Addthis Button"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details">
+                    <toolbar
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/navbar"
+                        cancelInheritParent="true"/>
+                </page-details>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Desktop Mode"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <sharebutton
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/widgets/addthis/sharebutton"
+                            componentId="sharebutton"
+                            pubId="667788"/>
+                    </par>
+                </contentblock>
+                <contentblock_2087407050
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Mobile Mode"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <sharebutton
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/widgets/addthis/sharebutton"
+                            pubId="709394"/>
+                    </par>
+                </contentblock_2087407050>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

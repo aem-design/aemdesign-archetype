@@ -1,0 +1,26 @@
+
+// PLEASE NOTE!!
+//
+// These styles will; like Bootstrap, overrides styles you have applied to the
+// element. Please take care when applying them as they shouldn't be overriden
+// again by a component style for instance.
+
+@import
+  '~bootstrap/scss/utilities/align',
+  '~bootstrap/scss/utilities/background',
+  '~bootstrap/scss/utilities/borders',
+  '~bootstrap/scss/utilities/clearfix',
+  '~bootstrap/scss/utilities/display',
+  '~bootstrap/scss/utilities/embed',
+  '~bootstrap/scss/utilities/flex',
+  '~bootstrap/scss/utilities/float',
+  '~bootstrap/scss/utilities/position',
+  '~bootstrap/scss/utilities/screenreaders',
+  '~bootstrap/scss/utilities/sizing',
+  '~bootstrap/scss/utilities/spacing',
+  '~bootstrap/scss/utilities/text',
+  '~bootstrap/scss/utilities/visibility',
+
+  // Custom utilities
+  'utilities/index'
+;

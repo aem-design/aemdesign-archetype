@@ -1,0 +1,193 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+${symbol_pound} Dialog
+content/cq:tags/${contentFolderName}/component-dialog: &component-dialog
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  asset/rendition/prefix:
+    prefixes:
+      - thumbnail
+      - web
+    valueFormat: 'cq5dam.%%prefix%%.'
+    title: 'OOTB %%prefix_normalised%%'
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  common/true-false:
+    prefixes:
+      - 'false'
+      - 'true'
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  honorific/prefix:
+    prefixes:
+      - dr
+      - lady
+      - miss
+      - mr
+      - mrs
+      - ms
+      - sir
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  honorific/suffix:
+    prefixes:
+      - none
+    valueFormat: '.'
+    title: '%%prefix_normalised%%'
+
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/animation/name:
+    prefixes:
+      - fade
+      - fade-down
+      - fade-down-left
+      - fade-down-right
+      - fade-left
+      - fade-right
+      - fade-up
+      - fade-up-left
+      - fade-up-right
+      - flip-down
+      - flip-left
+      - flip-right
+      - flip-up
+      - slide-down
+      - slide-left
+      - slide-right
+      - slide-up
+      - zoom-in
+      - zoom-in-down
+      - zoom-in-left
+      - zoom-in-right
+      - zoom-in-up
+      - zoom-out
+      - zoom-out-down
+      - zoom-out-left
+      - zoom-out-right
+      - zoom-out-up
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/animation/easing:
+    prefixes:
+      - ease
+      - ease-in
+      - ease-in-back
+      - ease-in-cubic
+      - ease-in-out
+      - ease-in-out-back
+      - ease-in-out-cubic
+      - ease-in-out-quad
+      - ease-in-out-quart
+      - ease-in-out-sine
+      - ease-in-quad
+      - ease-in-quart
+      - ease-in-sine
+      - ease-out
+      - ease-out-back
+      - ease-out-cubic
+      - ease-out-quad
+      - ease-out-quart
+      - ease-out-sine
+      - linear
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/direction:
+    prefixes:
+      - left
+      - right
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/heading:
+    prefixes:
+      - h1
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+      - lead
+      - p2
+      - p3
+      - p4
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/linktarget:
+    prefixes:
+      - blank
+      - parent
+      - self
+      - top
+    valueFormat: '_%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/toggle:
+    prefixes:
+      - button
+      - buttons
+      - collapse
+      - dropdown
+      - modal
+      - pill
+      - popover
+      - tab
+      - tooltip
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/type:
+    prefixes:
+      - button
+      - embed
+      - input
+      - link
+      - menu
+      - object
+      - script
+      - source
+      - style
+    valueFormat: '%%prefix%%'
+    title: '%%prefix_normalised%%'
+
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  html/metadata/properties:
+    prefixes:
+      - ogtitle: {title: "Open Graph - Title", value: "og:title"}
+      - ogtype: {title: "Open Graph - Type", value: "og:type"}
+      - ogimage: {title: "Open Graph - Image", value: "og:image"}
+      - ogurl: {title: "Open Graph - Url", value: "og:url"}
+      - ogdescription: {title: "Open Graph - Description", value: "og:description"}
+
+  css/mediaquery:
+    contents:
+      - medium: {title: "Medium", value: "(min-width: 768px)"}
+      - retina: {title: "Retina", value: "(-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx)"}
+      - landscape-large: {title: "Landscape Large", value: "(min-width: 768px) and (orientation: landscape), screen and (min-width: 992px)"}
+      - extra-large: {title: "Extra Large", value: "(min-width: 1200px)"}
+      - retina-medium: {title: "Retina Medium", value: "(min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (min-resolution: 1.5dppx)"}
+      - retina-landscape-large: {title: "Retina Landscape", value: "(min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 768px) and (orientation: landscape) and (min-resolution: 1.5dppx), only screen and (min-width: 992px) and (min-device-pixel-ratio: 2)"}
+      - retina-extra-large: {title: "Retina Extra Large", value: "(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 1200px) and (min-resolution: 1.5dppx)"}
+
+
+
+
+${symbol_pound} Showcase Copy
+content/cq:tags/${contentFolderName}-showcase/component-dialog: *component-dialog
+
+${symbol_pound} Training Copy
+content/cq:tags/${contentFolderName}-training/component-dialog: *component-dialog

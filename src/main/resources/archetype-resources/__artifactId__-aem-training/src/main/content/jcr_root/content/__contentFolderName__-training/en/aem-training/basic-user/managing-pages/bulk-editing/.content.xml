@@ -1,0 +1,85 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}:content-type/page]"
+        cq:template="/conf/${confFolderName}-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Bulk Editing"
+        sling:resourceType="${appsFolderName}/components/template/column/two">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/${contentFolderName}-training/en/aem-training/basic-user/managing-pages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>The idea of Bulk Editing feature for page properties is to select two or more pages and edit their properties at one time with this set of limitations:&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>Live copies cannot be edited in this way&lt;/li>&${symbol_pound}xa;&lt;li>Touch-Optimized UI only&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;p>To edit page properties on multiple pages:&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>On &lt;b>Site Console&lt;/b>, navigate to the pages you want to edit the properties.&lt;/li>&${symbol_pound}xa;&lt;li>&lt;span style=&quot;text-indent: -18pt;&quot;>On either Card View or List View, select two or more pages.&lt;/span>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/media/image"
+                            fileReference="/content/dam/${contentFolderName}-training/Bulk_Editing-Page_Selection.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_756962224
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Click on &lt;b>View Properties&lt;/b> button.&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Bulk_Editing-View_Properties_Button.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <text_877456265
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Click on &lt;b>Edit &lt;/b>button to start editing the properties for both pages.&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Bulk_Editing-Edit_Button.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <image_62802224
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/media/image"
+                            fileReference="/content/dam/${contentFolderName}-training/Bulk_Editing-Edit_Properties.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_2925827
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Click &lt;b>Done&lt;/b> to save the changes.&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xa;&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

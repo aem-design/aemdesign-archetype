@@ -1,0 +1,79 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:tags="[${contentFolderName}-showcase:content-type/page]"
+            cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/onecolumn"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="Asset List"
+            sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="Image Category"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <assetlist
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/lists/assetlist"
+                                componentId="assetList1"
+                                detailsBadge="imageCategory"
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                    </par>
+                </contentblock>
+                <contentblock_1297879301
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="Image Category Title Description"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <assetlist
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/lists/assetlist"
+                                componentId="assetList2"
+                                detailsBadge="imageCategoryTitleDescription"
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                    </par>
+                </contentblock_1297879301>
+                <contentblock_1230533556
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        title="Image Category Title Director AstisticStatement"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <assetlist
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/lists/assetlist"
+                                componentId="assetList3"
+                                detailsBadge="imageCategoryTitleDirectorArtistStatement"
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                    </par>
+                </contentblock_1230533556>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

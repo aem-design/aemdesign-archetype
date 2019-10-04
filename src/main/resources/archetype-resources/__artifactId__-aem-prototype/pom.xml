@@ -1,0 +1,564 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${parentArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T    D E S C R I P T I O N                                 -->
+    <!-- ====================================================================== -->
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}-aem-prototype</artifactId>
+    <packaging>content-package</packaging>
+    <name>${parentArtifactName} :: aem-prototype</name>
+    <description>Style Guide for ${artifactTitle} project</description>
+    <version>${version}</version>
+
+  <properties>
+    <sonar.sources>source,pom.xml</sonar.sources>
+    <!--<sonar.skip>true</sonar.skip>-->
+    <nodeVersion>v8.15.0</nodeVersion>
+    <npmVersion>6.4.1</npmVersion>
+    <yarnVersion>v1.13.0</yarnVersion>
+    <npmCommand>aem:build</npmCommand>
+    <generated.content>content-generator/content</generated.content>
+  </properties>
+
+  <developers>
+    <developer>
+      <email>max.barrass@gmail.com</email>
+      <name>Max Barrass</name>
+    </developer>
+  </developers>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>LATEST_VERSION</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>autoInstallPackage</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.day.jcr.vault</groupId>
+            <artifactId>content-package-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>install-content-package</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>install</goal>
+                </goals>
+                <configuration>
+                  <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/crx/packmgr/service.jsp</targetURL>
+                  <username>${symbol_dollar}{crx.username}</username>
+                  <password>${symbol_dollar}{crx.password}</password>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>deploymentpackage</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+      </build>
+    </profile>
+    <profile>
+      <id>create-from-project</id>
+      <activation>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-archetype-plugin</artifactId>
+            <version>2.2</version>
+          </plugin>
+
+          <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>2.6.1</version>
+            <executions>
+              <execution>
+                <id>auto-clean</id>
+                <phase>initialize</phase>
+                <goals>
+                  <goal>clean</goal>
+                </goals>
+                <configuration>
+                  <skip>false</skip>
+                  <filesets>
+                    <fileset>
+                      <directory>${generated.content}</directory>
+                      <followSymlinks>false</followSymlinks>
+                    </fileset>
+                    <fileset>
+                      <directory>node</directory>
+                      <followSymlinks>false</followSymlinks>
+                    </fileset>
+                    <fileset>
+                      <directory>node_modules</directory>
+                      <followSymlinks>false</followSymlinks>
+                    </fileset>
+                    <fileset>
+                      <directory>public</directory>
+                      <followSymlinks>false</followSymlinks>
+                    </fileset>
+                  </filesets>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.6.1</version>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <skip>false</skip>
+              <filesets>
+                <fileset>
+                  <directory>${generated.content}</directory>
+                  <followSymlinks>false</followSymlinks>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.6</version>
+        <configuration>
+          <nodeVersion>${nodeVersion}</nodeVersion>
+          <npmVersion>${npmVersion}</npmVersion>
+          <yarnVersion>${yarnVersion}</yarnVersion>
+        </configuration>
+        <executions>
+          <execution>
+            <id>install node and yarn</id>
+            <goals>
+              <goal>install-node-and-yarn</goal>
+            </goals>
+            <configuration>
+              <nodeVersion>${nodeVersion}</nodeVersion>
+              <yarnVersion>${yarnVersion}</yarnVersion>
+            </configuration>
+          </execution>
+          <execution>
+            <id>yarn install</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+
+
+          <!-- Generate Tags Project-->
+          <execution>
+            <id>exec-aem-generate-tags-project</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>- -stack_size=8192</arguments>
+              <arguments>run aem:generatetags --no-clean --config=${contentFolderName}.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Build V1-->
+          <execution>
+            <id>exec-aem-build-project-v1</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>${symbol_dollar}{npmCommand} --env.appFolder=${symbol_dollar}{package.appFolder} --env.project=v1</arguments>
+            </configuration>
+          </execution>
+          <!-- Generate Tags V1-->
+          <execution>
+            <id>exec-aem-generate-tags-project-v1</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments> - -stack_size=8192</arguments>
+              <arguments>run aem:generatetags --no-clean --config=v1.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Build V2-->
+          <execution>
+            <id>exec-aem-build-project-v2</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>${symbol_dollar}{npmCommand} --env.appFolder=${symbol_dollar}{package.appFolder} --env.project=v2</arguments>
+            </configuration>
+          </execution>
+          <!-- Generate Tags V2-->
+          <execution>
+            <id>exec-aem-generate-tags-project-v2</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments> - -stack_size=8192</arguments>
+              <arguments>run aem:generatetags --no-clean --config=v2.yml</arguments>
+            </configuration>
+          </execution>
+
+          <!-- Design Language System (DLS) -->
+          <execution>
+            <id>exec-aem-build-styleguide</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>${symbol_dollar}{npmCommand} --env.appFolder=${symbol_dollar}{package.appFolder} --env.project=styleguide</arguments>
+            </configuration>
+          </execution>
+
+          <!-- AEM Design (override)  -->
+          <execution>
+            <id>exec-aem-generate-tags-aemdesign</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments> - -stack_size=8192</arguments>
+              <arguments>run aem:generatetags --no-clean --config=aemdesign.yml</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <!-- ensure that the empty directories are copied -->
+        <configuration>
+          <includeEmptyDirs>true</includeEmptyDirs>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>copy-metainf-vault-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/vault-work/META-INF</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>.maven/content/META-INF</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-css-vault-resources-v1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v1/css</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v1/css</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-css-vault-resources-forms-v1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v1/forms/default/css</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v1/css</directory>
+                  <includes>
+                    <include>theme.css</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-image-vault-resources-v1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs-header/resources/images</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v1/resources/images</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-fonts-vault-resources-v1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v1/clientlibs-header/resources/fonts</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v1/resources/fonts</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-js-vault-resources-v1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v1/js</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v1/js</directory>
+                  <excludes>
+                    <exclude>styleguide.js</exclude>
+                    <exclude>styleguide.js.map</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-css-vault-resources-v2</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v2/css</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v2/css</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-image-vault-resources-v2</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v2/clientlibs-header/resources/images</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v2/resources/images</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-fonts-vault-resources-v2</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v2/clientlibs-header/resources/fonts</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v2/resources/fonts</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-js-vault-resources-v2</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/v2/js</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/v2/js</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-css-vault-resources-styleguide</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/styleguide/css</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/styleguide/css</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-image-vault-resources-styleguide</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/styleguide/clientlibs-header/resources/images</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/styleguide/resources/images</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-fonts-vault-resources-styleguide</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/styleguide/clientlibs-header/resources/fonts</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/styleguide/resources/fonts</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-js-vault-resources-styleguide</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/apps/${symbol_dollar}{package.appFolder}/clientlibs/styleguide/js</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>public/styleguide/js</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>copy-content-generator-content-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${symbol_dollar}{basedir}/target/classes/</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>content-generator/content</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <group>${symbol_dollar}{package.group}</group>
+          <filterSource>.maven/content/META-INF/vault/filter.xml</filterSource>
+          <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/crx/packmgr/service.jsp</targetURL>
+
+          <properties>
+            <description>${symbol_dollar}{project.description}</description>
+            <created>${symbol_dollar}{buildNumber}</created>
+            <createdBy>${symbol_dollar}{package.createdBy}</createdBy>
+            <acHandling>merge_preserve</acHandling>
+          </properties>
+
+        </configuration>
+
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

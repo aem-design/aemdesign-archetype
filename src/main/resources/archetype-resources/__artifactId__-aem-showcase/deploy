@@ -1,0 +1,76 @@
+#!/bin/bash
+
+source "../scripts/functions-debug.sh"
+source "../scripts/functions-maven.sh"
+
+CURL=$(/usr/bin/which curl)
+GREP=$(/usr/bin/which grep)
+
+function doPost() {
+    local LOGIN=${1?Need login}
+    local ADDRESS=${2?Need address}
+    local SERVICE=${3?Need service}
+    local FIELDS=${4?Need fields}
+
+#    echo $CURL -L -u "$LOGIN" --header Referer:${ADDRESS} -H User-Agent:curl -X POST --connect-timeout 1 --max-time 1 --silent -N "${FIELDS}" "${ADDRESS}${SERVICE}"
+
+    local RESULT=$($CURL -L -u "$LOGIN" --header Referer:${ADDRESS} -H User-Agent:curl -X POST --connect-timeout 1 --max-time 1 --silent -N "${FIELDS}" "${ADDRESS}${SERVICE}" | $GREP -q "OK" && echo true || echo false)
+    echo " -> URL:    ${ADDRESS}${SERVICE}"
+    echo "    POST:   ${FIELDS}"
+    echo "    RESULT: ${RESULT}"
+}
+
+
+function doPostFields() {
+    local SERVICE=${1?Need service}
+    local FIELDS=${2?Need fields}
+
+    doPost "${AEM_USER}:${AEM_PASS}" "${AEM_SCHEMA}://${AEM_HOST}:${AEM_PORT}" "${SERVICE}" "${FIELDS}"
+
+}
+
+POM_FILE="../${DEFAULT_POM_FILE}"
+
+SCRIPT_PARAMS="$@"
+
+AEM_USER=$(getParamOrDefault "$SCRIPT_PARAMS" "crx.password" "$POM_FILE")
+AEM_PASS=$(getParamOrDefault "$SCRIPT_PARAMS" "crx.username" "$POM_FILE")
+AEM_HOST=$(getParamOrDefault "$SCRIPT_PARAMS" "crx.host" "$POM_FILE")
+AEM_PORT=$(getParamOrDefault "$SCRIPT_PARAMS" "crx.port" "$POM_FILE")
+AEM_SCHEMA=$(getParamOrDefault "$SCRIPT_PARAMS" "package.uploadProtocol" "$POM_FILE")
+
+#if [[ "$SCRIPT_PARAMS" == *"localhost"* ]]; then
+#    AEM_HOST = "localhost"
+#fi
+
+echo "Params:     $SCRIPT_PARAMS"
+echo "AEM_USER:   $AEM_USER"
+echo "AEM_PASS:   $(sed "s/\w/*/g" <<< ${AEM_PASS})"
+echo "AEM_HOST:   $AEM_HOST"
+echo "AEM_PORT:   $AEM_PORT"
+echo "AEM_SCHEMA: $AEM_SCHEMA"
+
+
+set_term_title "Turn-off Workflows"
+
+echo "- Turn-off Workflows"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_create" "-F enabled=false"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_create_without_DM" "-F enabled=false"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod" "-F enabled=false"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod_without_DM" "-F enabled=false"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod_without_DM_reupload" "-F enabled=false"
+
+set_term_title "Deploying Project"
+
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage "$@"
+
+set_term_title "Turn-on Workflows"
+
+echo "- Turn-on Workflows"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_create" "-F enabled=true"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_create_without_DM" "-F enabled=true"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod" "-F enabled=true"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod_without_DM" "-F enabled=true"
+doPostFields "/libs/settings/workflow/launcher/config/update_asset_mod_without_DM_reupload" "-F enabled=true"
+
+set_term_title "Deployed"

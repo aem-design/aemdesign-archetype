@@ -1,0 +1,81 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Audio"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblockmenu1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblockmenu"
+                        componentId="contentblockmenu1"/>
+
+                <contentblock1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Video: Default with Audio Source"
+                        variant="advsection"
+                        componentId="contentblock1"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/text"
+                                text=""
+                                textIsRich="true"
+                                variant="simple"/>
+                        <audio
+                                jcr:primaryType="nt:unstructured"
+                                componentId="audio1"
+                                sling:resourceType="${appsFolderName}/components/media/audio"
+                                audioUrl="/content/dam/${contentFolderName}-showcase/en/multimedia/audio/recit.mp3"/>
+
+                    </par>
+                </contentblock1>
+                <contentblock2
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Video: Default with Video Source"
+                        variant="advsection"
+                        componentId="contentblock2"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/text"
+                                text=""
+                                textIsRich="true"
+                                variant="simple"/>
+                        <audio
+                                jcr:primaryType="nt:unstructured"
+                                componentId="audio2"
+                                sling:resourceType="${appsFolderName}/components/media/audio"
+                                audioUrl="/content/dam/${contentFolderName}-showcase/en/components/media/video/FishTank.mp4"/>
+
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+    <video_test1/>
+</jcr:root>

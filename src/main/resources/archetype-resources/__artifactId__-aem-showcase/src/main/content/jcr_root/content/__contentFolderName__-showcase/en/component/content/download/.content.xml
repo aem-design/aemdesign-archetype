@@ -1,0 +1,478 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:mixinTypes="[]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Download"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblockmenu1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblockmenu"
+                        componentId="contentblockmenu1"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    title="Download: Default"
+                    variant="advsection"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/download"
+                            componentId="download1"
+                            fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    title="Download: Simple"
+                    variant="advsection"
+                    componentId="contentblock2"
+                    hideTitle="false"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/download"
+                            componentId="download2"
+                            variant="simple"
+                            fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    title="Download: Card"
+                    variant="advsection"
+                    componentId="contentblock3"
+                    hideTitle="false"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/download"
+                            componentId="download3"
+                            componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                            componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                            variant="card"
+                            fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock3>
+
+                <contentblock4
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Default with Licensed Image"
+                        variant="advsection"
+                        componentId="contentblock4"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download4"
+                                title="Can't override Licensed Image Title"
+                                description="Can't override Licensed Image Description"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"/>
+                    </par>
+                </contentblock4>
+                <contentblock5
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Licensed Image"
+                        variant="advsection"
+                        componentId="contentblock5"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download5"
+                                variant="simple"
+                                title="Can't override Licensed Image Title"
+                                description="Can't override Licensed Image Description"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"/>
+                    </par>
+                </contentblock5>
+                <contentblock6
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Licensed Image"
+                        variant="advsection"
+                        componentId="contentblock6"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download6"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                title="Can't override Licensed Image Title"
+                                description="Can't override Licensed Image Description"
+                                variant="card"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"/>
+                    </par>
+                </contentblock6>
+
+                <contentblock7
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Blank"
+                        variant="advsection"
+                        componentId="contentblock7"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download7"/>
+                    </par>
+                </contentblock7>
+
+                <contentblock8
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Default with Title and Description"
+                        variant="advsection"
+                        componentId="contentblock8"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download8"
+                                title="Can override non-Licensed Image Title"
+                                description="Can override non-Licensed Image Description"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock8>
+                <contentblock9
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Title and Description"
+                        variant="advsection"
+                        componentId="contentblock9"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download9"
+                                title="Can override non-Licensed Image Title"
+                                description="Can override non-Licensed Image Description"
+                                variant="simple"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock9>
+                <contentblock10
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Title and Description"
+                        variant="advsection"
+                        componentId="contentblock10"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download10"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                title="Can override non-Licensed Image Title"
+                                description="Can override non-Licensed Image Description"
+                                variant="card"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock10>
+
+                <contentblock11
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Thumbnail Icon"
+                        variant="advsection"
+                        componentId="contentblock11"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download11"
+                                variant="simple"
+                                thumbnailType="icon"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock11>
+                <contentblock12
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Thumbnail Icon"
+                        variant="advsection"
+                        componentId="contentblock12"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download12"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                variant="card"
+                                thumbnailType="icon"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock12>
+
+                <contentblock13
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Thumbnail using Asset DAM Rendition"
+                        variant="advsection"
+                        componentId="contentblock13"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download13"
+                                variant="simple"
+                                thumbnailType="dam"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock13>
+                <contentblock14
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Thumbnail using Asset DAM Rendition"
+                        variant="advsection"
+                        componentId="contentblock14"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download14"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                variant="card"
+                                thumbnailType="dam"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock14>
+
+                <contentblock15
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Thumbnail using Thumbnail DAM Rendition"
+                        variant="advsection"
+                        componentId="contentblock15"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download15"
+                                variant="simple"
+                                thumbnailType="customdam"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg">
+                            <thumbnail
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/media/image"
+                                    fileReference="/content/dam/${contentFolderName}-showcase/en/components/content/download/an-introduction-to-git-9-638.jpg"
+                                    imageRotate="90"/>
+                        </download>
+                    </par>
+                </contentblock15>
+                <contentblock16
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Thumbnail using Thumbnail DAM Rendition"
+                        variant="advsection"
+                        componentId="contentblock16"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download16"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                variant="card"
+                                thumbnailType="customdam"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg">
+                            <thumbnail
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/media/image"
+                                    fileReference="/content/dam/${contentFolderName}-showcase/en/components/content/download/an-introduction-to-git-9-638.jpg"
+                                    imageRotate="90"/>
+                        </download>
+                    </par>
+                </contentblock16>
+
+                <contentblock17
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Custom Thumbnail Rendition"
+                        variant="advsection"
+                        componentId="contentblock17"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download17"
+                                variant="simple"
+                                thumbnailType="custom"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg">
+                            <thumbnail
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/media/image"
+                                    fileReference="/content/dam/${contentFolderName}-showcase/en/components/content/download/an-introduction-to-git-9-638.jpg"
+                                    imageRotate="90"/>
+                        </download>
+                    </par>
+                </contentblock17>
+                <contentblock18
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Card with Custom Thumbnail Rendition"
+                        variant="advsection"
+                        componentId="contentblock18"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download18"
+                                componentTheme="[${contentFolderName}-showcase:component-style-modifier/card]"
+                                componentModifiers="[${contentFolderName}-showcase:component-style-modifier/size/w-25]"
+                                variant="card"
+                                thumbnailType="custom"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg">
+                            <thumbnail
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/media/image"
+                                    fileReference="/content/dam/${contentFolderName}-showcase/en/components/content/download/an-introduction-to-git-9-638.jpg"
+                                    imageRotate="90"/>
+                        </download>
+                    </par>
+                </contentblock18>
+
+
+                <contentblock19
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Thumbnail using Asset DAM Rendition and Width Set"
+                        variant="advsection"
+                        componentId="contentblock19"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download19"
+                                variant="simple"
+                                thumbnailType="dam"
+                                thumbnailWidth="50"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock19>
+
+                <contentblock20
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        title="Download: Simple with Thumbnail using Asset DAM Rendition and Height Set"
+                        variant="advsection"
+                        componentId="contentblock20"
+                        hideTitle="false"
+                        hideTitleSeparator="true">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/download"
+                                componentId="download20"
+                                variant="simple"
+                                thumbnailType="dam"
+                                thumbnailHeight="50"
+                                fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg"/>
+                    </par>
+                </contentblock20>
+
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

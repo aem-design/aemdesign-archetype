@@ -1,0 +1,200 @@
+&--page-details {
+  &-header-column-title-image {
+    padding-bottom: 0;
+
+    .container {
+      overflow: hidden;
+    }
+
+    //.container-full & {
+    //  .container {
+    //    max-width: 100%;
+    //  }
+    //}
+
+    // hero page details
+    header {
+      background-color: map-deep-get($brand-colours, 'core', 'c7');
+
+      h1 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        color: $white;
+        text-align: left;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        display: block !important;
+        color: map-deep-get($brand-colours, 'grey', 'w1');
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+
+          @include media-breakpoint-down(sm) {
+            border-bottom: 1px solid theme-color('c1');
+          }
+        }
+
+        &::after {
+          @include pseudo-icon('chevron-up', rem-calc(16px), $needs-margin: false);
+          font-weight: normal;
+          font-size: rem-calc(16px);
+          margin-top: 0px;
+          float: right;
+          transition: $transition-base;
+          display: none;
+
+          @include media-breakpoint-down(sm) {
+            display: block;
+          }
+        }
+
+        &.collapsed {
+          &::after {
+            margin-top: 0px;
+            @include pseudo-icon('chevron-down', rem-calc(16px), $needs-margin: false);
+          }
+        }
+      }
+
+      .description {
+        padding-top: 0;
+        padding-bottom: 0;
+        max-width: 100%;
+
+        .contentblock {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          &.collapsing {
+            display: none !important;
+            transition: none !important;
+          }
+
+          display: flex;
+          justify-content: flex-end !important;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        height: 70px;
+      }
+    }
+
+    .text {
+      vertical-align: middle;
+
+      h2 {
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        line-height: 2.1875rem;
+      }
+
+      @include media-breakpoint-up(md) {
+        h2 {
+          font-size: 2.625rem;
+          line-height: 3.125rem;
+          padding-left: map-deep-get($spacersHorizontal, 'lg', 'Y2');
+          padding-top: 0;
+          margin-top: 0;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        h2 {
+          font-size: 5rem;
+          line-height: 4.375rem;
+          padding-left: map-deep-get($spacersHorizontal, 'lg', 'Y1');
+          padding-top: 0;
+          margin-top: 0;
+        }
+      }
+
+      @include media-breakpoint-up(xl) {
+        h2 {
+          font-size: 6.25rem;
+          line-height: 5.625rem;
+          padding-left: map-deep-get($spacersHorizontal, 'lg', 'Y4');
+        }
+      }
+
+    }
+
+    // breadcrumb
+    nav.breadcrumb {
+      position: absolute;
+      bottom: 0;
+      left: inherit;
+      right: inherit;
+      width: 100%;
+      background-color: rgba(0,0,0,0.55);
+      float: none;
+      width: 100%;
+      margin: 0;
+      max-width: 100%;
+
+      .breadcrumb {
+        text-align: center;
+        margin: 0 auto;
+        padding: 10px 0;
+      }
+    }
+
+    .image {
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        width: 350px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 550px;
+      }
+    }
+
+    .navlist {
+      align-content: flex-end;
+      justify-content: flex-end !important;
+
+      a {
+        align-items: flex-end;
+      }
+    }
+
+  }
+
+  // Search results
+  &-search {
+    header {
+      padding-top: rem-calc(12px);
+
+      h1 {
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+
+      .query {
+        display: block;
+        font-weight: bold;
+        hyphens: auto;
+
+        &::before {
+          content: '‘ ';
+        }
+
+        &::after {
+          content: ' ’.';
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      min-height: 260px;
+    }
+  }
+}

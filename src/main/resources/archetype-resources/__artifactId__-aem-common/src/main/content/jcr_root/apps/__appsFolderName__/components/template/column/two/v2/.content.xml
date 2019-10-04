@@ -1,0 +1,11 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="${artifactTitle} two column Page"
+    jcr:description="${artifactTitle} Base template"
+    cq:icon="columnTwoA"
+    sling:resourceSuperType="${appsParent}/components/template/base/v2"
+    componentGroup=".hidden"/>

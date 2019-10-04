@@ -1,0 +1,10 @@
+%pseudo-icon-base {
+  font-family: $icon-font-name;
+  font-size: rem-calc(12px);
+  margin-top: rem-calc(-3px);
+  transition: transform 200ms ease-in-out;
+}
+
+%pseudo-icon-margin {
+  margin-top: rem-calc(-3px);
+}

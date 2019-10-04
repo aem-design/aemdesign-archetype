@@ -1,0 +1,14 @@
+#!/bin/bash
+
+GITSTATS=$(which gitinspector)
+
+if [[ ! -z $GITSTATS ]]; then
+    if [[ ! -d ".stats" ]]; then
+        mkdir .stats
+    fi
+
+    gitinspector -F htmlembedded -f **,*.*,.* -HTlrm  >.stats/$(basename "$PWD").html
+    git submodule foreach 'gitinspector -F htmlembedded -f **,*.*,.* -HTlrm  >../.stats/$name.html'
+else
+    echo "Please install gitinspector 'npm i -g gitinspector'"
+fi

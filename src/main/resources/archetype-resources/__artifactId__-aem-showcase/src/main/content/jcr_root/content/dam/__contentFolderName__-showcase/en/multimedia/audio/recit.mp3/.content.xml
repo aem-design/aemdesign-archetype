@@ -1,0 +1,28 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:BitRate="{Long}320"
+            dam:extracted="{Date}2015-12-05T20:32:06.085+08:00"
+            dam:HasCopyRight="false"
+            dam:Layer="{Long}3"
+            dam:Length="{Long}9"
+            dam:Mode="{Long}1"
+            dam:MPEGLevel="{Long}1"
+            dam:Original="true"
+            dam:Padding="false"
+            dam:SamplerRate="{Long}44100"
+            dam:sha1="b972d68abc446873ad3db79539238ffe707725fd"
+            dam:size="{Long}362579"
+            dc:format="audio/mpeg"
+            dc:modified="{Date}2015-12-05T20:32:06.698+08:00"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

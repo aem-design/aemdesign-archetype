@@ -1,0 +1,11 @@
+#!/bin/bash
+
+POM_FILE="../pom.xml"
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+docker stop selenium-hub
+
+docker stop selenium-hub-node-chrome
+docker stop selenium-hub-node-firefox

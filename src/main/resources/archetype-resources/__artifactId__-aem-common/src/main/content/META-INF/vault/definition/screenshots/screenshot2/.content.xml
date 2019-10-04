@@ -1,0 +1,8 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  jcr:primaryType="nt:unstructured"
+  fileReference="${symbol_dollar}{crx.package.path}/${symbol_dollar}{package.group}/${symbol_dollar}{artifactId}-${symbol_dollar}{version}.zip/jcr:content/vlt:definition/screenshots/screenshot2/file.png">
+</jcr:root>

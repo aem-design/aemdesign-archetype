@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+POM_FILE="./pom.xml"
+SCRIPT_PARAMS="$@"
+
+source scripts/functions.sh
+
+function set_term_title() {
+   echo -en "\033]0;$1\a"
+}
+
+set_term_title "Creating Monolith Package: mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage clean install "
+#mvn -DskipTests clean install -P autoCleanInstallPackage
+#mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage,autoInstallPackagePublish
+
+mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage clean package
+
+set_term_title "Creating"
+

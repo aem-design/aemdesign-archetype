@@ -1,0 +1,60 @@
+&-social-links {
+  background-color: $tertiary;
+  min-width: 100%;
+
+  > .content {
+    margin: 0;
+
+    > ul {
+      @include list-unstyled;
+
+      justify-content: flex-start;
+
+      > li {
+        flex: 0 0 16px;
+        max-width: 16px;
+        // The bottom margin isn't required here so we need to use !important to ensure it is
+        // removed correctly for all breakpoints.
+        margin-bottom: 0 !important;
+        padding: 0;
+        width: auto;
+      }
+    }
+  }
+
+  ul {
+    > li {
+      + li {
+        margin-left: 15px;
+
+        @include media-breakpoint-up(lg) {
+          margin-left: 20px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          margin-left: 30px;
+        }
+      }
+
+      a {
+        align-items: center;
+        color: $white;
+        display: inline-flex;
+        height: 30px;
+        justify-content: center;
+        transition: opacity 250ms ease-in-out;
+        text-decoration: none;
+        width: 16px;
+
+        @include hover-focus {
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .icon {
+    color: map-deep-get($brand-colours, 'core', 'c9');
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,36 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:tags="[${contentFolderName}-showcase:content-type/page]"
+            cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="Search Box"
+            sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/container">
+                <pagedetails
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/details/page-details">
+                </pagedetails>
+                <contentblock jcr:primaryType="nt:unstructured"
+                              componentId="searchContainer"
+                              sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par jcr:primaryType="nt:unstructured"
+                         sling:resourceType="${appsFolderName}/components/layout/container">
+                        <search jcr:primaryType="nt:unstructured"
+                                     componentId="search1"
+                                     sling:resourceType="${appsFolderName}/components/widgets/search"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

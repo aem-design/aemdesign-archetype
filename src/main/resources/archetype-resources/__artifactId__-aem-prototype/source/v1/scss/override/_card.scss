@@ -1,0 +1,157 @@
+// PLEASE NOTE!!
+//
+// This overrides only styles that aren't configurable by Bootstrap, please take
+// care when making changes as we shouldn't be duplicating styles that Bootstrap
+// generates for us automatically.
+
+$card-top-bar-height: 18px;
+
+.card {
+  background-color: theme-color('c7');
+  box-shadow: 0 2px 4px rgba($black, .1);
+  padding-top: rem-calc($card-top-bar-height);
+
+  &-img-top,
+  &-icon {
+    max-height: rem-calc(140px);
+  }
+
+  &-img-top,
+  &-icon,
+  &-body {
+    background-color: $white;
+  }
+
+  &-img-top {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      @include object-fit(cover, center);
+
+      display: block;
+      max-width: 100%;
+
+      // AEM will always supply us with images in the JPEG format so we can easily enforce
+      // the minimum width of the image when it is.
+      &[src*='.jpeg'],
+      &[src*='.jpg'] {
+        min-height: 100%;
+        min-width: 100%;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      @include aspect-ratio(16, 9, 'img');
+
+      img {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &-date,
+  &-title,
+  &-subtitle,
+  &-tags,
+  &-text:not(:last-child) {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+
+    // A small 'hack' (if you will) that ensures buttons remain aligned to the bottom of the
+    // card as sibling cards will be the same height as oneanother.
+    & :last-child:not(.card-title):not(.card-text) {
+      margin-top: auto;
+    }
+  }
+
+  &-date,
+  &-text {
+    font-weight: 300;
+  }
+
+  &-subtitle {
+    font-weight: bold;
+  }
+
+  &-icon {
+    // These selectors take into account that Font Awesome 5 replaces the original icon
+    // along with the `.fa` classes been superseded by new category specific classes.
+    > svg.svg-inline--fa {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  // Variations and style changes
+  @import 'card/flat',
+  'card/padded',
+  'card/author',
+  'card/coloured',
+  'card/medium',
+  'card/large',
+  'card/promoted',
+  'card/outline',
+  'card/result',
+  'card/no-bar',
+  'card/no-shadow'
+  ;
+
+  // Nested within a carousel
+  .owl-item & {
+    margin-bottom: 4px;
+  }
+
+  // Icon sizes
+  @each $name, $size in $icon-sizes {
+    &.icon--#{$name} .card-img-top > img,
+    &.icon--#{$name} .card-icon {
+      font-size: $size;
+    }
+
+    &.icon--#{$name} .card-img-top > img {
+      height: $size;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    margin-bottom: $spacer;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 100%;
+
+    // If cards are sitting directly next to one another, space them apart
+    & + & {
+      margin-left: rem-calc($grid-gutter-width);
+    }
+  }
+}
+
+%card-image-rounded {
+  .card-img-top {
+    img {
+      border-radius: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      min-width: initial;
+      position: static;
+      top: auto;
+      transform: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+%card-no-bar {
+  background-color: transparent;
+}

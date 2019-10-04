@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git pull
+git submodule update --remote
+#git submodule foreach git pull

@@ -1,0 +1,27 @@
+{
+  "root": true,
+
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
+
+  "plugins": [
+    "@typescript-eslint"
+  ],
+
+  "parser": "@typescript-eslint/parser",
+
+  "env": {
+    "node": true,
+    "builtin": true,
+    "es6": true
+  },
+
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "rules": {
+    "@typescript-eslint/indent": [1, 2, {"SwitchCase": 1, "VariableDeclarator": 1}]
+  }
+}

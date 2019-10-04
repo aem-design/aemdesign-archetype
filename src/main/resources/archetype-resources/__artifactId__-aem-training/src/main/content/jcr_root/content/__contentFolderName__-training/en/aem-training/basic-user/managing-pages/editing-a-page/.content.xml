@@ -1,0 +1,53 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}:content-type/page]"
+        cq:template="/conf/${confFolderName}-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Editing a Page"
+        sling:resourceType="${appsFolderName}/components/template/column/two">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/${contentFolderName}-training/en/aem-training/basic-user/managing-pages"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;p>&lt;b>Opening a Page for Editing&lt;/b>&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>Navigate until you can see the page you want to edit.&lt;/li>&${symbol_pound}xa;&lt;li>Select your page and then the&amp;nbsp;&lt;b>Open&lt;/b>&amp;nbsp;page icon:&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Editing_a_Page-Edit.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>The page will be opened, here you can edit the page as required.&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;p style=&quot;margin-left: 40px;&quot;>For learning how page to be edited, see&amp;nbsp;&lt;b>Using a Component&lt;/b>&amp;nbsp;and&amp;nbsp;&lt;b>Using more Components&amp;nbsp;&lt;/b>section.&lt;/p>&${symbol_pound}xa;&lt;p>&lt;b>Copying and Pasting a Page&lt;/b>&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>Navigate to the location of the page you want to copy.&lt;/li>&${symbol_pound}xa;&lt;li>Select your page and then the&amp;nbsp;&lt;b>Copy&lt;/b>&amp;nbsp;page icon:&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Editing_a_Page-Copy.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>Navigate to the location for the new copy of the page.&lt;/li>&${symbol_pound}xa;&lt;li>Use the&amp;nbsp;&lt;b>Paste&lt;/b>&amp;nbsp;page icon:&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Editing_a_Page-Paste.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;p>&lt;b>Deleting a Page&lt;/b>&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>Navigate to the location of the page you want to delete.&lt;br>&${symbol_pound}xa;Use the&amp;nbsp;&lt;b>Delete&lt;/b>&amp;nbsp;page icon on your required page:&lt;br>&${symbol_pound}xa;&lt;img src=&quot;/content/dam/${contentFolderName}-training/Editing_a_Page-Delete.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>A dialog will ask for confirmation, use:&lt;ul>&${symbol_pound}xa;&lt;li>&lt;b>Cancel&lt;/b>&amp;nbsp;to abort the action&lt;/li>&${symbol_pound}xa;&lt;li>&lt;b>Delete&lt;/b>&amp;nbsp;to confirm the action:&lt;ul>&${symbol_pound}xa;&lt;li>If the page has no references, the page will be deleted.&lt;/li>&${symbol_pound}xa;&lt;li>If the page has references, an error-message box will inform you that&amp;nbsp;&lt;b>One or more pages are referenced.&lt;/b>You can select&amp;nbsp;&lt;b>Force Delete&lt;/b>&amp;nbsp;or&amp;nbsp;&lt;b>Cancel&lt;/b>.&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

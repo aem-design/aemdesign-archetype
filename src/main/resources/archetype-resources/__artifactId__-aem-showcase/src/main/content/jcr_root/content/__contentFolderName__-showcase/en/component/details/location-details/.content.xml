@@ -1,0 +1,85 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page/location]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Location Component"
+        jcr:description="Page Description"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+
+                <locationdetails
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/details/location-details"
+                        componentId="location-details"
+                        pageMetaProperty="og:type"
+                        pageMetaPropertyContent="article"
+                        latitude="10"
+                        longitude="12"
+                        menuColor="pink"
+                        pages="[/content/${contentFolderName}-showcase/en/content/news/2016/01/article13,/content/${contentFolderName}-showcase/en/content/news/2016/01/article1,/content/${contentFolderName}-showcase/en/content/news/2016/01/article2]"
+                        title="Location Detail"/>
+
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Test Case 1"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <locationdetails
+                            jcr:mixinTypes="[cq:Taggable]"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/details/location-details"
+                            componentId="location-details1"
+                            latitude="10"
+                            longitude="12"
+                            menuColor="default"
+                            pages="[/content/${contentFolderName}-showcase/en/content/news/2016/01/article13,/content/${contentFolderName}-showcase/en/content/news/2016/01/article1,/content/${contentFolderName}-showcase/en/content/news/2016/01/article2]"
+                            title="Location Detail 1"
+                            xCoordinate="1111"
+                            yCoordinate="1111">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/layout/container"/>
+                        </locationdetails>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    title="Test Case 2"
+                    variant="advsection">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <locationdetails
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/details/location-details"
+                            componentId="location-details2"
+                            latitude="10"
+                            longitude="12"
+                            menuColor="pink"
+                            pages="[/content/${contentFolderName}-showcase/en/content/news/2016/01/article13,/content/${contentFolderName}-showcase/en/content/news/2016/01/article1,/content/${contentFolderName}-showcase/en/content/news/2016/01/article2]"
+                            title="Location Detail 2"/>
+                    </par>
+                </contentblock2>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

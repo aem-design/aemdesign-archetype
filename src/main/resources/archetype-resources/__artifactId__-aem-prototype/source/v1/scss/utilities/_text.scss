@@ -1,0 +1,36 @@
+
+
+
+// Font weights
+@each $weight in 300 400 600 700 {
+  .fw-#{$weight} {
+    font-weight: $weight !important;
+  }
+}
+
+// Font size
+@each $size in 12 14 16 18 20 22 24 26 28 30 32 34 36 {
+  .fs-#{$size} {
+    font-size: #{$size}px !important;
+  }
+}
+
+// Responsive Font Size
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-between($breakpoint, $breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $size in 12 14 16 18 20 22 24 26 28 30 32 34 36 {
+      .fs-#{$size}#{$infix}  > * {
+        font-size: #{$size}px !important;
+      }
+    }
+  }
+}
+
+.f-open-sans {
+  font-family: $font-family-open-sans;
+}
+
+.f-brush-up {
+  font-family: $font-family-brush-up;
+}

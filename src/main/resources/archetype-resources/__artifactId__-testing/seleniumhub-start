@@ -1,0 +1,11 @@
+#!/bin/bash
+
+POM_FILE="../pom.xml"
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+echo selenium-hub: $(docker run --rm -d -p $SELENIUMHUB_PORT:4444 --name selenium-hub -e GRID_TIMEOUT=10 selenium/hub)
+
+echo selenium-hub-node-chrome: $(docker run --rm -d --link selenium-hub:hub -v /dev/shm:/dev/shm --name selenium-hub-node-chrome selenium/node-chrome)
+echo selenium-hub-node-firefox: $(docker run --rm -d --link selenium-hub:hub -v /dev/shm:/dev/shm --name selenium-hub-node-firefox selenium/node-firefox)

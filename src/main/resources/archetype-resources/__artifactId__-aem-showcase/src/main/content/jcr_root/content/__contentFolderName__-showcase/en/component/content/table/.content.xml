@@ -1,0 +1,43 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Table"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        componentId="contentblock1"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        variant="advsection"
+                        title="Variant: Default">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <table
+                                jcr:primaryType="nt:unstructured"
+                                componentId="table1"
+                                sling:resourceType="${appsFolderName}/components/content/table"
+                                tableData="&lt;table cellpadding=&quot;1&quot; cellspacing=&quot;0&quot; border=&quot;1&quot;>&${symbol_pound}xa;&lt;tbody>&lt;tr>&lt;th>Header&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>&lt;a target=&quot;_blank&quot; href=&quot;/content/${contentFolderName}-showcase/en/component/content/table.html&quot; adhocenable=&quot;false&quot;>Row1&lt;/a>&lt;/td>&${symbol_pound}xa;&lt;td>●&lt;/td>&${symbol_pound}xa;&lt;td>○&lt;/td>&${symbol_pound}xa;&lt;td>○&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color1&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color2&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>○&lt;br>&${symbol_pound}xa;&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;/tbody>&lt;/table>&${symbol_pound}xa;"/>
+                    </par>
+                </contentblock1>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

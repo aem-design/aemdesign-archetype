@@ -1,0 +1,76 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- custom header libs -->
+
+<!-- all: aemdesign.common.head.dependencies start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.all @ categories='aemdesign.common.head.dependencies'}"/>
+<!-- all: aemdesign.common.head.dependencies.all end -->
+
+<!-- all: ${artifactId}.common.head.dependencies start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.all @ categories='${artifactId}.common.head.dependencies'}"/>
+<!-- all: ${artifactId}.common.head.dependencies.all end -->
+
+<!-- all: aemdesign.header.js start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.js @ categories='aemdesign.header'}"/>
+<!-- all: aemdesign.header.js end -->
+
+<!-- all: aemdesign.common.head.js start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.js @ categories='aemdesign.common.head'}"/>
+<!-- all: aemdesign.common.head.js end -->
+
+<!-- css: aemdesign.common.components.css start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='aemdesign.common.components'}"/>
+<!-- css: aemdesign.common.components.css end -->
+
+<!-- css: aemdesign.author.css start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-test="${symbol_dollar}{!wcmmode.disabled}"
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='aemdesign.author'}"/>
+<!-- css: aemdesign.author.css end -->
+<!-- all: aemdesign.common.components.author.all start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-test="${symbol_dollar}{!wcmmode.disabled}"
+     data-sly-call="${symbol_dollar}{clientlib.all @ categories='aemdesign.common.components.author'}"/>
+<!-- all: aemdesign.common.components.author.all end -->
+
+<!-- css: aemdesign.publish.css start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-test="${symbol_dollar}{wcmmode.disabled}"
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='aemdesign.publish'}"/>
+<!-- css: aemdesign.publish.css end -->
+
+<!-- all: aemdesign.common.components.publish.all start-->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-test="${symbol_dollar}{wcmmode.disabled}"
+     data-sly-call="${symbol_dollar}{clientlib.all @ categories='aemdesign.common.components.publish'}"/>
+<!-- all: aemdesign.common.components.publish.all end-->
+
+<!-- css: aemdesign.common.coralui.css start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-test="${symbol_dollar}{wcmmode.preview || wcmmode.edit}"
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='aemdesign.common.coralui'}"/>
+<!-- css: aemdesign.common.coralui.css end-->
+
+<!-- all: ${artifactId}.header.css start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='${artifactId}.header'}"/>
+<!-- all: ${artifactId}.header.css end -->
+
+<!-- all: ${artifactId}.header.v1.all start -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${symbol_dollar}{clientlib.all @ categories='${artifactId}.header.v1'}"/>
+<!-- all: ${artifactId}.header.v1.all end -->
+
+<!-- ${appsParent}/components/analytics/datalayer start -->
+<sly data-sly-resource="${symbol_dollar}{ @ resourceType='${appsParent}/components/analytics/datalayer'}"/>
+<!-- ${appsParent}/components/analytics/datalayer end -->

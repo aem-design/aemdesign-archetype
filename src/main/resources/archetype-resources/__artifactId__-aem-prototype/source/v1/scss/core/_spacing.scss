@@ -1,0 +1,39 @@
+// Setting up our global spacing rules
+
+.contentblock.spacersVertical {
+
+  &-Y1 {
+    @include spacingCompile($spacingType: vertical);
+  }
+
+  &-Y2 {
+    @include spacingCompile($paddingType: Y2, $spacingType: vertical);
+  }
+
+  &-Y3 {
+    @include spacingCompile($paddingType: Y3, $spacingType: vertical);
+  }
+
+  &-Y4 {
+    @include spacingCompile($paddingType: Y4, $spacingType: vertical);
+  }
+}
+
+.contentblock.spacersHorizontal {
+
+  &-Y1 {
+    @include spacingCompile();
+  }
+
+  &-Y2 {
+    @include spacingCompile($paddingType: Y2);
+  }
+
+  &-Y3 {
+    @include spacingCompile($paddingType: Y3);
+  }
+
+  &-Y4 {
+    @include spacingCompile($paddingType: Y4);
+  }
+}

@@ -1,0 +1,23 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!--                        W A R N I N G                     -->
+    <!--        This change can make the AEM content removed      -->
+    <!--    http://jackrabbit.apache.org/filevault/filter.html    -->
+    <!--                        W A R N I N G                     -->
+
+    <!-- required for templates -->
+    <filter root="/conf/${confFolderName}"/>
+
+    <!--<filter root="/etc/blueprints/${contentFolderName}-english"/>-->
+
+    <filter root="/apps/${appsFolderName}/components"/>
+    <filter root="/apps/${appsFolderName}/install"/>
+    <filter root="/apps/${appsFolderName}/clientlibs" mode="update"/>
+
+    <filter root="/apps/settings/wcm/designs/${appsFolderName}" mode="update"/>
+
+
+</workspaceFilter>

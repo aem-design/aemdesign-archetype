@@ -1,0 +1,46 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="6838b8b0-467c-4dad-a7bd-fba379fd01b8">
+    <jcr:content
+        dam:assetState="processed"
+        dam:relativePath="${contentFolderName}-showcase/en/common/images/golfcourse.jpg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2018-01-31T02:36:38.300+11:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2018-01-31T02:35:57.908+11:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}400"
+            dam:Physicalheightininches="{Decimal}11.364999771118164"
+            dam:Physicalwidthindpi="{Long}400"
+            dam:Physicalwidthininches="{Decimal}17.02750015258789"
+            dam:Progressive="no"
+            dam:sha1="49b50261a283aacbb6f585538981ba06b32d4314"
+            dam:size="{Long}1829973"
+            dc:format="image/jpeg"
+            dc:subject="[andrews,course,golf,partnership,sponsoring,partnerships]"
+            dc:subject_xmpArrayType="rdf:Bag"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}4546"
+            tiff:ImageWidth="{Long}6811"
+            tiff:ResolutionUnit="{Long}2"
+            tiff:XResolution="400/1"
+            tiff:YResolution="400/1"
+            xmp:MetadataDate="{Date}2015-04-09T14:01:00.000+01:00"
+            xmpMM:DocumentID="xmp.did:bd29de80-5ef9-424b-bb87-9e521f11f584"
+            xmpMM:InstanceID="xmp.iid:bd29de80-5ef9-424b-bb87-9e521f11f584"
+            xmpMM:OriginalDocumentID="C791E67CDC52534F8C97539BAC6831A7"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

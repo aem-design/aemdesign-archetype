@@ -1,0 +1,19 @@
+article[component] {
+  &,
+  &.article {
+    & > .aem-Grid {}
+  }
+}
+
+html:not(.aem-AuthorLayer-Edit) {
+  @include media-breakpoint-up(lg) {
+    .article > article[component][data-layer-componentpath="article"] {
+      min-height: calc( 100vh - 230px );
+    }
+    header article[component][data-layer-componentpath="article"] {
+      min-height: auto !important;
+    }
+  }
+}
+
+

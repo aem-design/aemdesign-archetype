@@ -1,0 +1,90 @@
+&--contentblockmenu {
+  background-color: theme-color('c7');
+
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 70px;
+  }
+
+  li {
+    position: relative;
+    margin-top: rem-calc(12px);
+
+    @include media-breakpoint-down(sm) {
+      background-color: transparent;
+    }
+
+    &::after {
+      @include media-breakpoint-down(sm) {
+        background-color: transparent;
+        content: '';
+        position: absolute;
+        height: 25px;
+        width: 3px;
+        left: -16px;
+        top: -3px;
+      }
+    }
+
+    &:hover {
+      &::after {
+        @include media-breakpoint-down(sm) {
+          background-color: theme-color('c3');
+        }
+      }
+    }
+
+    &.active {
+      &::after {
+        @include media-breakpoint-down(sm) {
+          background-color: white;
+        }
+      }
+
+      a {
+        color: theme-color('w1');
+        position: relative;
+
+        &::after {
+          @include media-breakpoint-up(md) {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    color: theme-color('c3');
+    padding-bottom: rem-calc(25px);
+    font-weight: 300;
+    text-transform: uppercase;
+
+    &::after {
+      background-color: $white;
+    }
+
+    &:hover {
+      color: theme-color('c3');
+
+      &::after {
+        background-color: theme-color('c3');
+
+        @include media-breakpoint-down(sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    ul {
+      position: relative;
+      top: 13px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.cards-large &,
+&--large {
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+
+    .card-img-top {
+      @include aspect-ratio(2.5, 1, 'img', false);
+
+      margin-top: rem-calc(-$card-top-bar-height);
+      max-height: initial;
+      order: 2;
+      width: 65%;
+    }
+
+    .card-body {
+      order: 1;
+      width: 35%;
+    }
+  }
+}

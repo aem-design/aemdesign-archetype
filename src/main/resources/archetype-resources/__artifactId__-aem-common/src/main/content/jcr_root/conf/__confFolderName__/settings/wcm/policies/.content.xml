@@ -1,0 +1,162 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <${contentFolderName}-default
+                        jcr:description="Policy for editable layout containers"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${artifactTitle} Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:${componentGroupTitle} - Content,group:${componentGroupTitle} - Media,group:${componentGroupTitle} - Details,group:${componentGroupTitle} - Layout,group:${componentGroupTitle} - Forms,group:${componentGroupTitle} - Lists,group:${componentGroupTitle} - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx]"
+                        policyResourceType="${appsFolderName}/components/layout/container">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="${appsFolderName}/components/media/image"
+                                    type="Images"/>
+                                <product
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="product"
+                                    droptarget="product-data-reference"
+                                    resourceType="commerce/components/product"
+                                    type="Products"/>
+                                <flash
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="application/x-shockwave-flash"
+                                    droptarget="flash"
+                                    resourceType="foundation/components/flash"
+                                    type="Images"/>
+                                <document
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                                    droptarget="file"
+                                    resourceType="${appsFolderName}/components/content/download"
+                                    type="Images"/>
+                                <video
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="video/*"
+                                    droptarget="video"
+                                    resourceType="${appsFolderName}/components/media/video"
+                                    type="Images"/>
+                                <fragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"
+                                    droptarget="fragment"
+                                    resourceType="aemdesign/components/content/contentfragment"
+                                    type="Content Fragment"/>
+                                <experiencefragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                                    type="experiencefragment"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                        <jcr:content
+                            jcr:mixinTypes="[]"
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </${contentFolderName}-default>
+                    <${contentFolderName}-structure
+                        jcr:description="Policy for templates to allow structure components"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${artifactTitle} Structure"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:${componentGroupTitle} - Content,group:${componentGroupTitle} - Media,group:${componentGroupTitle} - Details,group:${componentGroupTitle} - Layout,group:${componentGroupTitle} - Forms,group:${componentGroupTitle} - Lists,group:${componentGroupTitle} - Widgets,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/designimporter/components/importerEx]"
+                        policyResourceType="${appsFolderName}/components/layout/container">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="${appsFolderName}/components/media/image"
+                                    type="Images"/>
+                                <product
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="product"
+                                    droptarget="product-data-reference"
+                                    resourceType="commerce/components/product"
+                                    type="Products"/>
+                                <flash
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="application/x-shockwave-flash"
+                                    droptarget="flash"
+                                    resourceType="foundation/components/flash"
+                                    type="Images"/>
+                                <document
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                                    droptarget="file"
+                                    resourceType="${appsFolderName}/components/content/download"
+                                    type="Images"/>
+                                <video
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="video/*"
+                                    droptarget="video"
+                                    resourceType="${appsFolderName}/components/media/video"
+                                    type="Images"/>
+                                <fragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="text/html"
+                                    droptarget="fragment"
+                                    resourceType="aemdesign/components/content/contentfragment"
+                                    type="Content Fragment"/>
+                                <experiencefragment
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="content"
+                                    assetMimetype="text/html"
+                                    droptarget="experiencefragment"
+                                    resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                                    type="experiencefragment"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                        <jcr:content
+                            jcr:mixinTypes="[]"
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </${contentFolderName}-structure>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+    <${contentFolderName}
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="nt:unstructured">
+        <components
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="nt:unstructured">
+            <template
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nt:unstructured"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nt:unstructured"/>
+            <layout jcr:primaryType="nt:unstructured">
+                <article jcr:primaryType="nt:unstructured"/>
+            </layout>
+        </components>
+    </${contentFolderName}>
+</jcr:root>

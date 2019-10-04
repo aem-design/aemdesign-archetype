@@ -1,0 +1,51 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="49919e13-aedd-46e2-8836-894b044819e9">
+    <jcr:content
+        dam:assetState="processed"
+        dam:relativePath="${contentFolderName}-showcase/en/common/images/shanghai.jpg"
+        dam:s7damType="Image"
+        jcr:lastModified="{Date}2018-01-31T02:38:20.611+11:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2018-01-31T02:37:24.107+11:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}300"
+            dam:Physicalheightininches="{Decimal}19.0"
+            dam:Physicalwidthindpi="{Long}300"
+            dam:Physicalwidthininches="{Decimal}12.670000076293945"
+            dam:Progressive="no"
+            dam:sha1="0663ce9b58614341b0624ccfb88a0b15deae9f0f"
+            dam:size="{Long}8806437"
+            dam:SpecialInstructions="NR"
+            dc:creator="[Image Source]"
+            dc:creator_xmpArrayType="rdf:Seq"
+            dc:description="Oriental pearl tower"
+            dc:format="image/jpeg"
+            dc:rights="(c) Image Source"
+            dc:subject="[Aerial View,Architecture,City,Cityscape,Color Image,Day,East Asian Culture,East China,Famous Place,Flowing Water,High Angle View,No People,Number of People,Office Building,Oriental Pearl Tower,Outdoors,Photography,Pudong,River,Shanghai,Sky,Skyline,Skyscraper,Travel,Vertical,places]"
+            dc:subject_xmpArrayType="rdf:Bag"
+            dc:title="88623985"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="88623985"
+            photoshop:Credit="Getty Images/Image Source"
+            photoshop:Instructions="NR"
+            photoshop:Source="Image Source"
+            tiff:ImageLength="{Long}5700"
+            tiff:ImageWidth="{Long}3801"
+            xmpRights:Marked="{Boolean}true"
+            xmpRights:WebStatement="http://www.gettyimages.com"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn patternlab:build

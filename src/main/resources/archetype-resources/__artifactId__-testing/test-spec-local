@@ -1,0 +1,17 @@
+#!/bin/bash
+
+POM_FILE="../pom.xml"
+SCRIPT_PARAMS="$@"
+
+SKIP_PRINT_CONFIG=true
+
+source "../scripts/functions.sh"
+
+LOCAL_IP="$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -n 1)"
+
+EXEC_HOST="${1:-$LOCAL_IP}"
+EXEC_ENV="${2:-local-chrome}" #localremote - seleniumhub - local-phantomjs
+HUB_URL="${3:-$SELENIUMHUB_SCHEME://$LOCAL_IP:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
+
+echo "./test-spec $EXEC_HOST $EXEC_ENV $HUB_URL"
+./test-spec $EXEC_HOST $EXEC_ENV $HUB_URL

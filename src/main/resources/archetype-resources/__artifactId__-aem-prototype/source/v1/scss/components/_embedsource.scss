@@ -1,0 +1,47 @@
+div[component].embedsource {
+  &.theme--countdown {
+    .time-wrapper {
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    .time {
+      display: block;
+      font-size: 54px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      line-height: 1.25;
+      color: white;
+      text-align: center;
+      background: #abcd99;
+      min-height: 80px;
+      padding: 5px;
+      min-width: 90px;
+    }
+
+    .time-after {
+      @include text-shadow-light;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @include media-breakpoint-down(xs) {
+      .time-wrapper {
+        margin-right: 2vw;
+      }
+      .time {
+        font-size: 10vw;
+        min-height: 10vw;
+        min-width: 18vw;
+      }
+      .time-after {
+        font-size: 3.6vw;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,83 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}:content-type/page]"
+        cq:template="/conf/${confFolderName}-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Managing Renditions"
+        sling:resourceType="${appsFolderName}/components/template/column/two">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/${contentFolderName}-training/en/aem-training/basic-user/managing-digital-assets"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text_1891407418
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Navigate to the location of the asset for which you want to add or remove renditions.&lt;/li>&${symbol_pound}xa;&lt;li>Click the asset to open the asset details&amp;nbsp;page.&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <image_256126289
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/media/image"
+                            fileReference="/content/dam/${contentFolderName}-training/Managing_Assets-Rendition_Image.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_2127344360
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Click the&amp;nbsp;Renditions&amp;nbsp;icon to view the renditions for the asset.&lt;img src=&quot;/content/dam/${contentFolderName}-training/Managing_Assets-Rendition.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>In the Renditions panel, view the list of renditions generated for the asset.&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <image_813800647
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/media/image"
+                            fileReference="/content/dam/${contentFolderName}-training/Managing_Assets-Rendition_Panel.png"
+                            imageOption="fixedImageGenerated"
+                            imageRotate="0"
+                            width="500"/>
+                        <text_455182083
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Select a rendition to either view or delete the rendition.&lt;ul>&${symbol_pound}xa;&lt;li>&lt;b>Deleting a rendition:&lt;br>&${symbol_pound}xa;&lt;/b>Select a rendition from the Renditions&amp;nbsp;panel and then click the Delete icon in the Toolbar.&lt;img src=&quot;/content/dam/${contentFolderName}-training/Managing_Assets-Rendition_Delete.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>&lt;b>Uploading a new Rendition:&lt;/b>&lt;br>&${symbol_pound}xa;Navigate to the asset details page for the asset and click the&amp;nbsp;Upload Rendition&amp;nbsp;icon in&amp;nbsp;the&amp;nbsp;Toolbar&amp;nbsp;to upload&amp;nbsp;a new rendition for the asset.&lt;img src=&quot;/content/dam/${contentFolderName}-training/Managing_Assets-Rendition_Upload.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            text="&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xa;&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xa;&lt;p>&amp;nbsp;&lt;/p>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

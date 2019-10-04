@@ -1,0 +1,43 @@
+div[component].embedsource-ssi {
+  &.theme--course-table {
+    font-size: 16px;
+    p {
+      font-size: 16px;
+    }
+
+    .grid {
+      padding: 0;
+      overflow: auto;
+    }
+
+    table {
+      margin-bottom: 20px;
+
+      th, td {
+        padding: 6px 20px;
+
+        &:first-child {
+          padding-left: 0;
+          padding-right: 10px;
+        }
+      }
+
+      th {
+        text-align: inherit;
+        white-space: nowrap;
+      }
+
+      td {
+        border: 1px solid theme-color('g4');
+        border-right: none;
+        border-left: none;
+        border-collapse: collapse;
+      }
+
+      a,
+      a:visited {
+        color: $primary;
+      }
+    }
+  }
+}

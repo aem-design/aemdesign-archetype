@@ -1,0 +1,30 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/${appsFolderName}/config"/>
+
+
+    <!-- cloud services -->
+    <filter root="/etc/cloudservices/addthisconnect" mode="update"/>
+    <filter root="/etc/cloudservices/googleanalytics" mode="update"/>
+
+    <!-- dam config -->
+    <filter root="/etc/dam/dynamicmediaconfig" mode="update"/>
+
+    <!-- langiage config -->
+    <filter root="/etc/languages" mode="update"/>
+
+    <!-- maping rules -->
+    <filter root="/etc/map/http/" mode="update"/>
+    <filter root="/etc/map/https" mode="update"/>
+
+    <filter root="/etc/tenants/${appsFolderName}" mode="update"/>
+
+    <filter root="/conf/${confFolderName}/settings/cloudconfigs" mode="update"/>
+
+    <filter root="/apps/granite/operations/config/maintenance">
+        <include pattern="/apps/granite/operations/config/maintenance/${artifactId}-.*"/>
+    </filter>
+</workspaceFilter>

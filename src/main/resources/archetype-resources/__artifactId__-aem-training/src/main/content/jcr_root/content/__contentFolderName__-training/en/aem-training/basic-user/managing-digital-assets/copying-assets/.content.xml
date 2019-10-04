@@ -1,0 +1,53 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}:content-type/page]"
+        cq:template="/conf/${confFolderName}-training/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:lockable,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Copying Assets"
+        sling:resourceType="${appsFolderName}/components/template/column/two">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <pagelist
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/lists/pagelist"
+                    componentTheme="[]"
+                    listFrom="children"
+                    listType="list"
+                    parentPage="/content/${contentFolderName}-training/en/aem-training/basic-user/managing-digital-assets"
+                    printStructure="{Boolean}true"
+                    tagsMatch="any"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentTheme="[]"
+                    hideTitle="true"
+                    hideTitleSeparator="true">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text_993923254
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentTheme="[]"
+                            text="&lt;ul>&${symbol_pound}xa;&lt;li>Navigate to the location of the assets you want to copy.&lt;/li>&${symbol_pound}xa;&lt;li>Click the &lt;b>Copy&lt;/b>&amp;nbsp;icon to copy&amp;nbsp;the required assets:&lt;img src=&quot;/content/dam/${contentFolderName}-training/Managing_Assets-Copy.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;li>Navigate to the location where you want to copy the assets.&lt;/li>&${symbol_pound}xa;&lt;li>Click the&amp;nbsp;&lt;b>Paste&lt;/b>&amp;nbsp;asset icon from the Toolbar:&lt;img src=&quot;/content/dam/${contentFolderName}-training/Managing_Assets-Paste.png&quot;>&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;p style=&quot;margin-left: 40px;&quot;>Selected assets are copied to this location.&lt;/p>&${symbol_pound}xa;&lt;p style=&quot;margin-left: 40px;&quot;>The paste icon is available on the&amp;nbsp;Toolbar&amp;nbsp;until the paste operation is completed.&lt;/p>&${symbol_pound}xa;"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

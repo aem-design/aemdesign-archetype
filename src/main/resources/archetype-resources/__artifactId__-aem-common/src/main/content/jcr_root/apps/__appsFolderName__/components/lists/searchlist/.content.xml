@@ -1,0 +1,12 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:isContainer="{Boolean}false"
+    jcr:description="This is a search component"
+    jcr:primaryType="cq:Component"
+    jcr:title="Search Results List"
+    cq:icon="search"
+          componentGroup="${componentGroupTitle} - Lists"
+          sling:resourceSuperType="${appsParent}/components/lists/searchlist"/>

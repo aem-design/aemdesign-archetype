@@ -1,0 +1,36 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="facebook"
+        sling:resourceType="${appsFolderName}/components/template/base"
+        redirectTarget="https://www.facebook.com/${contentFolderName}">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"
+                    componentIcon="[${contentFolderName}-showcase:component-style-icon/social/facebook]"
+                    cardIconShow="true"
+                    cardIcon="[${contentFolderName}-showcase:component-style-modifier/icon/size/sm,${contentFolderName}-showcase:component-style-icon/social/facebook]"
+                    componentModifiers="[${contentFolderName}-showcase:component-style-modifier/icon/size/sm]"
+                    showBreadcrumb="false"
+                    showToolbar="false"
+                    showParsys="false"
+                    title="Join us on Facebook">
+                </page-details>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

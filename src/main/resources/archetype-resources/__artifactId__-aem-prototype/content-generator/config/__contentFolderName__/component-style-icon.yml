@@ -1,0 +1,120 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+
+  ${symbol_pound} Icon
+content/cq:tags/${contentFolderName}/component-style-icon: &component-style-icon
+  feed/rss:
+    flat: true
+    prefix: 'fa fa-rss'
+    title: 'RSS'
+  feed/atom:
+    flat: true
+    prefix: 'fa fa-rss'
+    title: 'Atom'
+
+  social:
+    prefixes:
+      - youtube
+      - github
+      - facebook
+      - facebook-f
+      - pinterest-p
+      - twitter
+      - instagram
+      - linkedin-in
+      - linkedin
+      - tumblr-square
+      - tumblr
+      - google-plus
+    valueFormat: fab fa-%%prefix%%
+    title: '%%prefix_normalised%%'
+
+  spinner:
+    prefixes:
+      - cog
+      - gear
+      - refresh
+      - spinner
+    valueFormat: fa fa-%%prefix%%
+    title: '%%prefix_normalised%%'
+
+  general:
+    prefixes:
+      - ticks
+      - fast-forward
+      - comments
+      - briefcase
+      - calendar
+      - search
+      - home
+      - edit
+      - phone
+      - pencil-alt
+      - book
+      - reply-all
+      - life-ring
+      - calculator
+      - calendar-alt
+      - envelope
+      - star
+      - car
+      - street-view
+      - globe
+      - train
+      - play-circle
+      - user
+      - users
+      - users-class
+      - user-graduate
+      - balance-scale
+      - building
+      - chalkboard-teacher
+      - child
+      - comment-alt-exclamation
+      - comment-alt-smile
+      - comment-alt-check
+      - comment-alt-dots
+      - comments-alt
+      - info-circle
+      - laptop
+      - location-circle
+      - map-pin
+      - plane-arrival
+      - plane-departure
+      - thumbs-up
+      - thumbs-down
+      - trophy
+      - wheelchair
+      - star
+      - school
+      - paper-plane
+      - connectdevelop
+      - graduation-cap
+      - video
+      - university
+      - chart-bar
+      - newspaper
+      - cogs
+      - gamepad
+      - code
+      - gavel
+      - stethoscope
+      - flask
+      - wrench
+      - heartbeat
+      - link
+    valueFormat: fal fa-%%prefix%%
+    title: '%%prefix_normalised%%'
+
+  spinner/circle:
+    flat: true
+    prefix: 'fa fa-circle-o-notch'
+    title: 'Circle'
+
+${symbol_pound} Showcase Copy
+content/cq:tags/${contentFolderName}-showcase/component-style-icon: *component-style-icon
+
+${symbol_pound} Training Copy
+content/cq:tags/${contentFolderName}-training/component-style-icon: *component-style-icon

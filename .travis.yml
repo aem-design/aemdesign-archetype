@@ -1,0 +1,13 @@
+language: java
+
+cache:
+  directories:
+    - ~/.m2/repository
+
+git:
+  depth: false
+
+#Create new project and build it to see if it works
+script:
+	- mvn clean integration-test
+	- cd target/test-classes/projects/basic/project/projectx && chmod +x package && ./package

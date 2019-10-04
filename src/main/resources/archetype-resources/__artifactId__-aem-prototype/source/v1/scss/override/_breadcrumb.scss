@@ -1,0 +1,28 @@
+// PLEASE NOTE!!
+//
+// This overrides only styles that aren't configurable by Bootstrap, please take
+// care when making changes as we shouldn't be duplicating styles that Bootstrap
+// generates for us automatically.
+
+.breadcrumb {
+  font-weight: 300;
+
+  &-item {
+    a {
+      color: theme-color('g1');
+    }
+
+    &.active {
+      font-weight: 600;
+
+      &::before {
+        font-weight: 300;
+      }
+    }
+  }
+
+  // Nested '.breadcrumb' fix
+  > .breadcrumb {
+    margin-bottom: 0;
+  }
+}

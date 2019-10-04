@@ -1,0 +1,51 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+
+${symbol_pound} Content Type
+content/cq:tags/${contentFolderName}/content-type: &content-type
+  ${symbol_pound} WARNING: Reference to these path is hardcoded into component dialogs
+  asset:
+    prefixes:
+      - audio
+      - document
+      - image
+      - video
+    title: '%%prefix_normalised%%'
+
+  page:
+    prefixes:
+      - article
+      - book
+      - contact: {title: "Contact Page"}
+      - event
+      - location: {title: "Location Page"}
+      - news: {title: "News Page"}
+      - profile
+    title: '%%prefix_normalised%%'
+
+  ${symbol_pound} Online Media
+  widgets/onlinemedia/provider/default:
+    flat: true
+    prefix: default
+    title: 'Default'
+
+  widgets/onlinemedia/provider/kaltura:
+    flat: true
+    prefix: kaltura
+    title: 'Kaltura'
+
+  widgets/onlinemedia/provider/youtube:
+    flat: true
+    prefix: youtube
+    title: 'Youtube'
+
+
+
+
+${symbol_pound} Showcase Copy
+content/cq:tags/${contentFolderName}-showcase/content-type: *content-type
+
+${symbol_pound} Training Copy
+content/cq:tags/${contentFolderName}-training/content-type: *content-type

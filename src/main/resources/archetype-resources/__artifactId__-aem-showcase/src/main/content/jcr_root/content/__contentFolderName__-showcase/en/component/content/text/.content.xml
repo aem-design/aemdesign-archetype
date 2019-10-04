@@ -1,0 +1,82 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Rich Text"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article jcr:primaryType="nt:unstructured"
+                 sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock1
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentId="contentblock1"
+                    hideTitle="false"
+                    hideTitleSeparator="true"
+                    variant="advsection"
+                    title="Variant: Default">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentId="text1"
+                            componentTheme="[]"
+                            text="&lt;h1>Heading 1&lt;/h1>&${symbol_pound}xa;&lt;h2>Heading 2&lt;/h2>&${symbol_pound}xa;&lt;h3>Heading 3&lt;/h3>&${symbol_pound}xa;&lt;h4>Heading 4&lt;/h4>&${symbol_pound}xa;&lt;h5>Heading 5&lt;/h5>&${symbol_pound}xa;&lt;h6>Heading 6&lt;/h6>&${symbol_pound}xa;&lt;p>Paragraph&lt;/p>&${symbol_pound}xa;&lt;blockquote>Blockquote&lt;/blockquote>&${symbol_pound}xa;&lt;p>&lt;b>Bold&lt;/b> &lt;i>Italic&lt;/i> &lt;u>Underline&lt;/u> &lt;sub>Subscript&lt;/sub> &lt;sup>Superscript&lt;/sup> &lt;a target=&quot;_blank&quot; href=&quot;/content/${contentFolderName}-showcase/en/component/content/text.html&quot; adhocenable=&quot;false&quot;>link&lt;/a>&amp;nbsp;special characters: ÷, &lt;span class=&quot;color1&quot;>&amp;quot;Style Green&amp;quot;&lt;/span>&amp;nbsp;no style &lt;span class=&quot;color2&quot;>&amp;quot;Style Red&amp;quot;&lt;/span> no style&lt;/p>&${symbol_pound}xa;&lt;p>Left Aligned&lt;/p>&${symbol_pound}xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&${symbol_pound}xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&${symbol_pound}xa;&lt;p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>item 1&lt;/li>&${symbol_pound}xa;&lt;li>item 2&lt;/li>&${symbol_pound}xa;&lt;li>item 3&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div>&${symbol_pound}xa;&lt;p>List&lt;/p>&${symbol_pound}xa;&lt;ol>&${symbol_pound}xa;&lt;li>item 1&lt;/li>&${symbol_pound}xa;&lt;li>item 2&lt;/li>&${symbol_pound}xa;&lt;li>item 3&lt;/li>&${symbol_pound}xa;&lt;/ol>&${symbol_pound}xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&${symbol_pound}xa;&lt;tbody>&lt;tr>&lt;th>Hader&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&${symbol_pound}xa;&lt;td>●&lt;/td>&${symbol_pound}xa;&lt;td>○&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color1&quot;>○&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color1&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color2&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color2&quot;>○&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;/tbody>&lt;/table>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div>&${symbol_pound}xa;&lt;div>No Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 40px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 80px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 120px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 80px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 40px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div>No Indent&lt;/div>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div>&lt;div>BR&lt;br/>BR&lt;/div>"
+                            textIsRich="true"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                    jcr:primaryType="nt:unstructured"
+                    title="Variant: Simple"
+                    variant="advsection"
+                    componentId="contentblock2"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            componentId="text2"
+                            componentTheme="[]"
+                            text="&lt;h1>Heading 1&lt;/h1>&${symbol_pound}xa;&lt;h2>Heading 2&lt;/h2>&${symbol_pound}xa;&lt;h3>Heading 3&lt;/h3>&${symbol_pound}xa;&lt;h4>Heading 4&lt;/h4>&${symbol_pound}xa;&lt;h5>Heading 5&lt;/h5>&${symbol_pound}xa;&lt;h6>Heading 6&lt;/h6>&${symbol_pound}xa;&lt;p>Paragraph&lt;/p>&${symbol_pound}xa;&lt;blockquote>Blockquote&lt;/blockquote>&${symbol_pound}xa;&lt;p>&lt;b>Bold&lt;/b> &lt;i>Italic&lt;/i> &lt;u>Underline&lt;/u> &lt;sub>Subscript&lt;/sub> &lt;sup>Superscript&lt;/sup> &lt;a adhocenable=&quot;false&quot; href=&quot;/content/${contentFolderName}-showcase/en/component/content/text.html&quot; target=&quot;_blank&quot;>link&lt;/a>&amp;nbsp;special characters: ÷, &lt;span class=&quot;color1&quot;>&amp;quot;Style Green&amp;quot;&lt;/span>&amp;nbsp;no style &lt;span class=&quot;color2&quot;>&amp;quot;Style Red&amp;quot;&lt;/span> no style&lt;/p>&${symbol_pound}xa;&lt;p>Left Aligned&lt;/p>&${symbol_pound}xa;&lt;p style=&quot;text-align: center;&quot;>Center Text&lt;/p>&${symbol_pound}xa;&lt;p style=&quot;text-align: right;&quot;>Right Aligned&lt;/p>&${symbol_pound}xa;&lt;p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;/p>&${symbol_pound}xa;&lt;ul>&${symbol_pound}xa;&lt;li>item 1&lt;/li>&${symbol_pound}xa;&lt;li>item 2&lt;/li>&${symbol_pound}xa;&lt;li>item 3&lt;/li>&${symbol_pound}xa;&lt;/ul>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div>&${symbol_pound}xa;&lt;p>List&lt;/p>&${symbol_pound}xa;&lt;ol>&${symbol_pound}xa;&lt;li>item 1&lt;/li>&${symbol_pound}xa;&lt;li>item 2&lt;/li>&${symbol_pound}xa;&lt;li>item 3&lt;/li>&${symbol_pound}xa;&lt;/ol>&${symbol_pound}xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot;>&${symbol_pound}xa;&lt;tbody>&lt;tr>&lt;th>Hader&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;th>Col1&lt;/th>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>Row1&lt;/td>&${symbol_pound}xa;&lt;td>●&lt;/td>&${symbol_pound}xa;&lt;td>○&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color1&quot;>○&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;tr>&lt;td>Row2&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color1&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color2&quot;>●&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;td>&lt;span class=&quot;color2&quot;>○&lt;/span>&lt;/td>&${symbol_pound}xa;&lt;/tr>&lt;/tbody>&lt;/table>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div>&${symbol_pound}xa;&lt;div>No Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 40px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 80px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 120px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 80px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div style=&quot;margin-left: 40px;&quot;>Indent&lt;/div>&${symbol_pound}xa;&lt;div>No Indent&lt;/div>&${symbol_pound}xa;&lt;div>&amp;nbsp;&lt;/div&lt;div>BR&lt;br/>BR&lt;/div>"
+                            textIsRich="true"
+                            variant="simple"/>
+                    </par>
+                </contentblock2>
+                <contentblock3
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        componentId="contentblock3"
+                        title="Variant: Default for Prototype Example"
+                        variant="advsection">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/text"
+                                componentId="text3"
+                                text="&lt;blockquote>Lorem ipsum pull quote from article, dolor sit amet tudor bein consec ateur ... haiture education on superannuation for the future.&lt;br />&${symbol_pound}xd;&${symbol_pound}xa;&lt;/blockquote>&${symbol_pound}xd;&${symbol_pound}xa;&lt;p style=&quot;text-align: center;&quot;>&amp;lt;Quoted Person&amp;gt;&lt;br />&${symbol_pound}xd;&${symbol_pound}xa;&lt;/p>"
+                                textIsRich="true"/>
+                    </par>
+                </contentblock3>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,103 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:tags="[${contentFolderName}-showcase:content-type/page]"
+            cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="External"
+            sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        variant="advsection"
+                        title="External: iFrame variant with Parameters">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <external
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/external"
+                                componentId="external1"
+                                height="900"
+                                showScrollbar="false"
+                                variant="iframe"
+                                target="/content/${contentFolderName}-showcase/en/component/content/external/page1.html?wcmmode=disabled"
+                                width="600"/>
+                    </par>
+                </contentblock1>
+                <contentblock2
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        variant="advsection"
+                        title="External: iFrame variant without Parameters">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <external
+                                jcr:primaryType="nt:unstructured"
+                                componentId="external2"
+                                variant="iframe"
+                                sling:resourceType="${appsFolderName}/components/content/external"
+                                target="/content/${contentFolderName}-showcase/en/component/content/external/page1.html?wcmmode=disabled"/>
+                    </par>
+                </contentblock2>
+
+                <contentblock3
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        variant="advsection"
+                        title="External: SSI Include variant">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <external
+                                jcr:primaryType="nt:unstructured"
+                                componentId="external3"
+                                variant="include"
+                                sling:resourceType="${appsFolderName}/components/content/external"
+                                target="http://google.com"/>
+                    </par>
+                </contentblock3>
+
+                <contentblock4
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        variant="advsection"
+                        title="External: Server Import variant">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <external
+                                jcr:primaryType="nt:unstructured"
+                                componentId="external4"
+                                variant="import"
+                                sling:resourceType="${appsFolderName}/components/content/external"
+                                target="http://google.com"/>
+                    </par>
+                </contentblock4>
+
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

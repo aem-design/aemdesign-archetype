@@ -1,0 +1,15 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <carousel/>
+    <newsdetails/>
+    <locationlist/>
+    <download/>
+    <image/>
+    <asset-share/>
+    <named-image-servlet/>
+    <Carousel_x0020_1400_x0020_x_x0020_500/>
+</jcr:root>

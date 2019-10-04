@@ -1,0 +1,149 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+.text[component] {
+  color: $black;
+  p{
+    font-size: 20px;
+    margin-bottom: 15px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  h1, h2 {
+    word-wrap: break-word;
+  }
+  h1 {
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 120%;
+    font-size: 32px;
+    color: $black;
+    @include media-breakpoint-up(md) {
+      font-size: 48px;
+    }
+  }
+  h2 {
+    margin: 0;
+    font-size: 26px;
+    @include media-breakpoint-up(md) {
+      font-size: 36px;
+    }
+  }
+  h3 {
+    margin: 0;
+    font-size: 22px;
+    @include media-breakpoint-up(md) {
+      font-size: 28px;
+    }
+  }
+  h4 {
+    font-size: 20px;
+    margin: 0;
+  }
+  h5 {
+    font-size: 140%;
+    margin: 0;
+  }
+  h6 {
+    font-size: 120%;
+    margin: 0;
+  }
+  ol, ul {
+    padding-left: 3em;
+    padding-bottom: 1em;
+  }
+  ul {
+    list-style: none;
+    li {
+      position: relative;
+      font-size: 20px;
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 7px 0 0 -20px;
+        width: 0;
+        height: 0;
+        transform: rotate(315deg);
+        border-bottom: 9px solid $primary;
+        border-left: 9px solid transparent;
+      }
+    }
+  }
+  .row li {
+    line-height: 1.2;
+    padding-bottom: .5em;
+  }
+  b, strong {
+    font-weight: bold;
+  }
+  a {
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.text-shadow {
+  &.text[component] > *,
+  & {
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  }
+}
+
+//modifiers
+.bg-c8:not(.card) {
+  &,
+  * {
+    color: $white !important;
+  }
+}
+
+.bg-c9:not(.card)  {
+  &,
+  * {
+    color: $black !important;
+  }
+}
+
+.text-uppercase {
+  &,
+  * {
+    text-transform: uppercase !important;
+  }
+}
+.text-xsmall {
+  &,
+  * {
+    font-size: 12px !important;
+  }
+}
+.text-red {
+  &,
+  * {
+    color: $primary !important;
+  }
+}
+.text-black {
+  &,
+  * {
+    color: $secondary !important;
+  }
+}
+.text-white {
+  &,
+  * {
+    color: $white !important;
+  }
+}
+
+@mixin text-shadow-light() {
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.35);
+}

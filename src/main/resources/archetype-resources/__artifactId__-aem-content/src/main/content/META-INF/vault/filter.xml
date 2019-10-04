@@ -1,0 +1,45 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+
+
+    <filter root="/content/dam/${contentFolderName}" mode="update"/>
+    <filter root="/content/${contentFolderName}" mode="update"/>
+    <filter root="/content/api/${contentFolderName}" mode="update"/>
+
+
+    <!--TODO: uncomment when you have forms content-->
+    <!--&lt;!&ndash; forms &ndash;&gt;-->
+    <!--<filter root="/content/forms/af/${contentFolderName}"/>-->
+    <!--&lt;!&ndash; forms: dam &ndash;&gt;-->
+    <!--<filter root="/content/dam/formsanddocuments/${contentFolderName}"/>-->
+    <!--<filter root="/content/dam/formsanddocuments-themes/${contentFolderName}"/>-->
+    <!--<filter root="/content/dam/formsanddocuments-fdm/${contentFolderName}"/>-->
+
+    <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
+    <!--<filter root="/content/forms/fp/${contentFolderName}" mode="update">-->
+    <!--<exclude pattern="/content/forms/fp[^/]*$" />-->
+    <!--<include pattern="/content/forms/fp[^/*]/rep:policy" />-->
+    <!--</filter>-->
+
+    <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
+    <!--<filter root="/content/forms/portal" mode="update">-->
+    <!--<exclude pattern="/content/forms/portal[^/]*$" />-->
+    <!--<include pattern="/content/forms/portal[^/*]/rep:policy" />-->
+    <!--</filter>-->
+
+
+    <filter root="/conf/global/settings/workflow/models/${confFolderName}" mode="update"/>
+    <filter root="/conf/global/settings/workflow/notification/${confFolderName}" mode="update"/>
+    <filter root="/conf/global/settings/workflow/launcher/config/${confFolderName}" mode="update"/>
+
+    <filter root="/conf/${confFolderName}/settings/wcm" mode="update"/>
+    <filter root="/conf/${confFolderName}/settings/dam" mode="update"/>
+
+    <filter root="/content/experience-fragments/${contentFolderName}" mode="update"/>
+
+
+
+</workspaceFilter>

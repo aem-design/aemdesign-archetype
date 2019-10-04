@@ -1,0 +1,27 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="vlt:PackageDefinition"
+          jcr:description="${symbol_dollar}{description}"
+          sling:resourceType="cq/packaging/components/pack/definition"
+          buildCount="1"
+          cqVersion="${symbol_dollar}{aem.verison}"
+          group="${symbol_dollar}{package.group}"
+          groupTitle="${symbol_dollar}{package.groupTitle}"
+          builtWith="${symbol_dollar}{package.builtWith}"
+          name="${symbol_dollar}{name}"
+          path="${symbol_dollar}{crx.package.path}/${symbol_dollar}{package.group}/${symbol_dollar}{artifactId}-${symbol_dollar}{version}"
+          version="${symbol_dollar}{version}"
+          providerName="${symbol_dollar}{package.providerName}"
+          providerUrl="${symbol_dollar}{package.providerUrl}"
+          providerLink="${symbol_dollar}{scm.url}"
+          testedWith="${symbol_dollar}{package.testedWith}">
+    <thumbnail.png/>
+    <thumbnail.psd/>
+    <screenshots jcr:primaryType="nt:unstructured">
+        <screenshot1 jcr:primaryType="nt:unstructured"/>
+        <screenshot2 jcr:primaryType="nt:unstructured"/>
+    </screenshots>
+</jcr:root>

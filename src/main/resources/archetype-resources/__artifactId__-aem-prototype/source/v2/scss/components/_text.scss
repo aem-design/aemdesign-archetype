@@ -1,0 +1,273 @@
+// PLEASE NOTE!!
+//
+// These styles directly affect AEM components, they should not introduce any new
+// behaviour that can be handled already by Bootstrap helper classes such as spacing
+// and other component level changes.
+.title,
+.text[component] {
+  color: $tertiary;
+  p, a, ul, li {
+    font-size: 12pt;
+    line-height: 23pt;
+    font-weight: 400;
+    @include media-breakpoint-up(md) {
+      font-size: 14pt;
+      line-height: 30pt;
+    }
+  }
+  &.text--underlined > *,
+  .text--cap-underline,
+  h1, h2, h3, h4 {
+    margin: 0;
+    &:after {
+      content: "";
+      height: 1px;
+      background-color: $primary;
+      display:block;
+      width: 50px;
+      @include media-breakpoint-up(md) {
+        width: 80px;
+      }
+    }
+  }
+  h1 {
+    font-size: 40pt;
+    line-height: 42pt;
+    font-weight: 300;
+    &:after {
+      margin: $spacing-2xl 0;
+    }
+    @include media-breakpoint-up(md) {
+      font-size: 60pt;
+      line-height: 63pt;
+      &:after {
+        margin: $spacing-4xl 0;
+      }
+    }
+  }
+  h2, h3, h4 {
+    &:after {
+      margin: $spacing-md 0;
+    }
+  }
+  h2, h3 {
+    @include media-breakpoint-up(md) {
+      &:after {
+        margin: $spacing-2xl 0;
+      }
+    }
+  }
+  h2 {
+    font-size: 26pt;
+    line-height: 32pt;
+    font-weight: 400;
+    @include media-breakpoint-up(md) {
+      font-size: 48pt;
+      line-height: 48pt;
+    }
+  }
+  h3 {
+    font-size: 22pt;
+    line-height: 29pt;
+    font-weight: 600;
+    @include media-breakpoint-up(md) {
+      font-size: 30pt;
+      line-height: 36pt;
+    }
+  }
+  h4 {
+    font-size: 18pt;
+    line-height: 26pt;
+    font-weight: 600;
+    @include media-breakpoint-up(md) {
+      font-size: 22pt;
+      line-height: 30pt;
+      &:after {
+        margin: $spacing-lg 0;
+        width: 60px;
+      }
+    }
+  }
+  h5 {
+    font-size: 14pt;
+    line-height: 24pt;
+    font-weight: 600;
+    @include media-breakpoint-up(md) {
+      font-size: 18pt;
+    }
+  }
+  .text--cap-underline:after,
+  &.text--underlined > *:after {
+    margin: 20px 0;
+    @include media-breakpoint-up(md) {
+      margin: 30px 0;
+    }
+  }
+  &.text-heading-outlined {
+    h1, h2, h3, h4 {
+      &:after {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+      }
+    }
+    h1 {
+      padding-bottom: $spacing-2xl;
+      @include media-breakpoint-up(md) {
+        padding-bottom: $spacing-4xl;
+      }
+    }
+    h2, h3, h4 {
+      padding-bottom: $spacing-md;
+    }
+    h2, h3 {
+      @include media-breakpoint-up(md) {
+        padding-bottom: $spacing-2xl;
+      }
+    }
+    h4 {
+      @include media-breakpoint-up(md) {
+        padding-bottom: $spacing-lg;
+      }
+    }
+  }
+  ol, ul {
+    padding-left: $spacing-md;
+    padding-bottom: 0;
+  }
+  ul {
+    list-style: none;
+    li {
+      position: relative;
+      font-size: 14pt;
+      &:before {
+        content: "•";
+        display: block;
+        position: absolute;
+        color: $primary;
+        top: 0;
+        left: 0;
+        margin: 0 0 0 -20px;
+        font-size: 24px;
+      }
+    }
+  }
+  ol {
+    counter-reset: item;
+    list-style: none;
+    padding-left: 0;
+    li {
+      &:before {
+        content: counter(item) ". ";
+        counter-increment: item;
+        color: $primary;
+      }
+    }
+  }
+  &.text-list-dark {
+    ul, ol {
+      li {
+        &:before {
+          color: $grey-3;
+        }
+      }
+    }
+  }
+  .row li {
+    line-height: 1.2;
+    padding-bottom: .5em;
+  }
+  b, strong {
+    font-weight: 700;
+  }
+  a {
+    &,
+    &:hover {
+      text-decoration: underline;
+      color: $primary;
+    }
+  }
+}
+
+.text-shadow {
+  &.text[component] > *,
+  & {
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  }
+}
+
+.text-uppercase {
+  &,
+  * {
+    text-transform: uppercase !important;
+  }
+}
+small,
+.text-xsmall {
+  &,
+  * {
+    font-size: 10pt !important;
+    line-height: 23pt;
+    font-weight: 400;
+    @include media-breakpoint-up(md) {
+      font-size: 12pt !important;
+    }
+  }
+}
+.text-bold {
+  &,
+  * {
+    font-weight: 700;
+  }
+}
+.text-red {
+  &,
+  * {
+    color: $primary !important;
+  }
+}
+.text-black {
+  &,
+  * {
+    color: $tertiary !important;
+  }
+}
+.text-white {
+  &,
+  * {
+    color: $white !important;
+  }
+}
+
+$colors: (
+  red: $primary, // 1
+  yellow: $secondary, // 2
+  charcoal: $tertiary, // 3
+  green: $color-4, // 4
+  blue: $color-5, // 5
+  purple: $color-6, // 6
+  turquoise: $color-7, // 7
+  red-50: $primary-50, // 8
+  yellow-50: $secondary-50, // 9
+  green-50: $color-4-50, // 10
+  blue-50: $color-5-50, // 11
+  purple-50: $color-6-50, // 12
+  turquoise-50: $color-7-50, // 13
+  grey-1: $grey-2, // 14
+  grey-2: $grey-3, // 15
+  grey-3: $grey-4, // 16
+  grey-4: $grey-5, // 17
+  grey-5: $grey-6 // 18
+);
+
+@each $name, $color in $colors {
+  $index: index($colors, $color);
+  .text-#{$name} {
+    color: #{$color} !important;
+  }
+}
+
+@mixin text-shadow-light() {
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.35);
+}

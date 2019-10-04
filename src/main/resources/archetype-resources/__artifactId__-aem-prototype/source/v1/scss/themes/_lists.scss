@@ -1,0 +1,86 @@
+&--lists {
+  // Strip the padding from the child LI and DIV elements
+  &-flush > .content {
+    margin-left: 0;
+    margin-right: 0;
+
+    > ul > li,
+    > div {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  // Simple inline list
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      &#{$infix}-inline {
+        > .content {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        ul li:not(:last-child) {
+          margin-right: rem-calc(40px);
+        }
+      }
+    }
+  }
+
+  // Light list, this includes lists that sit on darker backgrounds
+  &-light {
+    a {
+      color: $white;
+    }
+  }
+
+  // Alignments & justifications
+  $alignments: (
+    jc: center,
+    je: flex-end,
+    js: flex-start,
+    aic: center,
+    aie: flex-end,
+    ais: flex-start,
+    acc: center,
+    ace: flex-end,
+    acs: flex-start,
+  );
+
+  @each $align, $value in $alignments {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        &#{$infix}-#{$align} ul,
+        &#{$infix}-#{$align} ol {
+          @if $align == jc or $align == je or $align == js {
+            justify-content: $value !important;
+          }
+          @else if $align == aic or $align == aie or $align == ais {
+            align-items: $value !important;
+          }
+          @else if $align == acc or $align == ace or $align == acs {
+            align-content: $value !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Direction
+  @each $direction in column column-reverse row row-reverse {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        &#{$infix}-#{$direction} ul,
+        &#{$infix}-#{$direction} ol {
+          flex-direction: $direction !important;
+        }
+      }
+    }
+  }
+}

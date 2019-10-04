@@ -1,0 +1,42 @@
+#!/bin/bash
+
+POM_FILE="../pom.xml"
+SCRIPT_PARAMS="$@"
+
+source "../scripts/functions.sh"
+
+EXEC_HOST="${1:-$AEM_HOST}"
+EXEC_ENV="${2:-local-chrome}" #localremote - seleniumhub - local-phantomjs
+HUB_URL="${3:-$SELENIUMHUB_SCHEME://$SELENIUMHUB_HOST:$SELENIUMHUB_PORT$SELENIUMHUB_SERVICE}"
+
+
+if [ "$EXEC_ENV" == "" ]; then
+    echo "Please specify driver name ex remote-seleniumhub-chrome"
+    exit 1
+fi
+
+#THIS WILL RUN ALL WORKING TESTS
+EXEC_TEST="${4:-Download*,Aside*,Article*,Link*,Table*,Text*,Footer*,Header*,RedirectNotification*,ContentBlockA*,ContentBlockP*,ContentBlockS*,ContentBlockM*,PageList*,PageDetails*,Columns*,Breadcrumb*,Image*,Video*,ContactDetails*,EmbedSource*,Navbar*,NavList*,PageTitle*,PageTags*,PageDate*,PageDescription*,DataLayer*,External*,PageAuthor*,EventDetails*,OnlineMedia*,Reference*,List*,SearchList*,Audio*,Tooltip*}"
+
+#THIS WILL RUN ONLY ONE TEST YOU CAN USE THIS IN DEV
+#EXEC_TEST="${4:-Tooltip*}"
+
+EXEC_TEST_EXCLUDE="${5:-}"
+EXEC_PARAMS=" ${*:6}"
+
+
+echo "RUNNING ENV: $EXEC_ENV"
+echo "RUNNING TESTS: $EXEC_TEST"
+echo "EXCLUDING TESTS: $EXEC_TEST_EXCLUDE"
+echo "WITH PARAMETERS: $EXEC_PARAMS"
+echo mvn clean test -P compile-reports-ruby -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_HOST" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
+
+mvn clean test -P compile-reports-ruby -Dgeb.env="$EXEC_ENV" -Dproject.buildDirectory="$EXEC_ENV" -Dcrx.host="$EXEC_HOST" -Dtest="$EXEC_TEST,$EXEC_TEST_EXCLUDE""$EXEC_PARAMS" -Dselenumhuburl="$HUB_URL"
+
+#open report when finished if LOCAL
+#if [[ -z "${EXEC_ENV##local-*}" ]]; then
+#    if [[ -e "$EXEC_ENV/$DEFAULT_REPORT_PATH" ]]; then
+#        echo "OPENING REPORT: $EXEC_ENV/$DEFAULT_REPORT_PATH"
+#        OPEN_REPORT=$(groovy -Dproject.buildDirectory=$EXEC_ENV openReport.groovy)
+#    fi
+#fi

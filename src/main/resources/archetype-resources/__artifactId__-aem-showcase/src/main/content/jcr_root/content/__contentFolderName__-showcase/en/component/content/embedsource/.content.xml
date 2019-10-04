@@ -1,0 +1,43 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[${contentFolderName}-showcase:content-type/page]"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Embed Source"
+        sling:resourceType="${appsFolderName}/components/template/base">
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page-details
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
+                <contentblock1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                        hideTitle="false"
+                        hideTitleSeparator="true"
+                        componentId="contentblock1"
+                        variant="advsection"
+                        title="Default Style">
+                    <par
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/container">
+                        <embedsource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/content/embedsource"
+                                componentId="embedsource1"
+                                html="&lt;style>&${symbol_pound}xa;.embed.custom.style {&${symbol_pound}xa;color: red;&${symbol_pound}xa;}&${symbol_pound}xa;.embed.custom.js {&${symbol_pound}xa;color: green;&${symbol_pound}xa;}&${symbol_pound}xa;.embed.custom.js.hidden {&${symbol_pound}xa;display: none;&${symbol_pound}xa;}&${symbol_pound}xa;&lt;/style>&${symbol_pound}xa;&lt;script>&${symbol_pound}xa;${symbol_dollar}(&quot;document&quot;).ready(function(){&${symbol_pound}xa;${symbol_dollar}(&quot;.embed.custom.js.hidden&quot;).show();&${symbol_pound}xa;});&${symbol_pound}xa;&lt;/script>&${symbol_pound}xa;&lt;div class=&quot;embed custom style&quot;>visible text changed with embeded css&lt;/div>&${symbol_pound}xa;&lt;div class=&quot;embed custom js hidden&quot;>hidden text visible after embeded js is executed&lt;/div>"/>
+                    </par>
+                </contentblock1>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

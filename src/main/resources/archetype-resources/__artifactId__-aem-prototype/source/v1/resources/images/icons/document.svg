@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 16 18" id="icons-document">
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,1 h11.2L15,4.3V17H1V1z" />
+  <rect x="5" y="6" fill="none" stroke="currentColor" width="6" height="1" />
+  <rect x="5" y="12" fill="none" stroke="currentColor" width="6" height="1" />
+  <rect x="5" y="9" fill="none" stroke="currentColor" width="6" height="1" />
+</svg>

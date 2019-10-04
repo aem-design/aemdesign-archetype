@@ -1,0 +1,40 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:exif="http://ns.adobe.com/exif/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="06577bcd-74af-4292-a56a-6ad3710a5c0e">
+    <jcr:content
+        cq:name="Using_a_Scaffold-Toolbar.png"
+        cq:parentPath="/content/dam/${contentFolderName}-training"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}32"
+            dam:Comments="XML:com.adobe.xmp: &lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;XMP Core 5.4.0&quot;>&${symbol_pound}xa;   &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns${symbol_pound}&quot;>&${symbol_pound}xa;      &lt;rdf:Description rdf:about=&quot;&quot;&${symbol_pound}xa;            xmlns:exif=&quot;http://ns.adobe.com/exif/1.0/&quot;>&${symbol_pound}xa;         &lt;exif:PixelXDimension>976&lt;/exif:PixelXDimension>&${symbol_pound}xa;         &lt;exif:PixelYDimension>242&lt;/exif:PixelYDimension>&${symbol_pound}xa;      &lt;/rdf:Description>&${symbol_pound}xa;   &lt;/rdf:RDF>&${symbol_pound}xa;&lt;/x:xmpmeta>&${symbol_pound}xa;&${symbol_pound}xa;"
+            dam:extracted="{Date}2015-12-21T12:10:20.632+08:00"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}1"
+            dam:Physicalheightindpi="{Long}96"
+            dam:Physicalheightininches="{Decimal}2.5205183029174805"
+            dam:Physicalwidthindpi="{Long}96"
+            dam:Physicalwidthininches="{Decimal}10.165395736694336"
+            dam:Progressive="no"
+            dam:sha1="215df48b3cd6eab33668bc5fbc1522d9843c0d63"
+            dam:size="{Long}78373"
+            dc:format="image/png"
+            dc:modified="{Date}2016-02-03T10:16:41.942+08:00"
+            exif:PixelXDimension="{Long}976"
+            exif:PixelYDimension="{Long}242"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}242"
+            tiff:ImageWidth="{Long}976"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

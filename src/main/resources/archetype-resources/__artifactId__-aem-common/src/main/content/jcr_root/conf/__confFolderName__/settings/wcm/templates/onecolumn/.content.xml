@@ -1,0 +1,14 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template"
+    ranking="{Long}120">
+    <jcr:content
+        cq:templateType="/conf/${confFolderName}/settings/wcm/template-types/onecolumn"
+        jcr:primaryType="cq:PageContent"
+        jcr:description="${artifactTitle} One Column"
+        jcr:title="${artifactTitle} One Column"
+        status="enabled"/>
+</jcr:root>

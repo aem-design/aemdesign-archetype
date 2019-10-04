@@ -1,0 +1,102 @@
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/// Pixel to REM cacluator
+/// @see https://gist.github.com/garystorey/5920051
+/// @param {Number} $size - The pixel size to convert
+/// @param {Boolean} $unitless - Should the unit be stripped away?
+/// @return {Number} - A REM number
+@function rem-calc($size: 16px, $unitless: false) {
+  // This is a tiny hack that ensures 'null' and 'rem' values get returned straight away
+  @if type-of($size) != number or str-index('#{$size}', rem) != null {
+    @return $size;
+  }
+
+  // Divide the size by the base page font size
+  $size: $size / 16px;
+
+  @if $unitless {
+    @return strip-unit($size);
+  }
+
+
+
+  @return $size * 1rem;
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/// Generates a percentage based on the aspect ratio supplied
+/// @param {Number} $width - X axis
+/// @param {Number} $height - Y axis
+/// @return {Number} - A percentage number representing the aspect ratio
+@function aspect-ratio($width: 16, $height: 9) {
+  @return ($height / $width) * 100%;
+}
+
+/// Creates a spacer size by converting a pixel value to REM
+/// @param {Number} $size - The pixel size to generate from
+/// @return {Number} - A REM number
+@function create-spacer($size: 16px) {
+  @return ($spacer * rem-calc($size, true));
+}
+
+/// Retrieves the spacer value for the given key
+/// @param {String} $key - The key name for the spacer size
+/// @return {Number} - A REM number
+@function get-spacer($key) {
+  @return map-get($spacers, $key);
+}
+
+/// Retrieves a unicode icon value for the name given
+/// @param {String} $name - The name of the icon
+/// @return {String} - The unicode icon value
+@function get-icon($name) {
+  @if map-has-key($icons, $name) {
+    @return unicode(map-get($icons, $name));
+  }
+
+  @warn "An icon for '#{$name}' couldn't be found! Valid values are: #{map-keys($icons)}";
+}
+
+/// Returns an icon size for the given size name
+/// @param {String} $for - The name for the icon size
+/// @return {Number} - The REM value for the size
+@function icon-size($for) {
+  $for: unquote($for);
+
+  @if not map-has-key($icon-sizes, $for) {
+    @error 'The icon size "#{$for}" does not appear to exist, please check the name is correct!';
+    @return false;
+  }
+  @else {
+    @return map-get($icon-sizes, $for);
+  }
+}
+
+/// Converts the input string to a unicode safe character
+/// @param {String} $str - The input string to convert
+/// @return {String} - The converted string
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}

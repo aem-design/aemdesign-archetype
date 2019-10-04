@@ -1,0 +1,20 @@
+.cards-coloured &,
+&--coloured {
+  @extend %card-image-rounded;
+
+  padding-top: rem-calc(40px);
+
+  .card-img-top {
+    background-color: transparent;
+
+    img {
+      height: 112px;
+      width: 112px;
+    }
+  }
+
+  .card-body {
+    margin-top: rem-calc(-56px);
+    padding-top: $card-spacer-x + rem-calc(56px);
+  }
+}
