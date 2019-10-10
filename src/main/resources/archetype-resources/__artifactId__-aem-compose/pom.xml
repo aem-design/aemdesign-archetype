@@ -21,9 +21,9 @@
     <!-- ====================================================================== -->
 
     <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}-aem-prototype</artifactId>
+    <artifactId>${artifactId}-aem-compose</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} :: aem-prototype</name>
+    <name>${parentArtifactName} :: aem-compose</name>
     <description>Style Guide for ${artifactTitle} project</description>
     <version>${version}</version>
 

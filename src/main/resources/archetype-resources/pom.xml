@@ -36,7 +36,7 @@
         <module>${artifactId}-aem-showcase</module>
         <module>${artifactId}-aem-training</module>
         <module>${artifactId}-aem-deploy</module>
-        <module>${artifactId}-aem-prototype</module>
+        <module>${artifactId}-aem-compose</module>
         <module>${artifactId}-testing</module>
     </modules>
 
