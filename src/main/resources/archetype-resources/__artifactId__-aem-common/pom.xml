@@ -231,15 +231,6 @@
                     <exclude>**/.DS_Store</exclude>
                     <exclude>**/target/**</exclude>
                     <exclude>**/pom.xml</exclude>
-                    <exclude>**/apps/*/clientlibs/v1/css/**</exclude>
-                    <exclude>**/apps/*/clientlibs/v1/js/**</exclude>
-                    <exclude>**/apps/*/clientlibs/v1/resources/**</exclude>
-                    <exclude>**/apps/*/clientlibs/v2/css/**</exclude>
-                    <exclude>**/apps/*/clientlibs/v2/js/**</exclude>
-                    <exclude>**/apps/*/clientlibs/v2/resources/**</exclude>
-                    <exclude>**/apps/*/clientlibs/styleguide/css/**</exclude>
-                    <exclude>**/apps/*/clientlibs/styleguide/js/**</exclude>
-                    <exclude>**/apps/*/clientlibs/styleguide/resources/**</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -292,7 +283,7 @@
                         <description>${symbol_dollar}{project.description}</description>
                         <created>${maven.build.timestamp}</created>
                         <createdBy>${symbol_dollar}{package.createdBy}</createdBy>
-                        <acHandling>merge_preserve</acHandling>
+                        <acHandling>ignore</acHandling>
                         <overrideAclInstallation>true</overrideAclInstallation>
                     </properties>
 
@@ -318,37 +309,6 @@
                     </embeddeds>
 
                     <dependencies></dependencies>
-                </configuration>
-            </plugin>
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <inherited>true</inherited>
-                <configuration>
-                    <attach>false</attach>
-                </configuration>
-            </plugin>
-
-
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.5.1</version>
-                <executions>
-                    <execution>
-                        <id>default-deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <serverId>privateregistry</serverId>
-                    <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
 
