@@ -51,7 +51,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="aemdesign/components/content/contentfragment"
+                                    resourceType="${appsFolderName}/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -108,7 +108,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="aemdesign/components/content/contentfragment"
+                                    resourceType="${appsFolderName}/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
