@@ -6,5 +6,5 @@
     jcr:primaryType="cq:Component"
     jcr:title="${artifactTitle} Base Page"
     jcr:description="${artifactTitle} Base template"
-    sling:resourceSuperType="${appsParent}/components/template/base/v3/base"
+    sling:resourceSuperType="${appsParent}/components/template/base"
     componentGroup=".hidden"/>
