@@ -58,10 +58,6 @@ bundle/velocity.log.*
 bundle/velocity.log
 velocity.log*
 
-# Other
-lib/
-libs/
-
 #Packer.io
 packer_cache
 builds
