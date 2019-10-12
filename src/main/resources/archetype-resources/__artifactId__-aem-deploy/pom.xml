@@ -21,7 +21,7 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-deploy</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} :: aem-deploy</name>
+    <name>${parentArtifactName} - Deploy</name>
     <description>This content package contains all sub packages for the deployment.</description>
     <version>${version}</version>
     <!-- ====================================================================== -->
@@ -77,11 +77,6 @@
             <artifactId>${artifactId}-aem-prototype</artifactId>
             <type>zip</type>
             <version>${symbol_dollar}{project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>design.aem</groupId>
-            <artifactId>aemdesign-aem-common</artifactId>
-            <version>2.0.528</version>
         </dependency>
         <dependency>
             <groupId>design.aem</groupId>
