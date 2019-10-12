@@ -1,14 +1,21 @@
 #!/bin/bash
 
-function set_term_title() {
-   echo -en "\033]0;$1\a"
-}
+POM_FILE="../pom.xml"
+PARENT_PROJECT_PATH="$(realpath ..)"
+SCRIPT_PARAMS="$@"
 
-set_term_title "Deploying Project"
-#mvn -DskipTests clean install -P autoCleanInstallPackage
-#mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage,autoInstallPackagePublish
-#mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage
+source "../scripts/functions.sh"
+
+#try to delete existing jar
+delete_current_jar
+
+echo "- Deploy"
 mvn -Dvault.useProxy=false -DskipTests clean deploy -P autoInstallBundle -Dmaven.deploy.skip=true -DskipNexusStagingDeployMojo=true "$@"
+echo "- Deployed"
 
-set_term_title "Deployed"
+#restart aem container
+restart_aem_docker
+
+
+set_term_title "Deploy Done"
 
