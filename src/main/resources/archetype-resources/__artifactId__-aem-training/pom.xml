@@ -32,15 +32,15 @@
         </developer>
     </developers>
 
-
     <!-- ====================================================================== -->
     <!-- B U I L D    D E F I N I T I O N                                       -->
     <!-- ====================================================================== -->
     <build>
         <resources>
-            <!-- define the resources that will go into the package -->
+        <!-- define the resources that will go into the package -->
             <resource>
                 <directory>src/main/content/jcr_root</directory>
+                <filtering>false</filtering>
                 <excludes>
                     <!-- exclude .vlt control files in the package -->
                     <exclude>**/.vlt</exclude>
@@ -58,7 +58,7 @@
         </resources>
 
         <plugins>
-            <!--
+        <!--
             we want to keep some of the META-INF files and not configure
             everything in the plugin (mainly the filters).
 
@@ -122,6 +122,37 @@
                 </configuration>
             </plugin>
 
+            <!-- use the buildnumber plugin to generate a ISO8601 timestamp -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>{0,date,yyyyMMdd}</format>
+                    <items>
+                        <item>timestamp</item>
+                    </items>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <attach>false</attach>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -131,6 +162,9 @@
     <profiles>
         <profile>
             <id>autoInstallPackage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
