@@ -61,23 +61,23 @@ WARNING: Please DO NOT commit auto generated content, only commit what you expec
             cq:template="/conf/${confFolderName}/settings/wcm/templates/twocolumn"
             jcr:primaryType="cq:PageContent"
             jcr:title="Nav List"
-            sling:resourceType="aemdesign/components/template/base">
+            sling:resourceType="${appsFolderName}/components/template/base">
         <article
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemdesign/components/layout/article">
+                sling:resourceType="${appsFolderName}/components/layout/article">
             <par
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemdesign/components/layout/container">
+                    sling:resourceType="${appsFolderName}/components/layout/container">
                 <page-details
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/details/page-details"/>
+                        sling:resourceType="${appsFolderName}/components/details/page-details"/>
                 <contentblockmenu1
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/contentblockmenu"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblockmenu"
                         componentId="contentblockmenu1"/>
                 <contentblock1
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aemdesign/components/layout/contentblock"
+                        sling:resourceType="${appsFolderName}/components/layout/contentblock"
                         componentId="contentblock1"
                         hideTitle="false"
                         hideTitleSeparator="true"
@@ -85,7 +85,7 @@ WARNING: Please DO NOT commit auto generated content, only commit what you expec
                         variant="advsection">
                     <par
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="aemdesign/components/layout/container">
+                            sling:resourceType="${appsFolderName}/components/layout/container">
 
                         <!-- YOUR COMPONENT GOES HERE -->
 

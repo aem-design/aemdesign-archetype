@@ -32,7 +32,6 @@
         </developer>
     </developers>
 
-
     <!-- ====================================================================== -->
     <!-- B U I L D    D E F I N I T I O N                                       -->
     <!-- ====================================================================== -->
@@ -41,7 +40,6 @@
             <!-- define the resources that will go into the package -->
             <resource>
                 <directory>src/main/content/jcr_root</directory>
-                <filtering>false</filtering>
                 <excludes>
                     <!-- exclude .vlt control files in the package -->
                     <exclude>**/.vlt</exclude>
@@ -59,22 +57,6 @@
         </resources>
 
         <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.6.1</version>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <!--
             we want to keep some of the META-INF files and not configure
             everything in the plugin (mainly the filters).
@@ -125,10 +107,8 @@
                         <createdBy>${symbol_dollar}{package.createdBy}</createdBy>
                         <acHandling>merge_preserve</acHandling>
                     </properties>
-
                     <!-- embedded dependencies in the content package -->
                     <embeddeds></embeddeds>
-
                     <dependencies>
                         <dependency>
                             <group>${symbol_dollar}{package.group}</group>
@@ -139,6 +119,26 @@
                 </configuration>
             </plugin>
 
+            <!--&lt;!&ndash; use the buildnumber plugin to generate a ISO8601 timestamp &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>buildnumber-maven-plugin</artifactId>-->
+                <!--<version>1.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>validate</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>create</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<format>{0,date,yyyyMMdd}</format>-->
+                    <!--<items>-->
+                        <!--<item>timestamp</item>-->
+                    <!--</items>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -146,25 +146,6 @@
                 <inherited>true</inherited>
                 <configuration>
                     <attach>false</attach>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.5.1</version>
-                <executions>
-                    <execution>
-                        <id>default-deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <serverId>privateregistry</serverId>
-                    <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
         </plugins>
@@ -177,7 +158,6 @@
         <profile>
             <id>autoInstallPackage</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <plugins>
@@ -203,11 +183,9 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>turnoffdamworkflow</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <plugins>
@@ -333,6 +311,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>

@@ -6,11 +6,23 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:policy="${confFolderName}/components/template/experience-fragments/base/policy_default"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings">
         <root
             cq:policy="wcm/foundation/components/responsivegrid/${confFolderName}-default"
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/core/components/policies/mapping"/>
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <${confFolderName} jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <media jcr:primaryType="nt:unstructured">
+                        <image
+                            cq:policy="${confFolderName}/components/media/image/policy_default_image"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
+                    </media>
+                </components>
+            </${confFolderName}>
+        </root>
     </jcr:content>
 </jcr:root>

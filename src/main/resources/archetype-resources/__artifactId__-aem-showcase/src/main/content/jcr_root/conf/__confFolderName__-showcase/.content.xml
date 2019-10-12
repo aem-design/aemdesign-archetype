@@ -2,32 +2,12 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    cq:policyOrigin="local"
+    cq:templatesOrigin="local"
+    cq:templateTypesOrigin="local"
     jcr:mixinTypes="[rep:AccessControllable]"
-    jcr:primaryType="cq:Page">
-    <rep:policy/>
-    <jcr:content
-        cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/.*]"
-        cq:deviceGroups="[mobile/groups/responsive]"
-        cq:designPath="/apps/settings/wcm/design/${appsFolderName}"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/twocolumn"
-        jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[mix:versionable]"
-        jcr:primaryType="cq:PageContent"
-        jcr:title="${artifactTitle} Site"
-        sling:resourceType="${appsFolderName}/components/template/column/two"
-        redirectTarget="/content/${contentFolderName}/en">
-        <article
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/layout/article">
-            <par
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/layout/container">
-                <pagedetails
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="${appsFolderName}/components/details/page-details"/>
-            </par>
-        </article>
-    </jcr:content>
-    <en/>
+    jcr:primaryType="sling:OrderedFolder"
+    jcr:title="${artifactTitle} Showcase">
+    <settings/>
 </jcr:root>

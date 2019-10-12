@@ -15,4 +15,5 @@
                     sling:resourceType="wcm/core/components/policies/mapping"/>
         </article>
     </jcr:content>
+    <rep:policy/>
 </jcr:root>

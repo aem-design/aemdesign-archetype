@@ -51,7 +51,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="aemdesign/components/content/contentfragment"
+                                    resourceType="${appsFolderName}/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -63,7 +63,6 @@
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
-                            jcr:mixinTypes="[]"
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
                     </${confFolderName}-default>
@@ -108,7 +107,7 @@
                                     assetGroup="media"
                                     assetMimetype="text/html"
                                     droptarget="fragment"
-                                    resourceType="aemdesign/components/content/contentfragment"
+                                    resourceType="${appsFolderName}/components/content/contentfragment"
                                     type="Content Fragment"/>
                                 <experiencefragment
                                     jcr:primaryType="nt:unstructured"
@@ -120,7 +119,6 @@
                             </assetToComponentMapping>
                         </cq:authoring>
                         <jcr:content
-                            jcr:mixinTypes="[]"
                             jcr:primaryType="nt:unstructured"
                             mergeList="{Boolean}true"/>
                     </${confFolderName}-structure>
@@ -136,7 +134,58 @@
             sling:resourceType="nt:unstructured">
             <template
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="nt:unstructured"/>
+                sling:resourceType="nt:unstructured">
+                <base jcr:primaryType="nt:unstructured">
+                    <policy_default
+                        jcr:lastModified="{Date}2019-07-13T23:07:37.559+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        appResourcesClientlib="aemdesign.core.resources"
+						clientlibs="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head,aemdesign.common.components,aemdesign.common.body]"
+						clientlibsJsHead="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_default>
+                </base>
+                <experience-fragments jcr:primaryType="nt:unstructured">
+                    <base jcr:primaryType="nt:unstructured">
+                        <v3 jcr:primaryType="nt:unstructured">
+                            <xfpage jcr:primaryType="nt:unstructured">
+                                <policy
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Experience Fragment Policy"
+                                    sling:resourceType="wcm/core/components/policy/policy"
+                                    clientlibs="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head,aemdesign.common.components,aemdesign.common.body]"
+                                    clientlibsJsHead="[aemdesign.core.vendorlib.bootstrap,aemdesign.common.head]">
+                                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                                </policy>
+                            </xfpage>
+                        </v3>
+                        <policy_default
+                            jcr:lastModified="{Date}2019-08-19T18:13:37.241+10:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="AEM.Design Showcase"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="[aemdesign.core.vendorlib.bootstrap]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_default>
+                    </base>
+                </experience-fragments>
+                <styleguide jcr:primaryType="nt:unstructured">
+                    <policy_default
+                        jcr:lastModified="{Date}2019-08-19T18:16:57.702+10:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM.Design Showcase"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[aemdesign.common.components,aemdesign.common.body,aemdesign.compose.header,aemdesign.compose.header.styleguide,aemdesign.compose.footer,aemdesign.compose.footer.styleguide]"
+                        clientlibsJsHead="[aemdesign.compose.header,aemdesign.compose.header.styleguide]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_default>
+                </styleguide>
+            </template>
             <content
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="nt:unstructured"/>
@@ -146,76 +195,71 @@
             <media jcr:primaryType="nt:unstructured">
                 <image jcr:primaryType="nt:unstructured">
                     <policy_default_image
-                            jcr:lastModified="{Date}2019-02-23T00:13:16.094+11:00"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Default Image Policy"
-                            sling:resourceType="wcm/core/components/policy/policy"
-                            allowedRenditionWidths="[480,640,720,800,960,1024,1280,1440,1920,2048]"
-                            allowUpload="false"
-                            altValueFromDAM="false"
-                            disableLazyLoading="true"
-                            displayPopupTitle="false"
-                            isDecorative="false"
-                            jpegQuality="{Long}82"
-                            titleValueFromDAM="false"
-                            uuidDisabled="false">
+                        jcr:lastModified="{Date}2019-02-23T00:13:16.094+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Default Image Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedRenditionWidths="[480,640,720,800,960,1024,1280,1440,1920,2048]"
+                        allowUpload="false"
+                        altValueFromDAM="false"
+                        disableLazyLoading="true"
+                        displayPopupTitle="false"
+                        isDecorative="false"
+                        jpegQuality="{Long}82"
+                        titleValueFromDAM="false"
+                        uuidDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <plugins jcr:primaryType="nt:unstructured">
                             <crop
-                                    jcr:primaryType="nt:unstructured"
-                                    features="*">
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
                                 <aspectRatios jcr:primaryType="nt:unstructured">
                                     <wideLandscape
-                                            jcr:primaryType="nt:unstructured"
-                                            name="Wide Landscape"
-                                            ratio="0.6180"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        name="Wide Landscape"
+                                        ratio="0.6180"/>
                                     <landscape
-                                            jcr:primaryType="nt:unstructured"
-                                            name="Landscape"
-                                            ratio="0.8284"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        name="Landscape"
+                                        ratio="0.8284"/>
                                     <square
-                                            jcr:primaryType="nt:unstructured"
-                                            name="Square"
-                                            ratio="1"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        ratio="1"
+                                        text="Square"
+                                        value="1,1"/>
                                     <portrait
-                                            jcr:primaryType="nt:unstructured"
-                                            name="Portrait"
-                                            ratio="1.6180"/>
-
+                                        jcr:primaryType="nt:unstructured"
+                                        name="Portrait"
+                                        ratio="1.6180"/>
                                     <freehand
-                                            jcr:primaryType="nt:unstructured"
-                                            text="Free hand"
-                                            ratio="0"
-                                            value="0,0"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        ratio="0"
+                                        text="Free hand"
+                                        value="0,0"/>
                                     <twobythree
-                                            jcr:primaryType="nt:unstructured"
-                                            text="2 x 3"
-                                            ratio="0.6666"
-                                            value="2,3"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        ratio="0.6666"
+                                        text="2 x 3"
+                                        value="2,3"/>
                                     <threebyfive
-                                            jcr:primaryType="nt:unstructured"
-                                            text="3 x 5"
-                                            ratio="0.6"
-                                            value="3,5"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        ratio="0.6"
+                                        text="3 x 5"
+                                        value="3,5"/>
                                     <sixteenbynine
-                                            jcr:primaryType="nt:unstructured"
-                                            text="16 x 9"
-                                            ratio="1.7777"
-                                            value="16,9"/>
-                                    <square
-                                            jcr:primaryType="nt:unstructured"
-                                            text="Square"
-                                            ratio="1"
-                                            value="1,1"/>
+                                        jcr:primaryType="nt:unstructured"
+                                        ratio="1.7777"
+                                        text="16 x 9"
+                                        value="16,9"/>
                                 </aspectRatios>
                             </crop>
                             <rotate
-                                    jcr:primaryType="nt:unstructured"
-                                    features="right"/>
+                                jcr:primaryType="nt:unstructured"
+                                features="right"/>
                             <flip
-                                    jcr:primaryType="nt:unstructured"
-                                    features="-"/>
+                                jcr:primaryType="nt:unstructured"
+                                features="-"/>
                         </plugins>
                     </policy_default_image>
                 </image>
