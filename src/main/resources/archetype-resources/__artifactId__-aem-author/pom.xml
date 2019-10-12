@@ -23,7 +23,7 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-author</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} :: aem-author</name>
+    <name>${parentArtifactName} - Author</name>
     <description>All updates to OOTB authoring experience</description>
     <version>${version}</version>
 
