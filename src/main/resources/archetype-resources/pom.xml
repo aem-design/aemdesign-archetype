@@ -71,7 +71,6 @@
         <package.classNamespace>${classNamespace}</package.classNamespace>
         <package.uploadProtocol>http</package.uploadProtocol>
         <aem.verison>6.4</aem.verison>
-        <!--<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>-->
         <project.majorVersion>1</project.majorVersion>
         <project.minorVersion>1</project.minorVersion>
         <slf4j.version>1.7.6</slf4j.version>
@@ -79,7 +78,13 @@
         <aem.java.version>8</aem.java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
         <aem.uberjar.version>6.5.0</aem.uberjar.version>
+        <gitClosestTagName>${symbol_dollar}{git.closest.tag.name}</gitClosestTagName>
+        <gitClosestTagCommitCount>${symbol_dollar}{git.closest.tag.commit.count}</gitClosestTagCommitCount>
+        <bundleFileName>${artifactId}-aem-services</bundleFileName>
+        <bundleName>${classNamespace}.${artifactId}-aem-services</bundleName>
+        <aemdesign.common.version>2.0.528</aemdesign.common.version>
     </properties>
 
 
@@ -134,26 +139,6 @@
                 <artifactId>geronimo-atinject_1.0_spec</artifactId>
                 <version>1.0</version>
                 <groupId>org.apache.geronimo.specs</groupId>
-                <scope>provided</scope>
-            </dependency>
-
-            <!-- Jackson -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>2.8.4</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>2.8.4</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>2.8.4</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -219,7 +204,7 @@
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
-                <version>${aem.uberjar.version}</version>
+                <version>${symbol_dollar}{aem.uberjar.version}</version>
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
@@ -264,7 +249,7 @@
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit4</artifactId>
-                <version>2.3.2</version>
+                <version>2.4.6</version>
                 <scope>test</scope>
                 <exclusions>
                     <exclusion>
@@ -276,7 +261,7 @@
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.sling-mock.junit4</artifactId>
-                <version>2.3.4</version>
+                <version>2.3.6</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -316,7 +301,7 @@
             <dependency>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.3</version>
+                <version>0.8.4</version>
             </dependency>
 
             <dependency>
@@ -353,13 +338,6 @@
                 <groupId>biz.aQute</groupId>
                 <artifactId>bndlib</artifactId>
                 <version>1.43.0</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>uber-jar</artifactId>
-                <version>${aem.uberjar.version}</version>
-                <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -505,6 +483,29 @@
             </plugin>
 
 
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>groovy-maven-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<id>update-finalname</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>
+								project.build.finalName="${project.artifactId}-${gitClosestTagName}.${gitClosestTagCommitCount}";
+								project.properties['gitClosestTagName']="${git.closest.tag.name}";
+								project.properties['gitClosestTagCommitCount']="${git.closest.tag.commit.count}";
+								println("project.build.finalName=${project.build.finalName}");
+							</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
             <!-- update versions for all submodules -->
             <plugin>
                 <!-- sets the version for each pom including children pom -->
@@ -554,6 +555,7 @@
                             project.version = git_revision
                             project.artifact.version = git_revision
                             project.artifact.versionRange = VersionRange.createFromVersion(git_revision)
+                            project.build.finalName = '${symbol_dollar}{project.artifactId}-${symbol_dollar}{gitClosestTagName}.${symbol_dollar}{gitClosestTagCommitCount}'
                             }
                             ]]></script>
                             </scripts>
@@ -599,12 +601,13 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>1.1.0</version>
                 <configuration>
                     <!-- <flattenMode>ossrh</flattenMode> -->
                     <flattenedPomFilename>.flattened-pom.xml</flattenedPomFilename>
                     <outputDirectory>${symbol_dollar}{project.build.directory}</outputDirectory>
                     <updatePomFile>true</updatePomFile>
+                    <flattenMode>ossrh</flattenMode>
                 </configuration>
                 <executions>
                     <execution>
@@ -624,6 +627,14 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven.site.plugin.version}</version>
+                <configuration>
+                    <locales>en</locales>
+                </configuration>
+            </plugin>
         </plugins>
         <!-- ensure all artifact names are set to updated version -->
         <finalName>${symbol_dollar}{project.artifactId}-${symbol_dollar}{git.closest.tag.name}.${symbol_dollar}{git.closest.tag.commit.count}</finalName>
@@ -801,13 +812,5 @@
         </pluginManagement>
     </build>
 
-    <profiles>
-        <profile>
-            <id>deploymentpackage</id>
-            <modules>
-                <module>${artifactId}-aem-deploy</module>
-            </modules>
-        </profile>
-    </profiles>
 
 </project>
