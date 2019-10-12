@@ -21,7 +21,7 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-training</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} :: aem-training</name>
+    <name>${parentArtifactName} - Training</name>
     <description>training package for AEM Design Components. Used for functional test and regression test</description>
     <version>${version}</version>
 
