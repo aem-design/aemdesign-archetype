@@ -6,9 +6,7 @@
     jcr:uuid="04efd9bd-99a5-40a3-83f5-463f78162e3a">
     <jcr:content
         cq:name="aem-design.png"
-        cq:parentPath="/content/dam/aemdesign/en/common"
         dam:assetState="processed"
-        dam:relativePath="aemdesign/en/common/aem-design.png"
         dam:s7damType="Image"
         jcr:lastModified="{Date}2019-09-12T17:08:29.081+10:00"
         jcr:lastModifiedBy="admin"
