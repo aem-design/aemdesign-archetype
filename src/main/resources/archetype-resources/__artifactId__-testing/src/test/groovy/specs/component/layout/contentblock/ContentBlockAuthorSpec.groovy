@@ -12,7 +12,7 @@ class ContentBlockAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contentblock"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1"
 
     def setupSpec() {

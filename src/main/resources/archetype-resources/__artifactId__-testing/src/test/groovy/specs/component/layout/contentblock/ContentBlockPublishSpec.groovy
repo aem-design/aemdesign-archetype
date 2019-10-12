@@ -13,7 +13,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contentblock"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1"
 
     def setupSpec() {
@@ -31,7 +31,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
-        report("I am on the component showcase page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I am on the component showcase page")
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
@@ -39,7 +39,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         and: 'Should have sample rich text'
         assert ${symbol_dollar}(selector + " .text[component]").text().trim() == "Variant: Default"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -63,7 +63,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         and: 'Should have sample rich text'
         assert ${symbol_dollar}(selector + " .text[component]").text().trim() == "Variant: Default Container"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -86,7 +86,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         and: 'Should have sample rich text'
         assert ${symbol_dollar}(selector + " .text[component]").text().trim() == "Variant: Float Section"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -109,7 +109,7 @@ class ContentBlockPublishSpec extends ComponentSpec {
         and: 'Should have sample rich text'
         assert ${symbol_dollar}(selector + " .text[component]").text().trim() == "Variant: Description List Section"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -285,12 +285,13 @@ class ContentBlockPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}(selector + " .childsection").size() == 3
 
         when: 'I click first child section button'
+        scrollIntoView(${symbol_dollar}("${symbol_pound}contentblock11a-heading button").firstElement())
         clickOnElement(${symbol_dollar}("${symbol_pound}contentblock11a-heading button").firstElement())
-        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I am on the component showcase page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I click first child section button")
 
         then: 'Fist child section content should be expanded'
-        waitFor { ${symbol_dollar}("${symbol_pound}contentblock11a-content.show") }
-        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I am on the component showcase page")
+        waitFor (3, 0.1) { ${symbol_dollar}("${symbol_pound}contentblock11a-content [component].text").isDisplayed() }
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Fist child section content should be expanded")
 
         where:
         viewport << getViewPorts()
@@ -318,5 +319,6 @@ class ContentBlockPublishSpec extends ComponentSpec {
         where:
         viewport << getViewPorts()
     }
+
 
 }

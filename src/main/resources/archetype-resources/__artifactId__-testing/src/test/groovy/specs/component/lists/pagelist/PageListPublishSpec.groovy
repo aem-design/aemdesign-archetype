@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.lists.pagelist
 
-
+import spock.lang.IgnoreRest
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -13,7 +13,7 @@ class PageListPublishSpec extends ComponentSpec {
 
     String pathPage = "component/lists/page-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/pagelist"
 
     def setupSpec() {
@@ -35,7 +35,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 5
@@ -49,7 +49,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has three plain items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li.item").size() == 3
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -68,7 +68,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 3
@@ -76,7 +76,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has icon as contents"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li i").size() == 3
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -95,7 +95,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 5
@@ -103,7 +103,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has image as contents"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li img").size() == 5
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -122,7 +122,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 5
@@ -130,7 +130,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has card as contents"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li .card").size() == 5
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -150,7 +150,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 3
@@ -158,7 +158,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has card as contents"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li .card").size() == 3
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -178,12 +178,11 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
 
         and: "Has no content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .content > child").isEmpty() == true
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -203,7 +202,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 2
@@ -220,7 +219,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Has call to action in first item"
         assert ${symbol_dollar}("${symbol_dollar}{selector} > div > ul > li.first > div > div.card-body > div > a").text().toUpperCase() == "BUTTON TEXT"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -239,7 +238,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has three lists"
         assert ${symbol_dollar}("${symbol_dollar}{selector} ul").size() == 3
@@ -256,7 +255,7 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Third list has one items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} ul").getAt(2).find("li").size() == 1
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -275,16 +274,16 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 3
 
         and: "Last item should have thumbnail override from list"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li img").getAt(0).attr("src").contains("/cablecar.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Last item should have thumbnail override from list")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Last item should have thumbnail override from list")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -303,17 +302,17 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 3
 
         and: "Last item should have thumbnail override from page details"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li img").getAt(0).attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Last item should have thumbnail override from page details")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Last item should have thumbnail override from page details")
 
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -332,22 +331,19 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
-        and: "First page link should have attribute: data-layer-event"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-event").equals("site interaction")
+        and: "First page link should have attribute: data-layer-track"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-track").equals("true")
 
-        and: "First page link should have attribute: data-layer-linktype"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-linktype").equals("link")
+        and: "First page link should have attribute: data-layer-label"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-label").equals("link")
 
-        and: "First page link should have attribute: data-layer-linklocation"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-linklocation").equals("pagelist")
-
-        and: "First page link should have attribute: data-layer-linkdescription"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-linkdescription").equals("badge Link Description")
+        and: "First page link should have attribute: data-layer-location"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-location").equals("pagelist")
 
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -365,7 +361,7 @@ class PageListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Page Title Should be trimmed"
         assert ${symbol_dollar}("${symbol_dollar}{selector} ul li .card-title").getAt(0).text().equals("Pag...")
@@ -373,6 +369,70 @@ class PageListPublishSpec extends ComponentSpec {
         and: "Page Description Should be trimmed"
         assert ${symbol_dollar}("${symbol_dollar}{selector} ul li .card-text").getAt(0).text().equals("Page with ..more")
 
+    }
+
+    @Unroll("Page List: Pages with Analytics Track Only ${symbol_pound}viewport.label")
+    def "Page List: Pages with Analytics Track Only"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "Page List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "${symbol_pound}pagelist35"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
+
+        and: "First page link should have attribute: data-layer-track"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-track").equals("true")
+
+        and: "First page link should have attribute: data-layer-label"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-label").equals("badge Link Description")
+
+        and: "First page link should have attribute: data-layer-location"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(0).attr("data-layer-location").equals("")
+
+        and: "Second page link should have attribute: data-layer-track"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(1).attr("data-layer-track").equals("true")
+
+        and: "Second page link should have attribute: data-layer-label"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(1).attr("data-layer-label").equals("Badge Link")
+
+        and: "Third page link should have attribute: data-layer-track"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(2).attr("data-layer-track").equals("true")
+
+        and: "Third page link should have attribute: data-layer-label"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ul li a").getAt(2).attr("data-layer-label").equals("Page3")
+
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
+        viewport << getViewPorts()
+    }
+
+    @Unroll("Page List: Pages with no Details in ${symbol_pound}viewport.label")
+    def "Page List: Pages with no Details"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "${symbol_pound}pagelist36"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
+
+        and: "Has five items of page missing details"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .page-missing-details").size() == 5
+
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
+        viewport << getViewPorts()
     }
 
 }

@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.widgets.onlinemedia
 
+import spock.lang.Ignore
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,7 +13,7 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/widgets/onlinemedia"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/onlinemedia"
 
     def setupSpec() {
@@ -20,7 +21,7 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
     }
 
 
-
+    @Ignore //${symbol_pound}onlinemedia1 has no visual
     @Unroll("Online Media: Appearance of Component Variant: Default in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default"() {
 
@@ -37,13 +38,14 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
+    @Ignore //${symbol_pound}onlinemedia2 has no visual as it does not have module to load content
     @Unroll("Online Media: Appearance of Component Variant: Default with YouTube in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default with YouTube"() {
 
@@ -60,13 +62,14 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
+    @Ignore //${symbol_pound}onlinemedia3 has no visual as it does not have module to load content
     @Unroll("Online Media: Appearance of Component Variant: Default with Kaltura in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default with Kaltura"() {
 
@@ -83,7 +86,7 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -106,7 +109,7 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -129,7 +132,7 @@ class OnlineMediaScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"

@@ -33,7 +33,7 @@ class TouchUIProjectsScreenshotSpec extends AuthorSpec {
             designReference(element)
         }
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
 
     }

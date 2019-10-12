@@ -12,7 +12,7 @@ class PageListPaginationPublishSpec extends ComponentSpec {
 
     String pathPage = "component/lists/page-list/pagination"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagelist"
 
     def setupSpec() {
@@ -34,40 +34,50 @@ class PageListPaginationPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has one list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 1
 
+        and: "Only next link exists on first page, without previous link"
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
+        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next").isDisplayed()
+        assert !${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .previous").isDisplayed()
+
         and: "Has pagination details"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > div.label").text().trim() == "[1 - 1] of 5"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on first page")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagination .current").text().trim() == "1"
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on first page")
 
         and: "Can select page 2"
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
         ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next > a").click()
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > div.label").text().trim() == "[2 - 2] of 5"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on second page")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagination .current").text().trim() == "2"
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on second page")
 
         and: "Can select page 3"
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
         ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next > a").click()
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > div.label").text().trim() == "[3 - 3] of 5"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on third page")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagination .current").text().trim() == "3"
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on third page")
 
         and: "Can select page 4"
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
         ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next > a").click()
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > div.label").text().trim() == "[4 - 4] of 5"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on forth page")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagination .current").text().trim() == "4"
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on forth page")
 
         and: "Can select page 5"
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
         ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next > a").click()
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > div.label").text().trim() == "[5 - 5] of 5"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on fifth page")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagination .current").text().trim() == "5"
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on fifth page")
 
         and: "Only previous link exists on last page, without next link"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .previous").isDisplayed()
+        scrollIntoView(${symbol_dollar}("${symbol_dollar}{selector} .pagination").firstElement())
         assert !${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .next").isDisplayed()
+        assert ${symbol_dollar}("${symbol_dollar}{selector} > .pagination > .previous").isDisplayed()
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 }

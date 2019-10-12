@@ -12,7 +12,7 @@ class TextScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/content/text"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/text"
 
     def setupSpec() {
@@ -34,7 +34,7 @@ class TextScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
         where:
@@ -56,7 +56,7 @@ class TextScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
         where:
@@ -77,7 +77,7 @@ class TextScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
         where:

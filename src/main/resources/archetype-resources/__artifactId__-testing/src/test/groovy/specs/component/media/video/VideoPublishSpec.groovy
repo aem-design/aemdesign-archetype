@@ -12,7 +12,7 @@ class VideoPublishSpec extends ComponentSpec {
 
     String pathPage = "component/media/video"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/video"
 
     def setupSpec() {
@@ -39,7 +39,7 @@ class VideoPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} video source").attr("src").contains("/FishTank.mp4")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Should have sample content loaded"
         assert ${symbol_dollar}("${symbol_dollar}{selector} video").firstElement().getAttribute("readyState") == "4"

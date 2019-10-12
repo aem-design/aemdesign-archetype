@@ -12,7 +12,7 @@ class RedirectNotificationScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/common/redirectnotification"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/redirectnotification"
 
     def setupSpec() {
@@ -30,10 +30,10 @@ class RedirectNotificationScreenshotSpec extends ComponentSpec {
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
 
     }

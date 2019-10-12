@@ -12,7 +12,7 @@ class TablePublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/table"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/table"
 
     def setupSpec() {
@@ -37,7 +37,7 @@ class TablePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Header")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample table content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} table").isEmpty() == false

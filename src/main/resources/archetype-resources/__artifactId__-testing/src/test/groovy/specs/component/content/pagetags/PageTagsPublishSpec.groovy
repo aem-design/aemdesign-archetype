@@ -12,7 +12,7 @@ class PageTagsPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/pagetags"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagetags"
 
 
@@ -38,7 +38,7 @@ class PageTagsPublishSpec extends ComponentSpec {
 
         and: "Should have sample tags"
         assert ${symbol_dollar}(selector).${symbol_dollar}("li")*.text() == ["Contact Page","Location Page","News Page"]
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample tags")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample tags")
 
         where:
         viewport << getViewPorts()

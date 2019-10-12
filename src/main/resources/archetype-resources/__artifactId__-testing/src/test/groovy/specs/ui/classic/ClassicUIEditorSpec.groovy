@@ -14,7 +14,7 @@ class ClassicUIEditorSpec extends ComponentSpec {
 
     String pathPage = "en.html"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
 
 
     def setupSpec() {
@@ -32,7 +32,7 @@ class ClassicUIEditorSpec extends ComponentSpec {
         println(page.title)
         println(page.properties)
         println("Read Editables")
-        println(page.Editor.Editables("['/content/${contentFolderName}-showcase/en/jcr:content/article'].dialog"))
+        println(page.Editor.Editables("['/content/${contentFolderName}-showcase/au/en/jcr:content/article'].dialog"))
         println("End of Test")
 
     }

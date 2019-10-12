@@ -240,7 +240,7 @@ class Editor extends Module {
     }
 
     def closeDialog(String path) {
-        return Window("Granite.author.DialogFrame.currentFloatingDialog.first().find(${symbol_escape}".cq-dialog-cancel${symbol_escape}").click()", false)
+        return js.exec("${symbol_escape}${symbol_dollar}(${symbol_escape}"button.cq-dialog-cancel${symbol_escape}").click(); return true;")
     }
 
     def dialogHelp(String path) {

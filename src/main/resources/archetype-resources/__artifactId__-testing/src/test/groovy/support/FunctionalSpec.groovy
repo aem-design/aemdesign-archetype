@@ -125,7 +125,9 @@ abstract class FunctionalSpec extends GebReportingSpec {
     def setWindowsSize(int width, int height) {
 //        printDebug("setWindowsSize set", [width,height])
 
-        driver.manage().window().setSize(new org.openqa.selenium.Dimension(width, height))
+        if (System.properties.getProperty("GLOBAL_ALLOW_RESIZE","true").equals("true")) {
+            driver.manage().window().setSize(new org.openqa.selenium.Dimension(width, height))
+        }
 
 //        printDebug("setWindowsSize after set", driver.manage().window().getSize())
     }
@@ -164,7 +166,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     static String getHostName() {
-        return System.properties.getProperty("crx.host", "192.168.27.2")
+        return System.properties.getProperty("crx.host", "localhost")
     }
 
 
@@ -469,7 +471,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     private def screenshot(WebElement element, String filePath) {
-        return screenshot(element, filePath, true, true, false)
+        return screenshot(element, filePath, true, true, true)
     }
 
     private def screenshot(WebElement element, String filePath, Boolean focus, Boolean highlight, Boolean crop) {
@@ -506,7 +508,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
             //element - highlight
             if (highlight) {
-                js.executeScript("arguments[0].setAttribute('style', 'box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8);position: relative;z-index: 9999;')", element);
+                js.executeScript("arguments[0].setAttribute('style', 'box-shadow: 0 0 0 99999px rgba(0, 0, 0, 1);position: relative;z-index: 9999;')", element);
             }
 
 
@@ -514,8 +516,9 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
             BufferedImage bufferedImage = ImageIO.read(imageFile);
 
-            //TODO:fix before use
             if (crop) {
+
+                Dimension windowSize = driver.manage().window().getSize()
 
                 Point location = element.getLocation()
                 Dimension size = element.getSize()
@@ -539,14 +542,33 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
                 printDebug("ELEMENT POSITION: ", elmentCoord)
 
-                printDebug("SCREENSHOT: ", [filePath, scrollTopValue, left, top, right, bottom,
-                                            bufferedImage.getWidth(), bufferedImage.getHeight()])
+                printDebug("SCREENSHOT: ", [filePath, "scrollTopValue", scrollTopValue, "left", left, "top", top, "right", right, "bottom", bottom,
+                                            "width", bufferedImage.getWidth(), "height", bufferedImage.getHeight(), "windowSize", windowSize])
 
+                int cropHight = elmentCoord["height"] as int
+                int cropWidth = elmentCoord["width"] as int
+
+                int viewportHight = windowSize.height
+                int viewportWidth = windowSize.width
+
+                int posX = elmentCoord["x"] as int
+                int posY = elmentCoord["y"] as int
+
+
+                if ((posX + cropWidth) > viewportWidth ) {
+                    cropWidth = viewportWidth - posX
+                }
+
+                if ((posY + cropHight) > viewportHight ) {
+                    cropHight = viewportHight - posY
+                }
+
+//                int x, int y, int w, int h
                 BufferedImage newImage = bufferedImage.getSubimage(
-                        elmentCoord["left"] as int,
-                        elmentCoord["top"] as int,
-                        elmentCoord["right"] as int,
-                        elmentCoord["bottom"] as int)
+                        elmentCoord["x"] as int,
+                        elmentCoord["y"] as int,
+                        cropWidth,
+                        cropHight)
 //                BufferedImage newImage = bufferedImage.getSubimage(left, top, right, bottom)
 
                 //use new buffered image
@@ -651,24 +673,35 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def verifyAssetDownload(String href) {
+        verifyAssetDownload(href,"")
+
+    }
+    def verifyAssetDownload(String href, String sha1) {
 
         try {
 
-            def downloadZipBytes = downloadBytes(href)
-            def downloadZipBytesSHA1 = SHA1(downloadZipBytes)
-//        printDebug("SHA1",[SHA1(downloadZipBytes)])
-            def verifyFileUrl = href.concat("/jcr:content/metadata/dam:sha1.json")
-//        printDebug("SHA1URL",[fileUrl])
+            def downloadBytes = downloadBytes(href)
+            def downloadBytesSHA1 = SHA1(downloadBytes)
+//            printDebug("Downloaded File SHA1 is: ",[downloadBytesSHA1])
 
-            def downloadSHA1 = downloadContent(verifyFileUrl)
+            if (sha1.empty) {
+                def verifyFileUrl = href.concat("/jcr:content/metadata/dam:sha1.json")
+//            printDebug("Downloading DAM:SHA from DAM URL",[verifyFileUrl])
 
-            def verifyFileUrlJson = IOUtils.toString(new InputStreamReader(downloadSHA1))
-//        printDebug("SHA1URLR",[downloadSHA1,a,a.contains(downloadZipBytesSHA1)])
+                def downloadSHA1 = downloadContent(verifyFileUrl)
+//            printDebug("Downloading DAM:SHA",[downloadSHA1])
 
-            return verifyFileUrlJson.contains(downloadZipBytesSHA1)
+                def verifyFileUrlJson = IOUtils.toString(new InputStreamReader(downloadSHA1))
+//            printDebug("Got DAM:SHA JSON",[verifyFileUrlJson])
+
+                return verifyFileUrlJson.contains(downloadBytesSHA1)
+            } else {
+                return downloadBytesSHA1 == sha1
+            }
+
 
         } catch (Exception ex) {
-
+            printDebug("verifyAssetDownload",[ex])
         }
         return false
 
@@ -736,7 +769,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
     def getImageWidth(imgUrl) {
         def usernamePassword = getAdminUsername() + ":" + getAdminUsername();
-        def encodedCreds =  new Base64.encoder.encode(usernamePassword.getBytes())
+        def encodedCreds =   Base64.encoder.encode(usernamePassword.getBytes())
         def url = new URL(imgUrl)
         def urlConnection = url.openConnection()
         urlConnection.setRequestProperty("Authorization", "Basic " + encodedCreds);
@@ -760,6 +793,8 @@ abstract class FunctionalSpec extends GebReportingSpec {
 
         JavascriptExecutor js = (JavascriptExecutor) driver
         js.executeScript("arguments[0].scrollIntoView();", element)
+
+        return true
     }
 
     def clickOnElement(element) {
@@ -767,6 +802,7 @@ abstract class FunctionalSpec extends GebReportingSpec {
         Actions actions = new Actions(driver)
         actions.click()
         actions.perform()
+        return true
     }
 
 }

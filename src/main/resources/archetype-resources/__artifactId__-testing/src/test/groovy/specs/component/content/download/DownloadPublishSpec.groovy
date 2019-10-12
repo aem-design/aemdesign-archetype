@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.content.download
 
+
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,7 +13,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/download"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/download"
 
     def setupSpec() {
@@ -37,7 +38,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "When asset is downloaded it matches repository asset file signature"
         assert verifyAssetDownload(${symbol_dollar}(selector).firstElement().getAttribute("href"))
@@ -64,7 +65,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -100,7 +101,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -140,7 +141,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Licensed Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
@@ -167,7 +168,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Licensed Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -206,7 +207,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Licensed Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} span").size() != 0
@@ -230,14 +231,13 @@ class DownloadPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
-
     @Unroll("Functionality of Component Variant: Default without Authored Content in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: Default without Authored Content"() {
 
         given: '>the page hierarchy is created as "Components" > "Content" > "Download"'
         and: '>I am in the component showcase page'
         and: '>the component is on the showcase page'
-        def selector = "${symbol_pound}download7"
+            def selector = "${symbol_pound}download7"
         def selectorContainer = "${symbol_pound}contentblock7 .contents"
 
         when: "I am on the component showcase page"
@@ -248,7 +248,7 @@ class DownloadPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Should have a placehoder image"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .cq-placeholder").attr("data-emptytext") == "Download"
+        assert ${symbol_dollar}("${symbol_dollar}{selector}[empty]").getAttribute("innerHTML").trim() == ""
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
@@ -273,7 +273,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Can override non-Licensed Image Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()
@@ -300,7 +300,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Can override non-Licensed Image Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -339,7 +339,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Can override non-Licensed Image Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -382,7 +382,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .icon").size() != 0
@@ -421,7 +421,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has sample icon line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} span.card-icon").size() != 0
@@ -463,7 +463,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Uses Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href"))
@@ -502,7 +502,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Uses Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href"))
@@ -544,7 +544,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Does not use Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href")) == false
@@ -586,7 +586,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Does not use Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href")) == false
@@ -604,7 +604,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .card-info").text().contains("jpeg file")
 
         and: "Has button line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .btn").text().toLowerCase() == "Download".toLowerCase()
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .btn","Download")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()
@@ -631,22 +631,22 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Does not use Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href")) == false
 
         and: "Uses Thumbnail Asset Rendition"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/thumbnail.img.jpeg")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/thumbnail.img.")
 
         and: "Has title line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.title").text() == "Asset Title"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .title","Asset Title")
 
         and: "Has description line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.description").text() == "Asset Description"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .description","Asset Description")
 
         and: "Has info line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.info").text().contains("jpeg file")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .info","jpeg file")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()
@@ -676,25 +676,25 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Does not use Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href")) == false
 
         and: "Uses Thumbnail Asset Rendition"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/thumbnail.img.jpeg")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/thumbnail.img.")
 
         and: "Has title line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .card-title").text() == "Asset Title"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .card-title","Asset Title")
 
         and: "Has description line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .card-description").text() == "Asset Description"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .card-description","Asset Description")
 
         and: "Has info line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .card-info").text().contains("jpeg file")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .card-info","jpeg file")
 
         and: "Has button line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .btn").text().toLowerCase() == "Download".toLowerCase()
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .btn","Download")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()
@@ -725,7 +725,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Uses Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href"))
@@ -734,13 +734,13 @@ class DownloadPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("thumbnailwidth").equals("50")
 
         and: "Has title line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.title").text() == "Asset Title"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .title","Asset Title")
 
         and: "Has description line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.description").text() == "Asset Description"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .description","Asset Description")
 
         and: "Has info line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.info").text().contains("jpeg file")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .info","jpeg file")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()
@@ -767,7 +767,7 @@ class DownloadPublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Asset Title")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Uses Asset Rendition as thumbnail"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(${symbol_dollar}("${symbol_dollar}{selector}").attr("href"))
@@ -776,13 +776,13 @@ class DownloadPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("thumbnailheight").equals("50")
 
         and: "Has title line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.title").text() == "Asset Title"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .title","Asset Title")
 
         and: "Has description line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.description").text() == "Asset Description"
+        assert compareInnerTextIgnoreCase("${symbol_dollar}{selector} .description","Asset Description")
 
         and: "Has info line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.info").text().contains("jpeg file")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .info","jpeg file")
 
         and: "Has license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").isEmpty()

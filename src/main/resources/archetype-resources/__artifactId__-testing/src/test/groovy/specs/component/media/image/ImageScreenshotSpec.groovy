@@ -13,7 +13,7 @@ class ImageScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/media/image"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/image"
 
     def setupSpec() {
@@ -36,7 +36,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -60,7 +60,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -83,7 +83,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -106,7 +106,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -130,7 +130,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -153,7 +153,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -176,7 +176,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -200,36 +200,14 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
-//    @Unroll("Appearance of Component Variant: Default Empty in ${symbol_pound}viewport.label")
-//    def "Appearance of Component Variant: Default Empty"() {
-//
-//        given:  '>the page hierarchy is created as "Components" > "Media" > "Image"'
-//        and:    '>I am in the component showcase page'
-//        and:    '>the component is on the showcase page'
-//        def selector = "${symbol_pound}image9"
-//        def selectorContainer = "${symbol_pound}contentblock9 .contents"
-//
-//        when: "I am on the component showcase page"
-//        setWindowSize(viewport)
-//        waitForAuthorPreviewPage()
-//
-//        then: "The component should be on the page"
-//        def component = waitForComponent(selector)
-//
-//        then: 'It should match the small viewport reference image.'
-//        designRef(selectorContainer)
-//
-//        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
-//        viewport << getViewPorts()
-//    }
-
+    //${symbol_pound}image9 has no visual
 
     @Unroll("Appearance of Component Variant: Default with Overrides in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default with Overrides"() {
@@ -247,7 +225,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -271,7 +249,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -295,7 +273,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -318,82 +296,18 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
-//    @Unroll("Appearance of Component Variant: Image Only Empty in ${symbol_pound}viewport.label")
-//    def "Appearance of Component Variant: Image Only Empty"() {
-//
-//        given:  '>the page hierarchy is created as "Components" > "Media" > "Image"'
-//        and:    '>I am in the component showcase page'
-//        and:    '>the component is on the showcase page'
-//        def selector = "${symbol_pound}image14"
-//        def selectorContainer = "${symbol_pound}contentblock14 .contents"
-//
-//        when: "I am on the component showcase page"
-//        setWindowSize(viewport)
-//        waitForAuthorPreviewPage()
-//
-//        then: "The component should be on the page"
-//        def component = waitForComponent(selector)
-//
-//        then: 'It should match the small viewport reference image.'
-//        designRef(selectorContainer)
-//
-//        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
-//        viewport << getViewPorts()
-//    }
+    //${symbol_pound}image14 has no visual
 
-//    @Unroll("Appearance of Component Variant: Card Empty in ${symbol_pound}viewport.label")
-//    def "Appearance of Component Variant: Card Empty"() {
-//
-//        given:  '>the page hierarchy is created as "Components" > "Media" > "Image"'
-//        and:    '>I am in the component showcase page'
-//        and:    '>the component is on the showcase page'
-//        def selector = "${symbol_pound}image15"
-//        def selectorContainer = "${symbol_pound}contentblock15 .contents"
-//
-//        when: "I am on the component showcase page"
-//        setWindowSize(viewport)
-//        waitForAuthorPreviewPage()
-//
-//        then: "The component should be on the page"
-//        def component = waitForComponent(selector)
-//
-//        then: 'It should match the small viewport reference image.'
-//        designRef(selectorContainer)
-//
-//        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
-//        viewport << getViewPorts()
-//    }
+    //${symbol_pound}image15 has no visual
 
-//    @Unroll("Appearance of Component Variant: Image Title and Description Empty in ${symbol_pound}viewport.label")
-//    def "Appearance of Component Variant: Image Title and Description Empty"() {
-//
-//        given:  '>the page hierarchy is created as "Components" > "Media" > "Image"'
-//        and:    '>I am in the component showcase page'
-//        and:    '>the component is on the showcase page'
-//        def selector = "${symbol_pound}image16"
-//        def selectorContainer = "${symbol_pound}contentblock16 .contents"
-//
-//        when: "I am on the component showcase page"
-//        setWindowSize(viewport)
-//        waitForAuthorPreviewPage()
-//
-//        then: "The component should be on the page"
-//        def component = waitForComponent(selector)
-//
-//        then: 'It should match the small viewport reference image.'
-//        designRef(selectorContainer)
-//
-//        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
-//        viewport << getViewPorts()
-//    }
-
+    //${symbol_pound}image16 has no visual
 
     @Unroll("Appearance of Component Variant: Default with Rendition in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default with Rendition"() {
@@ -411,7 +325,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -435,7 +349,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -459,7 +373,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -483,7 +397,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -507,7 +421,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -531,7 +445,7 @@ class ImageScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"

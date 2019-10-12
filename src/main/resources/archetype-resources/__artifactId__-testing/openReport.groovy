@@ -6,28 +6,23 @@ def openReport(file) {
 
     if (!file.isFile()) {
         System.err.println("Report file not found: ${symbol_dollar}{file.getPath()}")
-        //return true
     } else {
         def url = "file://${symbol_dollar}{file.canonicalPath}"
+
         System.println("Opening report: ${symbol_dollar}{url}")
         java.awt.Desktop.desktop.browse url.toURI()
     }
-
 }
 
-
-if (!System.properties.containsKey("skipOpenReport")) {
-
+if (System.properties.getProperty("test.openReport", "true") == "true") {
     try {
-        String reportDir = System.properties.getProperty("project.buildDirectory", "local-chrome")
-        File fileHtml = new File("./${symbol_dollar}reportDir/generated-docs/html/summary.html")
+        String reportDir = System.properties.getProperty("project.buildDirectory", "remote-seleniumhub-chrome")
 
+        File fileHtml = new File("./${symbol_dollar}reportDir/generated-docs/html/summary.html")
         openReport(fileHtml)
 
         File filePdf = new File("./${symbol_dollar}reportDir/generated-docs/pdf/summary.pdf")
         openReport(filePdf)
-
-
     } catch (Throwable t) {
         t.printStackTrace()
         return false
@@ -36,5 +31,4 @@ if (!System.properties.containsKey("skipOpenReport")) {
     System.println("Skipping opening report")
 }
 
-
-return true;
+return true

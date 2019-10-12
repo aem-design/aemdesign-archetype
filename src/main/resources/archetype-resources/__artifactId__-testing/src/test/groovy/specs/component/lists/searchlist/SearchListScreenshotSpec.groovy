@@ -12,7 +12,7 @@ class SearchListScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/lists/search-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock2/par/searchlist"
 
     def setupSpec() {
@@ -33,10 +33,10 @@ class SearchListScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector,"blank")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
 
     }
@@ -57,10 +57,10 @@ class SearchListScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
 
     }

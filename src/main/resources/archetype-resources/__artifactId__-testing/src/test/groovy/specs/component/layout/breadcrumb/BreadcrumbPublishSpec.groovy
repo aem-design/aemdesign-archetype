@@ -12,7 +12,7 @@ class BreadcrumbPublishSpec extends ComponentSpec {
 
     String pathPage = "component/layout/breadcrumb"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/breadcrumb"
 
     def setupSpec() {
@@ -37,10 +37,10 @@ class BreadcrumbPublishSpec extends ComponentSpec {
         takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: 'There should be a HREF value associated with Components link'
-        ${symbol_dollar}(selector + " a[href='/content/${contentFolderName}-showcase/en/component.html']", text: "Components")
+        ${symbol_dollar}(selector + " a[href='/content/${contentFolderName}-showcase/au/en/component.html']", text: "Components")
 
         and: 'There should be a HREF value associated with Layout link'
-        ${symbol_dollar}(selector + " a[href='/content/${contentFolderName}-showcase/en/component/layout.html']", text: "Layout")
+        ${symbol_dollar}(selector + " a[href='/content/${contentFolderName}-showcase/au/en/component/layout.html']", text: "Layout")
 
         and: 'There should be a HREF value associated with Breadcrumb link'
         ${symbol_dollar}(selector + " li.active span", text: "Breadcrumb")

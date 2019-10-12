@@ -12,7 +12,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/pageauthor"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pageauthor"
 
 
@@ -38,7 +38,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Administrator")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()
@@ -62,7 +62,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Administrator")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()
@@ -86,7 +86,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Author Full Name")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()
@@ -111,7 +111,7 @@ class PageAuthorPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().startsWith("Author Full Name")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()

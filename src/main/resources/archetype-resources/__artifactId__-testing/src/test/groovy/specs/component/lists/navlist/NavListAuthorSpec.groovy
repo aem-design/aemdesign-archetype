@@ -12,7 +12,7 @@ class NavListAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/lists/nav-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/navlist"
 
     def setupSpec() {

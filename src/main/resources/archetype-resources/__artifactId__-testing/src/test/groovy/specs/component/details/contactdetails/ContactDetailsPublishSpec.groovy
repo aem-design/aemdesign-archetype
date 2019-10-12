@@ -13,7 +13,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
 
     String pathPage = "component/details/contact-details"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/contactdetails"
 
     def setupSpec() {
@@ -35,7 +35,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .breadcrumb").isEmpty() == true
@@ -50,7 +50,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("alt").trim() == "Author: Max Barrass"
 
         and: "Has Image with Page Image as Thumbnail from Uploaded Image"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/content/${contentFolderName}-showcase/en/component/details/contact-details.thumb.319.319.png")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/content/${contentFolderName}-showcase/au/en/component/details/contact-details.thumb.319.319.png")
 
         and: "Has Title line with content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.title").text().trim() == "Author: Max Barrass"
@@ -88,7 +88,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .breadcrumb").isEmpty() == true
@@ -103,7 +103,7 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("alt").trim() == "Contact Details"
 
         and: "Has Image with Page Image as Thumbnail"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/content/${contentFolderName}-showcase/en/component/details/contact-details.thumb.319.319.png")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/content/${contentFolderName}-showcase/au/en/component/details/contact-details.thumb.319.319.png")
 
         and: "Has Title line with content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.title").text().trim() == "Contact Details"
@@ -128,12 +128,11 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
 
-        and: "Component should have no content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector}").text() == ""
-
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+
+        and: "Component should have no content"
+        assert ${symbol_dollar}("${symbol_dollar}{selector}").text() == ""
 
         where:
         viewport << getViewPorts()

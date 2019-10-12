@@ -12,7 +12,7 @@ class DataLayerPublishSpec extends ComponentSpec {
 
     String pathPage = "component/analytics/datalayer"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/page-details"
 
     def setupSpec() {
@@ -57,16 +57,16 @@ class DataLayerPublishSpec extends ComponentSpec {
         assert js.exec("return window.digitalData.page.pageInfo.destinationUrl.endsWith(${symbol_escape}"datalayer.html${symbol_escape}");")
 
         then: 'The digitalData.page.attributes.abort should equals "false"'
-        assert js.exec("return window.digitalData.page.attributes.abort == 'false';")
+        assert js.exec("return window.digitalData.page.pageInfo.abort == 'false';")
 
         then: 'The digitalData.page.attributes.platform should equals "aem"'
-        assert js.exec("return window.digitalData.page.attributes.platform == 'aem';")
+        assert js.exec("return window.digitalData.page.pageInfo.platform == 'aem';")
 
 //         then: 'The digitalData.page.attributes.breakPoint should equals "${symbol_pound}viewport.label"'
 //         assert js.exec("return window.digitalData.page.attributes.breakPoint;").toString() == viewport.label
 
         then: 'The digitalData.page.pageInfo.sections should be set'
-        assert js.exec("return window.digitalData.page.attributes.sections !== ${symbol_escape}"${symbol_escape}";")
+        assert js.exec("return window.digitalData.page.pageInfo.sections !== ${symbol_escape}"${symbol_escape}";")
 
         where:
         viewport << getViewPorts()

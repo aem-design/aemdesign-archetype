@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.lists.navlist
 
+
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,7 +13,7 @@ class NavListScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/lists/nav-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/navlist"
 
     def setupSpec() {
@@ -35,7 +36,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -58,7 +59,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -81,7 +82,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -104,7 +105,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -127,13 +128,12 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
-
 
 
     @Unroll("Appearance of Component Inherit from Parent in ${symbol_pound}viewport.label")
@@ -142,7 +142,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         given: '>the page hierarchy is created as "Components" > "Content" > "Nav List"'
         and: '>I am in the component showcase page'
         and: '>the component is on the showcase page'
-        def selector = "${symbol_pound}componentsnavlist"
+        def selector = "${symbol_pound}inheritedListInAside"
         def selectorContainer = "${symbol_pound}aside"
 
         when: "I am on the component showcase page"
@@ -152,7 +152,7 @@ class NavListScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"

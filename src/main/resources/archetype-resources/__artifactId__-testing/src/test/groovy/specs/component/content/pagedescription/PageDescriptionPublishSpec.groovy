@@ -11,7 +11,7 @@ import support.ComponentSpec
 class PageDescriptionPublishSpec extends ComponentSpec {
 
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String pathPage = "component/content/pagedescription"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagedescription"
 
@@ -38,7 +38,7 @@ class PageDescriptionPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().equalsIgnoreCase("Page Properties Description")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()
@@ -62,7 +62,7 @@ class PageDescriptionPublishSpec extends ComponentSpec {
 
         and: "Should have sample text"
         assert ${symbol_dollar}(selector).text().trim().equalsIgnoreCase("Override of Page Description")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where:
         viewport << getViewPorts()

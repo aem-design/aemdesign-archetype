@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.content.tooltip
 
+import spock.lang.Ignore
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,14 +13,14 @@ class TooltipScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/content/tooltip"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/tooltip"
 
     def setupSpec() {
         loginAsAdmin()
     }
 
-
+    @Ignore //${symbol_pound}tooltip1 has no visual
     @Unroll("Appearance of Component Variant: Default in ${symbol_pound}viewport.label")
     def "Appearance of Component Variant: Default"() {
 
@@ -34,7 +35,7 @@ class TooltipScreenshotSpec extends ComponentSpec {
         then: 'The component should appear on the page'
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
         designRef(selector)
 
         where:

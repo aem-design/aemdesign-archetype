@@ -12,7 +12,7 @@ class BreadcrumbAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/breadcrumb"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/breadcrumb"
 
     def setupSpec() {

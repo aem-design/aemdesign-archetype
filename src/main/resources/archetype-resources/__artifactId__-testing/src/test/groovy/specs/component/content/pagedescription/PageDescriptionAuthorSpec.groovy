@@ -11,7 +11,7 @@ import support.page.ui.touch.TouchUIEditor
 class PageDescriptionAuthorSpec extends ComponentSpec {
 
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String pathPage = "component/content/pagedescription"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagedescription"
 

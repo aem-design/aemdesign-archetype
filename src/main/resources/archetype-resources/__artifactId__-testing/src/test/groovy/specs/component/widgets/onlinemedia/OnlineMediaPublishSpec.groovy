@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.widgets.onlinemedia
 
+import spock.lang.Ignore
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,7 +13,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
 
     String pathPage = "component/widgets/onlinemedia"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/onlinemedia"
 
     def setupSpec() {
@@ -59,21 +60,18 @@ class OnlineMediaPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
-
 
         and: "Should have default media provider"
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("data-mediaprovider").contains("youtube")
 
         and: "Should have media id"
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("data-mediaid").contains("tL46xeIV5mc")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
-
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
+    @Ignore
     @Unroll("Functionality of Component Variant: Default with Kaltura in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: Default with Kaltura"() {
 
@@ -89,7 +87,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
 
         and: "Should have default media provider"
@@ -117,6 +115,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
+    @Ignore
     @Unroll("Functionality of Component Variant: IFrame with Youtube Video in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: IFrame with Youtube Video"() {
 
@@ -132,7 +131,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Should have sample src set"
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("src").contains("//www.youtube.com/embed/Dk7h22mRYHQ")
@@ -165,7 +164,7 @@ class OnlineMediaPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Should have sample src set"
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("src").contains("//player.vimeo.com/video/8733915")

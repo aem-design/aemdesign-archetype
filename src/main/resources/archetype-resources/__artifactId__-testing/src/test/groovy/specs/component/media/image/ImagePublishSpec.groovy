@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.media.image
 
-
+import spock.lang.IgnoreRest
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -13,7 +13,7 @@ class ImagePublishSpec extends ComponentSpec {
 
     String pathPage = "component/media/image"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/image"
 
     def setupSpec() {
@@ -38,7 +38,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city3.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -78,7 +78,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city3.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -118,7 +118,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/city3.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -158,7 +158,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city3.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -199,7 +199,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city1.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -239,7 +239,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city1.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -279,7 +279,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/city1.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -311,7 +311,6 @@ class ImagePublishSpec extends ComponentSpec {
         viewport << getViewPorts()
     }
 
-
     @Unroll("Functionality of Component Variant: Image Title and Description with Licensed Image in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: Image Title and Description with Licensed Image"() {
 
@@ -319,7 +318,6 @@ class ImagePublishSpec extends ComponentSpec {
         and: '>I am in the component showcase page'
         and: '>the component is on the showcase page'
         def selector = "${symbol_pound}image8"
-        def selectorContainer = "${symbol_pound}contentblock8 .contents"
 
         when: "I am on the component showcase page"
         setWindowSize(viewport)
@@ -330,7 +328,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city1.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -351,10 +349,10 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} figure figcaption").text() == "Licensed Asset Title"
 
         and: "Has description line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description").text() == "Licensed Asset Description"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure .description")[0].getAttribute("innerText").equals("Licensed Asset Description")
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure .license")[0].getAttribute("innerText").trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -407,7 +405,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -453,7 +451,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -499,7 +497,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -550,7 +548,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -571,7 +569,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} figure figcaption").text() == "Can override Image Title"
 
         and: "Has description line with overridden title"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description").text() == "Can override Image Description"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure .description")[0].getAttribute("innerText") == "Can override Image Description"
 
         and: "Has image with overridden title with overridden title"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("title") == "Can override Image Title"
@@ -682,7 +680,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/city3.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
 
         and: "Image dimension should match media query"
@@ -723,7 +721,7 @@ class ImagePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city2.jpg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -744,7 +742,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} figure figcaption").text() == "Asset Title"
 
         and: "Has description line embedded in Asset"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description").text() == "Asset Description";
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description")[0].getAttribute("innerText") == "Asset Description";
 
         and: "Has no license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").size() == 0
@@ -774,8 +772,8 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}(selector).attr("data-analytics-filename").endsWith("/city2.jpg")
 
         and: "Should be rendering sample image using current resource"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/contentblock19/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} picture img").attr("src").contains("/city2")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Image dimension should match media query"
         def expectSizes = [
@@ -796,7 +794,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} figure figcaption").text() == "Asset Title"
 
         and: "Has description line embedded in Asset"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description").text() == "Asset Description"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure div.description")[0].getAttribute("innerText") == "Asset Description"
 
         and: "Has no license line"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .license").size() == 0
@@ -823,8 +821,8 @@ class ImagePublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Should have sample content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains("/contentblock20/par/image.img.jpeg/")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} img").attr("src").contains(".img.jpeg/")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()

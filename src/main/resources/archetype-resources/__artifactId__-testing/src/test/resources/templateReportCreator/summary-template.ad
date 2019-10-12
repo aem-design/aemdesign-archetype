@@ -29,18 +29,26 @@
 [options="header"]
 |==================================================================================================================================
 | Total          | Passed          | Failed          | Feature failures | Feature errors   | Success rate        | Total time (ms)
-| ${stats.total} | ${stats.passed} | ${stats.failed} | ${stats.fFails}  | ${stats.fErrors} | ${stats.successRate}| ${stats.time}
+| ${stats.total} | ${stats.passed} | ${stats.failed} | ${stats.fFails}  | ${stats.fErrors} | ${fmt.toPercentage(stats.successRate)}| ${fmt.toTimeDuration(stats.time)}
 |==================================================================================================================================
 
 == Specifications
 
-[options="header"]
+[.summary,options="header"]
 |===================================================================
 |Name  | Features | Failed | Errors | Skipped | Success rate | Time
 <% data.each { name, map ->
    def s = map.stats
    def linkedName = "link:${name}.html[${name}]"
-%>| ${linkedName} | ${s.totalRuns} | ${s.failures} | ${s.errors} | ${s.skipped} | ${s.successRate} | ${s.time}
+   if (s.failures.toString() == "0") {
+        linkedName += " icon:check-circle[role=green]"
+    } else {
+        linkedName += " icon:exclamation-triangle[role=red]"
+    }
+    if (s.skipped.toString() != "0") {
+        linkedName += " icon:eye-slash[role=gray]"
+    }
+%>| ${linkedName} | ${s.totalRuns} | ${s.failures} | ${s.errors} | ${s.skipped} | ${s.successRate} | ${fmt.toTimeDuration(s.time)}
 <% } %>
 |===================================================================
 

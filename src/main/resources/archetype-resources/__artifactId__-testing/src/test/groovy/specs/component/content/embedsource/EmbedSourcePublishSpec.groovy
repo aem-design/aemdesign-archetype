@@ -12,7 +12,7 @@ class EmbedSourcePublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/embedsource"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/embedsource"
 
     def setupSpec() {
@@ -37,7 +37,7 @@ class EmbedSourcePublishSpec extends ComponentSpec {
 
         and: "Should have sample content"
         assert ${symbol_dollar}(selector).text().trim().startsWith("visible text changed with embeded css")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: 'Custom embed style should apply to element'
         ${symbol_dollar}("${symbol_dollar}{selector} .embed.custom.style").jquery.css("color") == "rgb(255, 0, 0)"

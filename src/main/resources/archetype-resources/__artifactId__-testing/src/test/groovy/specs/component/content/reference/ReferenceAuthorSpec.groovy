@@ -12,7 +12,7 @@ class ReferenceAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/content/reference"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/reference"
 
     def setupSpec() {
@@ -32,7 +32,7 @@ class ReferenceAuthorSpec extends ComponentSpec {
         TouchUIEditor page = waitForTouchUIPage(language)
 
         then: "The component should be on showcase page"
-        waitFor { withFrame(TouchUIEditor.PAGE_FRAME_CONTENT) { ${symbol_dollar}(selector) } }
+        waitFor { withFrame(TouchUIEditor.PAGE_FRAME_CONTENT) { ${symbol_dollar}("${symbol_pound}page1-page-details") } }
 
         and: "All dialogs are closed"
         page.Editor.isDialogOpen(compileComponentPath()) == false

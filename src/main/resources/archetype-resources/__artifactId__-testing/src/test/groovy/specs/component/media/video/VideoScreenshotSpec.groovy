@@ -12,7 +12,7 @@ class VideoScreenshotSpec extends ComponentSpec {
 
     String pathPage = "component/media/video"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/video"
 
     def setupSpec() {
@@ -36,7 +36,9 @@ class VideoScreenshotSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        then: 'It should match the small viewport reference image.'
+        then: "It should match the ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height reference image."
+        assert js.exec( "${symbol_escape}${symbol_dollar}(${symbol_escape}"${symbol_dollar}selector${symbol_escape}").find(${symbol_escape}"video${symbol_escape}")[0].pause(); return true;")
+        assert js.exec( "${symbol_escape}${symbol_dollar}(${symbol_escape}"${symbol_dollar}selector${symbol_escape}").find(${symbol_escape}"video${symbol_escape}")[0].currentTime=2; return true;")
         designRef(selectorContainer)
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"

@@ -12,8 +12,9 @@ class RedirectNotificationPublishSpec extends ComponentSpec {
 
     String pathPage = "component/common/redirectnotification"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/redirectnotification"
+    String pageSelectors = ""
 
     def setupSpec() {
         loginAsAdmin()
@@ -35,7 +36,7 @@ class RedirectNotificationPublishSpec extends ComponentSpec {
         assert driver.currentUrl.contains("redirectnotification/page1")
         report("The page should have redirected to target")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 

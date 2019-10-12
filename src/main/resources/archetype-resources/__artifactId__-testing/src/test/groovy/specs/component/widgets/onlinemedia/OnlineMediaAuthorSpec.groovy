@@ -12,7 +12,7 @@ class OnlineMediaAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/widgets/onlinemedia"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/onlinemedia"
 
     def setupSpec() {

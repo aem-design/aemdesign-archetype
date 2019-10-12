@@ -15,7 +15,7 @@ class ComponentPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/text"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/text"
 
 
@@ -49,7 +49,7 @@ class ComponentPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} a").isEmpty() == false
 
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -80,7 +80,7 @@ class ComponentPublishSpec extends ComponentSpec {
 //        assert ${symbol_dollar}("${symbol_dollar}{selector} a").isEmpty() == false
 //
 //
-//        where:
+//        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
 //        viewport << getViewPorts()
 //    }
 

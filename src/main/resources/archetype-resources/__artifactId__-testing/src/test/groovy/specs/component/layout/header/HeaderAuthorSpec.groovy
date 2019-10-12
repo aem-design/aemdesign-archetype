@@ -12,7 +12,7 @@ class HeaderAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/header"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/header"
 
     def setupSpec() {

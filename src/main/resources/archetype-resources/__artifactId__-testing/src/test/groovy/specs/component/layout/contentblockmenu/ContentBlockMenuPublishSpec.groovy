@@ -13,7 +13,7 @@ class ContentBlockMenuPublishSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contentblockmenu"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblockmenu1"
 
     def setupSpec() {

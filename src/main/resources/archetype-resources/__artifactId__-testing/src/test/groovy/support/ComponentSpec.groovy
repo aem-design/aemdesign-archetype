@@ -29,6 +29,9 @@ abstract class ComponentSpec extends FunctionalSpec {
     def String pageExtention = ".html"
 
     @Shared
+    def String pageSelectors = ""
+
+    @Shared
     def String pathPage
     @Shared
     def String pathSite
@@ -74,7 +77,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         if (StringUtils.isEmpty(inLanguage)) {
             inLanguage = language
         }
-        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtention)
+        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
         page.waitForSidekick()
         return page
     }
@@ -89,7 +92,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         }
         //printDebug("URL", [page.AEMPage.toLanguage(pathSite,inLanguage,pathPage + pageExtention)])
 
-        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtention)
+        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
         page.waitForPageContent()
 //        waitForDocumentReady()
         return page
@@ -100,7 +103,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         if (StringUtils.isEmpty(inLanguage)) {
             inLanguage = language
         }
-        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtention), AEMPage.WCMMODE.DISABLED)
+        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention), AEMPage.WCMMODE.DISABLED)
         printDebug("URL", [url, driver.manage().window().getSize()])
 //        System.out.println("Loading Page: "+url)
         def page = to PublishPage, url
@@ -236,5 +239,12 @@ abstract class ComponentSpec extends FunctionalSpec {
         }
     }
 
+    def compareInnerTextIgnoreCase(selector, innerText) {
+        return ${symbol_dollar}("${symbol_dollar}selector").firstElement().getAttribute("innerText").compareToIgnoreCase("${symbol_dollar}innerText") == 0
+    }
+
+    def compareInnerTextContains(selector, innerText) {
+        return ${symbol_dollar}("${symbol_dollar}selector").firstElement().getAttribute("innerText").contains("${symbol_dollar}innerText")
+    }
 
 }

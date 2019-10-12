@@ -16,10 +16,11 @@ import org.openqa.selenium.logging.LoggingPreferences
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriverService
 import org.openqa.selenium.remote.CapabilityType
-import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.safari.SafariDriver
 import support.ReportListener
+import io.appium.java_client.remote.MobileCapabilityType
+import org.openqa.selenium.remote.DesiredCapabilities
 
 import java.util.logging.Level
 
@@ -50,12 +51,12 @@ reportingListener = new ReportListener()
 
 String GLOBAL_ENV = System.getProperty("geb.env","local-chrome")
 String GLOBAL_SCHEME = System.properties.getProperty("crx.scheme","http")
-String GLOBAL_HOST = System.properties.getProperty("crx.host","192.168.27.2")
+String GLOBAL_HOST = System.properties.getProperty("crx.host","localhost")
 String GLOBAL_PORT = System.properties.getProperty("crx.port","4502")
 String GLOBAL_USER = System.properties.getProperty("crx.user","admin")
 String GLOBAL_PASS = System.properties.getProperty("crx.password","admin")
 String GLOBAL_URL = "${symbol_dollar}{GLOBAL_SCHEME}://${symbol_dollar}{GLOBAL_HOST}:${symbol_dollar}{GLOBAL_PORT}"
-String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenumhuburl","http://192.168.27.2:32768/wd/hub")
+String GLOBAL_SELENIUMHUB_URL = System.properties.getProperty("selenumhuburl","http://${symbol_dollar}GLOBAL_HOST:32768/wd/hub")
 String GLOBAL_BUILD_DIR = System.properties.getProperty("project.buildDirectory", GLOBAL_ENV)
 
 //save params if have not been defined
@@ -93,17 +94,8 @@ printDebug("SETTINGS",[
 //specific driver
 environments {
 
-    "local-styleguide" {
-        printDebug("DRIVER", "local-styleguide")
-        String styleguideHost = System.properties.getProperty("styleguideHost","192.168.27.2")
-        String styleguidePort = System.properties.getProperty("styleguidePort","80")
 
-        printDebug("SETTINGS URL", "http://${symbol_dollar}{styleguideHost}:${symbol_dollar}{styleguidePort}")
-
-        System.properties.setProperty("geb.build.baseUrl", "http://${symbol_dollar}{styleguideHost}:${symbol_dollar}{styleguidePort}")
-    }
-
-    // run as -Dgeb.env=chrome
+    // run as -Dgeb.env=local-chrome
     // See: http://code.google.com/p/selenium/wiki/ChromeDriver
     "local-chrome" {
         driver = {
@@ -187,7 +179,7 @@ environments {
         }
     }
 
-    // run as -Dgeb.env=firefox
+    // run as -Dgeb.env=local-firefox
     // See: http://code.google.com/p/selenium/wiki/FirefoxDriver
     "local-firefox" {
         driver = {
@@ -295,14 +287,14 @@ environments {
         }
     }
 
-    // run as  -Dgeb.env=htmlunit
+    // run as  -Dgeb.env=local-htmlunit
     "local-htmlunit" {
         printDebug("DRIVER", "local-htmlunit")
 
         driver = { new HtmlUnitDriver() }
     }
 
-    // run as  -Dgeb.env=htmlunit
+    // run as  -Dgeb.env=remote-browserstack
     "remote-browserstack" {
         printDebug("DRIVER", "remote-browserstack")
 
@@ -388,6 +380,67 @@ environments {
                 assert accessKey
                 new SauceLabsDriverFactory().create(sauceLabsBrowser, username, accessKey)
             }
+        }
+    }
+
+
+    // run as  -Dgeb.env=appium-ios
+    "remote-seleniumhub-appium" {
+
+        System.properties.setProperty("GLOBAL_ALLOW_RESIZE", "false")
+
+        driver = {
+            printDebug("DRIVER", "remote-seleniumhub-appium")
+
+            DesiredCapabilities capabilities = new DesiredCapabilities()
+
+            //IOS
+            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS")
+            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.2")
+            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari")
+            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Xr")
+
+            //ANDROID
+//            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID)
+////            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium")
+//            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1")
+////            capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest")
+////            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10")
+//            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1")
+//            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.CHROME)
+//            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_2_API_25")
+////            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus_5X_API_29_x86")
+//
+//            capabilities.setCapability("forceMjsonwp", "true")
+
+
+//
+//// Skip the installation of io.appium.settings app and the UIAutomator 2 server.
+//            capabilities.setCapability("skipDeviceInitialization", true);
+//            capabilities.setCapability("skipServerInstallation", true);
+//
+//            ChromeOptions chrome_options = new ChromeOptions()
+//            chrome_options.addArguments("ignore-certificate-errors");
+//            chrome_options.addArguments("disable-translate");
+//            chrome_options.addArguments("no-first-run");
+//
+//
+//            Map<String, Object> prefs = new HashMap<String, Object>();
+//            prefs.put("profile.default_content_settings.popups", 0);
+//            chrome_options.setExperimentalOption("prefs", prefs);
+//
+//            capabilities.setCapability(ChromeOptions.CAPABILITY, chrome_options)
+
+
+            //disable Browser logtype
+            LoggingPreferences logPrefs = new LoggingPreferences()
+            logPrefs.enable(LogType.BROWSER, Level.OFF)
+            capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs)
+
+            URL url = new URL(GLOBAL_SELENIUMHUB_URL)
+//            URL url = new URL("http://127.0.0.1:4723/wd/hub")
+
+            return new RemoteWebDriver(url, capabilities)
         }
     }
 

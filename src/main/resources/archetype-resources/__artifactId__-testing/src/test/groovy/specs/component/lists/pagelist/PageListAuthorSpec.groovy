@@ -12,7 +12,7 @@ class PageListAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/lists/page-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagelist"
 
     def setupSpec() {

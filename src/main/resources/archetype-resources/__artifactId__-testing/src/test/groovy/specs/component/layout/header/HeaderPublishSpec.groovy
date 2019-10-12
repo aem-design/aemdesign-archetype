@@ -12,7 +12,7 @@ class HeaderPublishSpec extends ComponentSpec {
 
     String pathPage = "component/layout/header"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/header"
 
     def setupSpec() {
@@ -38,7 +38,7 @@ class HeaderPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}(selector + " .text[component]").text().trim() == "Header Content"
         report("Should have sample rich text")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -64,7 +64,7 @@ class HeaderPublishSpec extends ComponentSpec {
         and: 'Section should have a background image'
         assert ${symbol_dollar}(selector).css("background-image").contains(".png")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 

@@ -12,7 +12,7 @@ class TextPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/text"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/text"
 
 
@@ -37,8 +37,8 @@ class TextPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Should have sample rich text"
-        assert ${symbol_dollar}(selector).text().trim().startsWith("Heading 1")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample rich text")
+        assert ${symbol_dollar}(selector).children().size() == 28
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample rich text")
 
         and: "Has sample table content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} table").isEmpty() == false
@@ -70,8 +70,8 @@ class TextPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Should have sample rich text"
-        assert ${symbol_dollar}(selector).text().trim().startsWith("Heading 1")
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample rich text")
+        assert ${symbol_dollar}(selector).children().size() == 28
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample rich text")
 
         and: "Has sample table content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} table").isEmpty() == false

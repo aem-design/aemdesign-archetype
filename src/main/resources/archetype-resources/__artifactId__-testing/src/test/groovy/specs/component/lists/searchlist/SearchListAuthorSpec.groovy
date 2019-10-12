@@ -12,7 +12,7 @@ class SearchListAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/lists/search-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock2/par/searchlist"
 
     def setupSpec() {

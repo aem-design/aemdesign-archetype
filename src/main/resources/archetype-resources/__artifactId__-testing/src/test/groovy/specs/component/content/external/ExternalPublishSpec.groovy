@@ -13,13 +13,12 @@ class ExternalPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/external"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/external"
 
     def setupSpec() {
         loginAsAdmin()
     }
-
 
     @Unroll("Functionality of Component Variant: iFrame with Parameters in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: iFrame with Parameters"() {
@@ -40,11 +39,11 @@ class ExternalPublishSpec extends ComponentSpec {
         def component = waitForComponent(selector)
 
         and: "Its external content is loaded"
-        waitFor { withFrame("external1") { "${symbol_pound}external-page1-text" } }
+        waitFor { withFrame("external1") {  ${symbol_dollar}("${symbol_pound}external-page1-text") } }
 
         and: "Should have sample content in iFrame 600x900"
-        withFrame("external1") { ${symbol_dollar}("${symbol_pound}external-page1-text").text().trim() == "External Page Content 1" }
-        report("Should have sample content in iFrame 600x900")
+        withFrame("external1") { browser.page.find("${symbol_pound}external-page1-text").text().trim().toLowerCase() == "External Page Content 1".toLowerCase() }
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content in iFrame 600x900")
 
         and: 'I should be able to see the width of the iframe is set to 600'
         assert ${symbol_dollar}(selector).attr("width") == "600"
@@ -53,7 +52,7 @@ class ExternalPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}(selector).attr("height") == "900"
 
         and: 'I should not see the horizontal and vertical scroll bar'
-        assert ${symbol_dollar}(selector).attr("scrolling") == "no"
+        assert ${symbol_dollar}(selector).attr("scrolling") == "false"
 
         where:
         viewport << getViewPorts()
@@ -82,11 +81,11 @@ class ExternalPublishSpec extends ComponentSpec {
         waitFor { withFrame("external2") { "${symbol_pound}external-page1-text" } }
 
         and: "Should have sample content in iFrame with scrollbar"
-        withFrame("external2") { ${symbol_dollar}("${symbol_pound}external-page1-text").text().trim() == "External Page Content 1" }
-        report("Should have sample content in iFrame with scrollbar")
+        withFrame("external2") { browser.page.find("${symbol_pound}external-page1-text").text().trim().toLowerCase() == "External Page Content 1".toLowerCase() }
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content in iFrame with scrollbar")
 
         and: 'I should see the horizontal and vertical scrollbar'
-        ${symbol_dollar}(selector).attr("scrolling") == "no"
+        ${symbol_dollar}(selector).attr("scrolling") == "yes"
 
         where:
         viewport << getViewPorts()
@@ -109,12 +108,10 @@ class ExternalPublishSpec extends ComponentSpec {
 
         and: "Should have SSI Include tag"
         assert ${symbol_dollar}(selector).getAttribute("innerHTML").contains("${symbol_pound}include")
-        report("Should have SSI Include tag")
 
         where:
         viewport << getViewPorts()
     }
-
 
     @Unroll("Functionality of Component Variant: Server Import in ${symbol_pound}viewport.label")
     def "Functionality of Component Variant: Server Import"() {
@@ -133,7 +130,7 @@ class ExternalPublishSpec extends ComponentSpec {
 
         and: "Should have imported content"
         assert ${symbol_dollar}(selector).text().trim().contains("Adobe")
-        report("Should have imported content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have imported content")
 
         where:
         viewport << getViewPorts()

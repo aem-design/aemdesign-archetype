@@ -12,8 +12,8 @@ class EventDetailsAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/details/event-details"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
-    String componentPath = "jcr:content/article/par/contentblock1/par/event_details"
+    String language = "au/en"
+    String componentPath = "jcr:content/article/par/contentblock1/par/eventdetails"
 
     def setupSpec() {
         loginAsAdmin()
@@ -26,7 +26,7 @@ class EventDetailsAuthorSpec extends ComponentSpec {
     def "Authoring of Component"() {
 
         given: "Component has already been inserted"
-        def selector = "${symbol_pound}eventdetails1"
+        def selector = "${symbol_pound}event-details1"
 
         when: "I am on the Component showcase page"
         TouchUIEditor page = waitForTouchUIPage(language)

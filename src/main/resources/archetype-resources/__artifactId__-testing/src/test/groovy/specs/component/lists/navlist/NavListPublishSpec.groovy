@@ -13,7 +13,7 @@ class NavListPublishSpec extends ComponentSpec {
 
     String pathPage = "component/lists/nav-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/navlist"
 
     def setupSpec() {
@@ -36,7 +36,7 @@ class NavListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 2
@@ -45,9 +45,9 @@ class NavListPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").firstElement().getAttribute("textContent").trim().contains("Page1")
 
         and: "Has last item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li").firstElement().getAttribute("textContent").trim().contains("Page1")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li").lastElement().getAttribute("textContent").trim().contains("Page2")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -66,21 +66,20 @@ class NavListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 2
 
         and: "Has first item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li a").firstElement().getAttribute("textContent").trim().contains("Page1")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .menu a").firstElement().getAttribute("textContent").trim().contains("Page1")
 
         and: "Has last item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li a").lastElement().getAttribute("textContent").trim().contains("Page2")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .menu a").lastElement().getAttribute("textContent").trim().contains("Page2")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
-
 
     @Unroll("Nav List: Stacked with Fixed List in ${symbol_pound}viewport.label")
     def "Nav List: Stacked with Fixed List"() {
@@ -97,26 +96,24 @@ class NavListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").size() == 2
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").size() == 2
 
         and: "Has first item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").firstElement().getAttribute("textContent").trim() == "Page1"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(0).find("a.dropdown-toggle").getAttribute("textContent").trim() == "Page1"
 
-//        and: "Page1 item has five sub items"
-//        assert ${symbol_dollar}("${symbol_dollar}{selector} li:nth-child(2) .dropdown-menu a").size() == 5
+        and: "First item has five sub items"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(0).find("div.dropdown-menu a").size() == 5
 
         and: "Has last item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").lastElement().getAttribute("textContent").trim() == "Page2"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(1).find("a.dropdown-toggle").getAttribute("textContent").trim() == "Page2"
 
-//        and: "Only first item is marked as current page"
-//        assert ${symbol_dollar}("${symbol_dollar}{selector} li:nth-child(1)").attr("class").contains("current")
-//        assert !${symbol_dollar}("${symbol_dollar}{selector} li:nth-child(2)").attr("class").contains("current")
-//        assert !${symbol_dollar}("${symbol_dollar}{selector} li:nth-child(3)").attr("class").contains("current")
+        and: "Last item has five sub items"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(1).find("div.dropdown-menu a").size() == 5
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -136,21 +133,20 @@ class NavListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has five list items"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 5
 
         and: "Has first item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li a").firstElement().getAttribute("textContent").trim().contains("Page1")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .menu a").firstElement().getAttribute("textContent").trim().contains("Page1")
 
         and: "Has last item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li a").lastElement().getAttribute("textContent").trim().contains("Page5")
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .menu a").lastElement().getAttribute("textContent").trim().contains("Page5")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
-
 
     @Unroll("Nav List: Stacked with Children List in ${symbol_pound}viewport.label")
     def "Nav List: Stacked with Children List"() {
@@ -167,24 +163,24 @@ class NavListPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has two list items"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").size() == 5
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").size() == 5
 
         and: "Has first item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").firstElement().getAttribute("textContent").trim() == "Page1"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(0).find("a.dropdown-toggle").getAttribute("textContent").trim() == "Page1"
 
         and: "First item has five sub items"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} [aria-labelledby='page1'] a").size() == 5
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(0).find("div.dropdown-menu a").size() == 5
 
         and: "Has last item"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} li .dropdown-toggle").lastElement().getAttribute("textContent").trim() == "Page5"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(4).find("a.dropdown-toggle").getAttribute("textContent").trim() == "Page5"
 
         and: "First item has five sub items"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} [aria-labelledby='page5'] a").size() == 5
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li.dropdown").getAt(4).find("div.dropdown-menu a").size() == 5
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -198,7 +194,7 @@ class NavListPublishSpec extends ComponentSpec {
 
         when: "I am on the component showcase page"
         setWindowSize(viewport)
-        waitForAuthorPreviewPageUrl("content/${contentFolderName}-showcase/en/component/lists/nav-list/pages/page2/page2.html")
+        waitForAuthorPreviewPageUrl("content/${contentFolderName}-showcase/au/en/component/lists/nav-list/pages/page2/page2.html")
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
@@ -219,8 +215,39 @@ class NavListPublishSpec extends ComponentSpec {
         and: "Has second menu item with link marked as active should have current link title equals Page2"
         assert ${symbol_dollar}("${symbol_dollar}{selector} li.nav-item.current").find("a.current").firstElement().getAttribute("textContent").trim() == "Page2"
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
 
     }
+
+    @Unroll("Nav List: Dropdown with Children List in ${symbol_pound}viewport.label")
+    def "Nav List: Dropdown with Children List"() {
+
+        given: '>the page hierarchy is created as "Components" > "Lists" > "Nav List"'
+        and: '>I am in the component showcase page'
+        and: '>the component is on the showcase page'
+        def selector = "${symbol_pound}navlist6"
+
+        when: "I am on the component showcase page"
+        setWindowSize(viewport)
+        waitForAuthorPreviewPage()
+
+        then: "The component should be on the page"
+        def component = waitForComponent(selector)
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
+
+        and: "Has five first level items"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} li").size() == 5
+
+        and: "First item has five items"
+        assert ${symbol_dollar}("[aria-labelledby=navlist6_page1] > .nav-item").size() == 5
+
+        and: "First item has five items"
+        assert ${symbol_dollar}("[aria-labelledby=navlist6_page1_page1] > .nav-item").size() == 2
+
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
+        viewport << getViewPorts()
+    }
+
+
 }

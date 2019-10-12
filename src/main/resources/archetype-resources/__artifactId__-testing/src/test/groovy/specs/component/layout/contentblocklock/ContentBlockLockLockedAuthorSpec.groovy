@@ -14,11 +14,11 @@ class ContentBlockLockLockedAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contentblocklock"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblocklock1"
 
     def setupSpec() {
-        login("${artifactId}-author", "0vU2wI68xEh9gDhQaaDFg1UqL21z617O")
+        login("aemdesign-author", "0vU2wI68xEh9gDhQaaDFg1UqL21z617O")
     }
 
     def cleanupSpec() {

@@ -13,8 +13,8 @@ class EventDetailsPublishSpec extends ComponentSpec {
 
     String pathPage = "component/details/event-details"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
-    String componentPath = "jcr:content/article/par/contentblock1/par/event_details"
+    String language = "au/en"
+    String componentPath = "jcr:content/article/par/contentblock1/par/eventdetails"
 
     def setupSpec() {
         loginAsAdmin()
@@ -35,7 +35,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Should have sample heading"
         assert ${symbol_dollar}("${symbol_dollar}selector h1").text().trim().toLowerCase().equals("Event Details".toLowerCase())
@@ -47,7 +47,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-subtitle").text().trim() == "Mon 1 October to Fri 5 October"
 
         and: "Has Description line with content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date").text().trim() == "9AM to 9AM"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date").text().trim() == "9:20 AM to 9:20 AM"
 
         where:
         viewport << getViewPorts()
@@ -68,10 +68,10 @@ class EventDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+//        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
-        and: "Component should be empty"
-        assert ${symbol_dollar}("${symbol_dollar}{selector}").isEmpty() == true
+        and: "Component should be hidden"
+        assert ${symbol_dollar}("${symbol_dollar}{selector}[hidden]").size() == 1
 
         where:
         viewport << getViewPorts()
@@ -93,10 +93,10 @@ class EventDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Should have sample heading"
-        assert ${symbol_dollar}("${symbol_dollar}selector h1").text().trim().toLowerCase().equals("Event Details".toLowerCase())
+        assert ${symbol_dollar}("${symbol_dollar}selector h3").text().trim().toLowerCase().equals("Event Details".toLowerCase())
 
         and: "Has Description line with content"
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.description").text().trim() == "Event to showcase all events"
@@ -105,7 +105,13 @@ class EventDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-subtitle").text().trim() == "Mon 1 October to Fri 5 October"
 
         and: "Has Description line with content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date").text().trim() == "9AM to 9AM"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date").text().trim() == "9:20 am9:20 am"
+
+        and: "Has Description line with content that has startDate time "
+        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date time[itemprop='startDate']").size() == 1
+
+        and: "Has Description line with content that has endDate time "
+        assert ${symbol_dollar}("${symbol_dollar}{selector} div.card-date time[itemprop='endDate']").size() == 1
 
 
         where:
@@ -121,7 +127,7 @@ class EventDetailsPublishSpec extends ComponentSpec {
         def selector = "${symbol_pound}event-details"
 
         when: "I am on the component showcase page"
-        setWindowSize(viewport)
+        setWindowSizeLG()
         waitForAuthorPreviewPage()
 
         then: "The component should be on the page"

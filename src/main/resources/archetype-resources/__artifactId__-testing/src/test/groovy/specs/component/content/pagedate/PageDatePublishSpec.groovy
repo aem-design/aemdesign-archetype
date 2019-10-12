@@ -12,7 +12,7 @@ class PageDatePublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/pagedate"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagedate"
 
     def setupSpec() {

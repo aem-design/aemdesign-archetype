@@ -12,8 +12,8 @@ class ContentTabsAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contenttabs"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
-    String componentPath = "jcr:content/article/par/contentblock/par/contenttabs"
+    String language = "au/en"
+    String componentPath = "jcr:content/article/par/contentblock1/par/contenttabs"
 
     def setupSpec() {
         loginAsAdmin()

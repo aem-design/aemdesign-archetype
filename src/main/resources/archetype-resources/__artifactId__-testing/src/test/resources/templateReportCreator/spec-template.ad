@@ -60,7 +60,7 @@
 <%
     features.eachFeature { name, result, blocks, iterations, params ->
 %>
-=== $name
+=== $name **$result** [big]#<% if (result=="PASS") { %>icon:check-circle[role="green"]<% } else if (result=="IGNORED") { %>icon:eye-slash[role="gray"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
 
 =====
 
@@ -69,9 +69,12 @@
         def gebArtefacts = gebTestResults?.find {it?.label==name}?.reports
 //        println "REPORT: iteration artefacts: ${gebArtefacts}"
 //        println "REPORT: features - \n\tname: ${name},\n\tresult: ${result},\n\tblocks: ${blocks},\n\titerations: ${iterations},\n\tparms: ${params}"
+        def iterationTimes = iterations.collect { it.time ?: 0L }
+        def totalTime = fmt.toTimeDuration( iterationTimes.sum() )
 %>
 
-Result: **$result** [big]#<% if (result=="PASS") { %>icon:check-circle-o[role="green"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
+Result: **$result** [big]#<% if (result=="PASS") { %>icon:check-circle[role="green"]<% } else if (result=="IGNORED") { %>icon:eye-slash[role="gray"]<% } else { %>icon:exclamation-triangle[role="red"]<% } %>#
+Time: $totalTime
 <%
         def num = 0
         for ( block in blocks ) {
@@ -160,7 +163,7 @@ Result: **$result** [big]#<% if (result=="PASS") { %>icon:check-circle-o[role="g
 | ${params.join( ' | ' )} | Result
 <%
             for ( iteration in executedIterations ) {
-%>| ${iteration.dataValues.join( ' | ' )} | ${iteration.errors ? 'icon:exclamation-triangle[role="red"]FAIL' : 'icon:check-circle-o[role="green"]PASS'}
+%>| ${iteration.dataValues.join( ' | ' )} | ${iteration.errors ? 'icon:exclamation-triangle[role="red"]FAIL' : 'icon:check-circle[role="green"]PASS'}
 <%          }
 %>|====
 <%      }

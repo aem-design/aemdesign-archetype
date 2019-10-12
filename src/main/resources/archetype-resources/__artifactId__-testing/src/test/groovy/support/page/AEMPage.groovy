@@ -25,6 +25,10 @@ class AEMPage extends Page {
     }
 
     public static toMode(String url, String mode) {
+        if (System.properties.getProperty("test.dispatcher", "false") == "true") {
+            return url
+        }
+
         return url + "?" + WCMMODE.QUERYSTRINGPARAMNAME + "=" + mode
     }
 

@@ -12,7 +12,7 @@ class NavbarAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/layout/navbar"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/navbar"
 
     def setupSpec() {

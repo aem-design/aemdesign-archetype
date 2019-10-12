@@ -12,7 +12,7 @@ class TableAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/content/table"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/table"
 
     def setupSpec() {

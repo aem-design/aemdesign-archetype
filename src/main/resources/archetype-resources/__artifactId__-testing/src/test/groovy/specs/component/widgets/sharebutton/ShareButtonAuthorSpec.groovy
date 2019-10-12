@@ -12,7 +12,7 @@ class ShareButtonAuthorSpec extends ComponentSpec {
 
     String pathPage = "component/widgets/sharebutton"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock/par/sharebutton"
 
     def setupSpec() {

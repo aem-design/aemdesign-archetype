@@ -13,7 +13,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
     String pathPage = "component/details/page-details"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/pagedetails"
 
     def setupSpec() {
@@ -35,7 +35,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .breadcrumb").isEmpty() == true
@@ -67,7 +67,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: 'Section should have a background image'
         assert ${symbol_dollar}(selector).css("background-image").indexOf("/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg") > 0
@@ -76,7 +76,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb").isEmpty() == false
 
         and: "Has Toolbar has sample content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} ol.breadcrumb li").first().text().trim() == "${artifactTitle} Showcase"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} ol.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         and: "Has Toolbar visible"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .navbar").isEmpty() == false
@@ -110,7 +110,6 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb").isEmpty() == true
@@ -141,7 +140,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: 'Section should have a background image'
         assert ${symbol_dollar}(selector).css("background-image").indexOf("/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg") > 0
@@ -150,7 +149,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb").isEmpty() == false
 
         and: "Has Toolbar has sample content"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb li").first().text().trim() == "${artifactTitle} Showcase"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb li").first().text().trim() == "AEM.Design Showcase"
 
         and: "Has Toolbar visible"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .navbar").isEmpty() == false
@@ -189,7 +188,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb").isEmpty() == true
@@ -225,7 +224,7 @@ class PageDetailsPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} nav.breadcrumb").isEmpty() == true
@@ -263,8 +262,8 @@ class PageDetailsPublishSpec extends ComponentSpec {
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
-        and: "Page has metadata field og:title"
-        assert ${symbol_dollar}("meta[property='og:title']").attr("content").equals("Page Details")
+        and: "Page has metadata field og:title from Details component"
+        assert ${symbol_dollar}("meta[property='og:title']").attr("content").equals("Page Title")
 
         and: "Page has metadata field og:type"
         assert ${symbol_dollar}("meta[property='og:type']").attr("content").equals("article")

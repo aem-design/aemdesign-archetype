@@ -12,7 +12,7 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
 
     String pathPage = "component/details/contact-details/contact-details1"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/contactdetails"
 
     def setupSpec() {
@@ -34,7 +34,7 @@ class ContactDetailsDAMPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "The component should be on the page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "The component should be on the page")
 
         and: "Has Breadcrumb hidden"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .breadcrumb").isEmpty() == true

@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package specs.component.layout.contenttabs
 
+import org.junit.Ignore
 import spock.lang.Stepwise
 import spock.lang.Unroll
 import support.ComponentSpec
@@ -12,7 +13,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
 
     String pathPage = "component/layout/contenttabs"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock/par/contenttabs"
 
 
@@ -32,7 +33,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Should have sample content")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
@@ -41,14 +42,20 @@ class ContentTabsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Tab Page Content 1"
 
         and: "Tab breadcrumb should match current page"
-        assert ${symbol_dollar}(selector + " ${symbol_pound}page1 .breadcrumb li").getAt(3).text().trim() == "Content Tabs"
+        assert ${symbol_dollar}(selector + "_page1 .breadcrumb li.active").getAt(0).text().trim() == "Content Tabs"
+
+        and: "Tab contents page title should match current page"
+        assert ${symbol_dollar}(selector + "_page1 .pagetitle")[0].getAttribute("innerText").trim() == "Content Tabs"
+
+        and: "Tab contents page tags should only have one tag"
+        assert ${symbol_dollar}(selector + "_page1 .pagetags li").size() == 1
 
         when: "I select second tab"
-        ${symbol_dollar}(selector + " .nav.nav-tabs").find("li").getAt(0).find("a").getAt(0).click()
+        ${symbol_dollar}(selector + " .nav-link").getAt(1).click()
 
         then: "Second tab content show be visible"
         assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Tab Page Content 2"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Second tab content show be visible")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Second tab content show be visible")
 
         where:
         viewport << getViewPorts()
@@ -67,7 +74,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "I am on the component showcase page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I am on the component showcase page")
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
@@ -80,7 +87,7 @@ class ContentTabsPublishSpec extends ComponentSpec {
 
         then: "Second tab content show be visible"
         assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Content Block Lock"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Second tab content show be visible")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "Second tab content show be visible")
 
         where:
         viewport << getViewPorts()
@@ -98,48 +105,13 @@ class ContentTabsPublishSpec extends ComponentSpec {
         when: "I am on the component showcase page"
         setWindowSize(viewport)
         waitForAuthorPreviewPage()
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "I am on the component showcase page")
+        takeScreenshot(${symbol_dollar}(selector).firstElement(), "I am on the component showcase page")
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
 
         and: 'Should have sample rich text'
         assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Empty"
-
-        where:
-        viewport << getViewPorts()
-    }
-
-
-    @Unroll("Functionality of Component Variant: Render with List of Children Pages in ${symbol_pound}viewport.label")
-    def "Functionality of Component Variant: Render with List of Children Pages"() {
-
-        given: '>the page hierarchy is created as "Components" > "Layout" > "ContentTabs"'
-        and: '>I am in the component showcase page'
-        and: '>the component is on the showcase page'
-        def selector = "${symbol_pound}contenttabs4"
-        def selectorContainer = "${symbol_pound}contentblock4 .contents"
-
-        when: "I am on the component showcase page"
-        setWindowSize(viewport)
-        waitForAuthorPreviewPage()
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "I am on the component showcase page")
-
-        then: "The component should be on the page"
-        def component = waitForComponent(selector)
-
-        and: "First tab should be active"
-        assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Tab Page Content 1"
-
-        and: "Tab breadcrumb should match page being included"
-        assert ${symbol_dollar}(selector + " ${symbol_pound}page1 .breadcrumb li").getAt(4).text().trim() == "Tab Page Content 1"
-
-        when: "I select second tab"
-        ${symbol_dollar}(selector + " .nav.nav-tabs").find("li").getAt(1).find("a").getAt(0).click()
-
-        then: "Second tab content show be visible"
-        assert ${symbol_dollar}(selector + " .nav-link.active").text().trim() == "Tab Page Content 2"
-        takeScreenshot(${symbol_dollar}(selectorContainer).firstElement(), "Second tab content show be visible")
 
         where:
         viewport << getViewPorts()

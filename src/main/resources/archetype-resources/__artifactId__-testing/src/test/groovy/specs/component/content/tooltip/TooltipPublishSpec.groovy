@@ -12,7 +12,7 @@ class TooltipPublishSpec extends ComponentSpec {
 
     String pathPage = "component/content/tooltip"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock1/par/tooltip"
 
 
@@ -35,13 +35,13 @@ class TooltipPublishSpec extends ComponentSpec {
 
         then: "The component should be on the page"
         def component = waitForComponent(selector)
-        takeScreenshot(${symbol_dollar}(component).firstElement(), "The component should be on the page")
+//        takeScreenshot(${symbol_dollar}(component).firstElement(), "The component should be on the page")
 
         and: "Has sample title"
         assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("data-title").equals("Tool Tip Text")
 
         and: "Has sample description"
-        assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("data-content").equals("Tool Tip Description")
+        assert ${symbol_dollar}("${symbol_dollar}{selector}").attr("data-description").equals("Tool Tip Description")
 
         where:
         viewport << getViewPorts()

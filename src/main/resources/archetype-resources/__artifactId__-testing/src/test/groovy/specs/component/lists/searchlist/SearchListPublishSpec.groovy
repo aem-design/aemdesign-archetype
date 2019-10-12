@@ -12,7 +12,7 @@ class SearchListPublishSpec extends ComponentSpec {
 
     String pathPage = "component/lists/search-list"
     String pathSite = "content/${contentFolderName}-showcase"
-    String language = "en"
+    String language = "au/en"
     String componentPath = "jcr:content/article/par/contentblock2/par/searchlist"
 
     def setupSpec() {
@@ -39,7 +39,7 @@ class SearchListPublishSpec extends ComponentSpec {
         and: "Should be empty and contain default text"
         assert ${symbol_dollar}(selector).children().size() == 1 &&  ${symbol_dollar}(selector).children().text().contains("Invalid query given!")
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 
@@ -50,8 +50,18 @@ class SearchListPublishSpec extends ComponentSpec {
         and: '>I am in the component showcase page'
         and: '>the component is on the showcase page'
         def selector = "${symbol_pound}searchlist1"
-        def selectorContainer = "${symbol_pound}contentblock2 .contents"
-        def query_string = "q=fulltext%3Dtime%0D%0Agroup.p.or%3Dtrue%0D%0Agroup.1_group.path%3D%2Fcontent%2F${contentFolderName}-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.1_group.type%3Dcq%3APage%0D%0Agroup.1_group.property%3D%40jcr%3Acontent%2FhideInNav%0D%0Agroup.1_group.property.operation%3Dexists%0D%0Agroup.1_group.property.value%3Dfalse%0D%0Agroup.2_group.path%3D%2Fcontent%2F${contentFolderName}-showcase%2Fen%2Fcomponent%2Flists%2Fsearch-list%0D%0Agroup.2_group.type%3Ddam%3AAsset"
+        def stringQuery = "fulltext=city${symbol_escape}n" +
+                "group.p.or=true${symbol_escape}n" +
+                "group.1_group.path=/content/${contentFolderName}-showcase/au/en/component/lists/search-list${symbol_escape}n" +
+                "group.1_group.type=cq:Page${symbol_escape}n" +
+                "group.1_group.property=@jcr:content/hideInNav${symbol_escape}n" +
+                "group.1_group.property.operation=exists${symbol_escape}n" +
+                "group.1_group.property.value=false${symbol_escape}n" +
+                "group.2_group.path=/content/dam/${contentFolderName}-showcase${symbol_escape}n" +
+                "group.2_group.type=dam:Asset${symbol_escape}n" +
+                "orderby=path"
+
+        def query_string = "q=" + URLEncoder.encode(stringQuery, "UTF-8")
 
         when: "I am on the component showcase page"
         setWindowSize(viewport)
@@ -66,7 +76,7 @@ class SearchListPublishSpec extends ComponentSpec {
         and: "Should contain results"
         assert ${symbol_dollar}(selector).find(".results").children().size() > 0
 
-        where:
+        where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
     }
 }
