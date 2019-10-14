@@ -1,0 +1,7 @@
+**/cypress/plugins
+**/cypress/support
+**/cypress/*.js
+**/config
+**/public
+
+webpack.config.js

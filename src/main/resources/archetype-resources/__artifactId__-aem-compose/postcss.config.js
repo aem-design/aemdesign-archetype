@@ -1,10 +1,18 @@
+/* eslint-disable */
 module.exports = ({ env }) => ({
   plugins: {
     'postcss-pxtorem': {
-      rootValue: 16,
-      unitPrecision: 5,
+      replace       : true,
+      rootValue     : 16,
+      unitPrecision : 5,
+
+      selectorBlackList: [
+        'html'
+      ],
+
       propList: [
         'bottom',
+        'flex-basis',
         'font',
         'font-size',
         'height',
@@ -16,13 +24,20 @@ module.exports = ({ env }) => ({
         'top',
         '*width',
       ],
-      selectorBlackList: ['html'],
-      replace: true
     },
+
     'postcss-sorting': {},
+
     autoprefixer: {
       grid: 'autoplace',
     },
-    cssnano: env === 'production' ? true : false
-  }
+
+    cssnano: env === 'production',
+
+    'postcss-reporter': {
+      clearReportedMessages: true,
+    },
+  },
+
+  sourceMap: true,
 });

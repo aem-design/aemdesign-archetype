@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mvn archetype:create-from-project -P create-from-project

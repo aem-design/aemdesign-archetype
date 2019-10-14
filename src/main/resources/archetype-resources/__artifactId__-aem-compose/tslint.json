@@ -4,6 +4,10 @@
   ],
   "rules": {
     "interface-name": false,
+    "max-line-length": false,
+    "member-access": false,
+    "member-ordering": false,
+    "only-arrow-functions": false,
     "no-console": false,
     "quotemark": false,
     "semicolon": false
