@@ -22,7 +22,7 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-services</artifactId>
     <packaging>bundle</packaging>
-    <name>${parentArtifactName} - Services</name>
+    <name>${parentArtifactName} :: services</name>
     <description>${artifactTitle} AEM Service - OSGI Services</description>
     <version>${version}</version>
 

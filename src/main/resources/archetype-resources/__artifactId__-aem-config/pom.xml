@@ -22,7 +22,7 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-config</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} - Config</name>
+    <name>${parentArtifactName} :: config</name>
     <description>Initial Content for ${groupTitle} project</description>
     <version>${version}</version>
 

@@ -21,7 +21,7 @@
 
     <artifactId>${artifactId}-aem-content</artifactId>
     <packaging>content-package</packaging>
-    <name>${parentArtifactName} - Content</name>
+    <name>${parentArtifactName} :: content</name>
     <description>Initial Content for ${artifactTitle} project</description>
     <version>${version}</version>
 
