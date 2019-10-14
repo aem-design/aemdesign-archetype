@@ -22,7 +22,7 @@
     <groupId>${groupId}</groupId>
     <packaging>jar</packaging>
     <version>${version}</version>
-    <name>${parentArtifactName} - Support - Integration Testing</name>
+    <name>${parentArtifactName} - Testing</name>
     <description>Tests for AEM Showcase</description>
 
     <properties>
