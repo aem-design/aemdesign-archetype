@@ -1,0 +1,16 @@
+&--notification,
+.cards-notification & {
+  @extend %notification-base;
+
+  .card-icon {
+    @extend %notification-icon;
+  }
+
+  .card-body {
+    @extend %notification-body;
+  }
+
+  .card-action {
+    padding-top: 10px;
+  }
+}
