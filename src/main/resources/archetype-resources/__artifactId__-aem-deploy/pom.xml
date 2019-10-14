@@ -74,7 +74,7 @@
         </dependency>
         <dependency>
             <groupId>${symbol_dollar}{project.groupId}</groupId>
-            <artifactId>${artifactId}-aem-prototype</artifactId>
+            <artifactId>${artifactId}-aem-compose</artifactId>
             <type>zip</type>
             <version>${symbol_dollar}{project.version}</version>
         </dependency>
