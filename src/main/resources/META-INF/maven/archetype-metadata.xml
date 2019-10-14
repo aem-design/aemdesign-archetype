@@ -175,7 +175,6 @@
         <exclude>**/*.webm</exclude>
         <exclude>**/*.jsx</exclude>
         <exclude>**/*.svg</exclude>
-        <exclude>**/*.scss</exclude>
         <exclude>**/*.ts</exclude>
         <exclude>**/*.gradle</exclude>
         <exclude>**/*.dmg</exclude>
@@ -250,7 +249,6 @@
         <include>**/*.webm</include>
         <include>**/*.jsx</include>
         <include>**/*.svg</include>
-        <include>**/*.scss</include>
         <include>**/*.ts</include>
         <include>**/*.gradle</include>
         <include>**/*.dmg</include>
@@ -291,6 +289,17 @@
       <excludes>
         <exclude>**/.DS_Store</exclude>
       </excludes>
+    </fileSet>
+
+    <!-- process and package some SCSS -->
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory></directory>
+      <excludes>
+        <exclude>**/*.scss</exclude>
+      </excludes>
+      <includes>
+        <include>source/core/scss/_paths.scss</include>
+      </includes>
     </fileSet>
 
     <!--<fileSet packaged="true" encoding="UTF-8">
