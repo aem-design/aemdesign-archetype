@@ -1,11 +1,11 @@
-#Archetype Project
+# Archetype Project
 
 This project is used to create a new aem-design project base
 
 This base can be updated by generating an archetype from existing project and copying relevant parts to this project.
 
 
-##To use
+## To use
 To create a new project base framework from scratch follow these steps:
 
 
@@ -56,7 +56,7 @@ If `yarn` is not installed, run the below command.
 brew install yarn
 ```
 
-##Generate Archetype from existing project
+## Generate Archetype from existing project
 To generate an updated archetype based on existing maven project run the following command from the parent repo
 
 ```bash
