@@ -5,6 +5,6 @@ SCRIPT_PARAMS="$@"
 
 source "./scripts/functions.sh"
 
-echo "Deploying Monolith Package: mvn -Dvault.useProxy=false -DskipTests -e -U -P installdeploymentpackage,deploymentpackage clean install"
-mvn -Dvault.useProxy=false -DskipTests -e -U -P deploymentpackage,installdeploymentpackage clean install "$@"
+echo "Deploying Monolith Package: mvn -Dvault.useProxy=false -DskipTests -e -U -P installdeploymentpackage clean install"
+mvn -Dvault.useProxy=false -DskipTests -e -U -P installdeploymentpackage clean install "$@"
 echo "Deployed"

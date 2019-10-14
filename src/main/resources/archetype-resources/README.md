@@ -124,7 +124,7 @@ or to deploy locally run:
 or manually trigger with options you require
 
 ```bash
-mvn -Dvault.useProxy=false -DskipTests -e -U -P localrepos,deploymentpackage,installdeploymentpackage clean install
+mvn -Dvault.useProxy=false -DskipTests -e -U -P localrepos,installdeploymentpackage clean install
 ```
 
 # Adding new components process
