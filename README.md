@@ -54,7 +54,7 @@ Below `deploy-local` command builds and deploys, created aemdesign-parent projec
 
 This should build and deploy, your project successfully to local AEM Instance.
 
-**NOTE: We need Yarn to be installed for `prototype` submodule build.
+**NOTE: We need Yarn to be installed for `compose` submodule build.
       Check if Yarn v1.7.0 is installed** 
       
 ```
