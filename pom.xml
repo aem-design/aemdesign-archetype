@@ -15,19 +15,47 @@
     <properties>
         <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
     </properties>
+
+
     <developers>
         <developer>
+            <email>max@aem.design</email>
             <name>Max Barrass</name>
-            <email>max.barrass@gmail.com</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:ssh://git@gitlab.com:aem.design/aemdesign-archetype.git</connection>
-        <developerConnection>scm:git:ssh://git@gitlab.com:aem.design/aemdesign-archetype.git</developerConnection>
-        <url>https://gitlab.com/aem.design/aemdesign-archetype.git</url>
-        <tag>${project.version}</tag>
+        <connection>scm:git:https://github.com/aem-design/aemdesign-archetype.git</connection>
+        <url>https://github.com/aem-design/aemdesign-archetype</url>
     </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/aem-design/aemdesign-archetype/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <site>
+            <id>api.wiki</id>
+            <url>https://github.com/aem-design/aemdesign-archetype/wiki</url>
+        </site>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <build>
 
