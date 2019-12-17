@@ -12,7 +12,7 @@
         jcr:language="en"
         jcr:mixinTypes="[mix:lockable,mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Training"
+        jcr:title="${artifactTitle} Training Site"
         sling:resourceType="${appsFolderName}/components/template/column/two"
         redirectTarget="/content/${contentFolderName}-training/en/aem-training.html">
         <par

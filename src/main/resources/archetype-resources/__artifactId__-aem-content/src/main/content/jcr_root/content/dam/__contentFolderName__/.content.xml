@@ -7,6 +7,6 @@
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content
             jcr:primaryType="nt:unstructured"
-            jcr:title="${artifactTitle} DAM">
+            jcr:title="${artifactTitle} Assets">
     </jcr:content>
 </jcr:root>

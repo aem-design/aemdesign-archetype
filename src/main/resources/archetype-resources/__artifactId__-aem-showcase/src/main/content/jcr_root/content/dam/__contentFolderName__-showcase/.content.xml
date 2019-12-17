@@ -7,7 +7,7 @@
     <components/>
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        jcr:title="${contentFolderName}-showcase">
+        jcr:title="${artifactTitle} Showcase Assets">
         <folderThumbnail/>
     </jcr:content>
     <multimedia/>

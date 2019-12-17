@@ -6,7 +6,7 @@
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        jcr:title="AEM Training">
+        jcr:title="${artifactTitle} Training Assets">
         <folderThumbnail/>
     </jcr:content>
     <Using_a_Workflow-Delegate.png/>
