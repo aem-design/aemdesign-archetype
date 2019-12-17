@@ -67,6 +67,74 @@ If `yarn` is not installed, run the below command.
 brew install yarn
 ```
 
+### Full Process
+
+Following is the process of how to use this archetype to create a new project and run post creation tasks.
+
+This process will create a new base project for you, rename it to parent convention, init git and update all scripts to be executable.
+
+1. Create base project
+
+```bash
+mvn archetype:generate \
+    -DarchetypeGroupId=design.aem \
+    -DarchetypeArtifactId=aemdesign-archetype \
+    -DarchetypeVersion=1.0.22 \
+    -DgroupId=au.com.projectx.aem \
+    -DgroupTitle="ProjectX AEM" \
+    -DartifactId=projectx \
+    -DartifactTitle="ProjectX AEM" \
+    -DparentArtifactId=projectx-parent \
+    -DparentArtifactName="ProjectX :: AEM :: parent" \
+    -Dpackage=projectx \
+    -DpackageGroup=projectx \
+    -Dversion=0.1 \
+    -DcomponentGroupTitle=ProjectX \
+    -DappsFolderName=projectx \
+    -DcontentFolderName=projectx \
+    -DconfFolderName=projectx \
+    -DclientLibsFolderName=projectx \
+    -DclassNamespace=au.com.projectx.aem \
+    -DappsParent=aemdesign
+```
+
+2. Rename generated project folder to parent
+
+```bash
+mv projectx projectx-parent
+cd projectx-parent
+```
+
+3. Init git with initial content and create first Tag to allow automated project versioning to work.
+
+```bash
+git init
+git add .
+git commit -m init
+git tag -a 0.1 -m init
+```
+
+4. Update script permissions
+
+```bash
+find . -type f  -name "deploy" -exec chmod +x {} \;
+find . -type f  -name "deploy-*" -exec chmod +x {} \;
+find . -type f  -name "test-spec*" -exec chmod +x {} \;
+find . -type f  -name "install" -exec chmod +x {} \;
+find . -type f  -name "package" -exec chmod +x {} \;
+find . -type f  -name "pull" -exec chmod +x {} \;
+find . -type f  -name "stats" -exec chmod +x {} \;
+find . -type f  -name "seleniumhub-*" -exec chmod +x {} \;
+```
+
+5. Package project to test everything
+
+```bash
+./package
+```
+
+
+
 ## Generate Archetype from existing project
 To generate an updated archetype based on existing maven project run the following command from the parent repo
 
