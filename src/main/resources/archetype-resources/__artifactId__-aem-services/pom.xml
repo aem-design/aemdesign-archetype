@@ -130,7 +130,13 @@
                             org.jsoup.parser,
                             org.jsoup.safety,
                             org.jsoup.select,
-                            org.apache.commons.jexl3.*
+                            org.apache.commons.jexl3.*,
+                            org.apache.sling.installer.api.info,
+                            org.apache.sling.installer.api.tasks,
+                            com.adobe.acs.commons.fam,
+                            com.adobe.acs.commons.util,
+                            com.adobe.acs.commons.workflow,
+                            com.adobe.acs.commons.util.visitors
                         </Export-Package>
                     </instructions>
                 </configuration>
@@ -592,6 +598,20 @@
             <groupId>design.aem</groupId>
             <artifactId>aemdesign-aem-services</artifactId>
             <version>${symbol_dollar}{aemdesign.common.version}</version>
+        </dependency>
+        <!-- health check around the OSGi installer, http://sling.apache.org/documentation/bundles/osgi-installer.html#health-check -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.installer.hc</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- ACS Commons Dependencies -->
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-bundle</artifactId>
+            <version>${symbol_dollar}{adobe.acs.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

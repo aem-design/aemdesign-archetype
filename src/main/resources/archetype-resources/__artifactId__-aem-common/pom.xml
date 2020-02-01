@@ -189,13 +189,6 @@
         </dependency>
 
 
-        <!-- health check around the OSGi installer, http://sling.apache.org/documentation/bundles/osgi-installer.html#health-check -->
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.installer.hc</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-
         <!-- wcm.io context aware configuration -->
         <dependency>
             <groupId>io.wcm</groupId>
@@ -208,6 +201,20 @@
             <version>1.4.0</version>
         </dependency>
 
+        <!-- ACS Commons Dependencies -->
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-bundle</artifactId>
+            <version>${symbol_dollar}{adobe.acs.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Adobe Core Dependencies -->
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.all</artifactId>
+            <type>zip</type>
+        </dependency>
     </dependencies>
 
     <!-- ====================================================================== -->
@@ -293,22 +300,41 @@
                         <embedded>
                             <artifactId>gson</artifactId>
                             <artifactId>jsoup</artifactId>
-                            <artifactId>org.apache.sling.installer.hc</artifactId>
                             <artifactId>io.wcm.caconfig.editor</artifactId>
                             <artifactId>io.wcm.caconfig.extensions</artifactId>
                         </embedded>
 
                         <embedded>
                             <groupId>${project.parent.groupId}</groupId>
-                            <artifactId>${artifactId}-aem-services</artifactId>
+                            <artifactId>sew-aem-services</artifactId>
                         </embedded>
                         <embedded>
                             <groupId>com.github.mickleroy</groupId>
                             <artifactId>aem-sass-compiler</artifactId>
                         </embedded>
+
+                        <embedded>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>org.apache.sling.installer.hc</artifactId>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.acs</groupId>
+                            <artifactId>acs-aem-commons-bundle</artifactId>
+                        </embedded>
                     </embeddeds>
 
-                    <dependencies></dependencies>
+                    <subPackages>
+                        <subPackage>
+                            <groupId>design.aem</groupId>
+                            <artifactId>aemdesign-aem-core-deploy</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+                        <subPackage>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.all</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+                    </subPackages>
                 </configuration>
             </plugin>
 
