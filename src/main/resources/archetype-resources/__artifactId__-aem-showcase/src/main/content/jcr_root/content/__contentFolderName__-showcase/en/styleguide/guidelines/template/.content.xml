@@ -1,0 +1,87 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/styleguide"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Template"
+        sling:resourceType="${appsFolderName}/components/template/styleguide">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <page_details
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/page-details"
+                    componentId="page_details"
+                    componentTheme="[${contentFolderName}-showcase:component-style-theme/styleguide/page-details]"
+                    editable="{Boolean}false"
+                    showBreadcrumb="false"
+                    showPageDate="false"
+                    showParsys="false"
+                    showToolbar="false"
+                    textIsRich="true"/>
+                <contentblock
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                    componentId="contentblock"
+                    componentModifiers="[${contentFolderName}-showcase:component-style-modifier/padding/p-15,${contentFolderName}-showcase:component-style-modifier/padding/p-md-30]">
+                    <par
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/layout/container">
+                        <contentblock_1210338601
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/layout/contentblock"
+                            componentId="contentblock1">
+                            <par
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/layout/container">
+                                <text
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/content/text"
+                                    componentId="description-1"
+                                    componentModifiers="[${contentFolderName}-showcase:component-style-modifier/margin/mb-10]"
+                                    text="&lt;p>Use the &lt;b>aemdesign Global Single Column &lt;/b>template for all pages. The template consists of the header and footer, with an content section between them.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/media/image"
+                                    componentId="template-image"
+                                    componentModifiers="[${contentFolderName}-showcase:component-style-modifier/image/responsive,${contentFolderName}-showcase:component-style-modifier/margin/mb-15]"
+                                    fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"/>
+                                <text_1505806541
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="${appsFolderName}/components/content/text"
+                                    componentId="description-2"
+                                    text="&lt;p>If you need to insert multiple columns within the content area, use the &lt;b>Column Control &lt;/b>component.&lt;/p>&#xd;&#xa;"
+                                    textIsRich="true"/>
+                            </par>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/media/image"/>
+                            <bgimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/media/image"/>
+                            <bgvideo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="${appsFolderName}/components/media/image"/>
+                        </contentblock_1210338601>
+                    </par>
+                </contentblock>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

@@ -7,7 +7,7 @@
     <jcr:content
         cq:designPath="/apps/settings/wcm/design/${contentFolderName}"
         cq:tags="[${contentFolderName}-showcase:content-type/page]"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/threecolumn"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/threecolumn"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"

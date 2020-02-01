@@ -6,7 +6,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[]"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/twocolumn"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
         jcr:title="Asset Viewer"
         sling:resourceType="${appsFolderName}/components/template/base">

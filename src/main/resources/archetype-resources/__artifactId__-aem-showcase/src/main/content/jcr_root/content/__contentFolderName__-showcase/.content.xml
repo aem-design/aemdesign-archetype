@@ -7,10 +7,10 @@
     jcr:primaryType="cq:Page">
     <rep:policy/>
     <jcr:content
-        cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/.*]"
+        cq:allowedTemplates="[/conf/${confFolderName}-showcase/settings/wcm/templates/.*]"
         cq:deviceGroups="[mobile/groups/responsive]"
         cq:designPath="/apps/settings/wcm/design/${appsFolderName}"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/twocolumn"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"

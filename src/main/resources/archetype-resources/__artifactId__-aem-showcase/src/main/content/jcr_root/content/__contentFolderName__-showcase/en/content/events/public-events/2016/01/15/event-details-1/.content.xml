@@ -33,7 +33,7 @@
                     title="Event Title">
                     <secondaryImage
                             jcr:primaryType="nt:unstructured"
-                            fileReference="/content/dam/projects/media/cover"
+                            fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"
                             imageRotate="0"/>
                 </event-details>
             </par>

@@ -7,7 +7,7 @@
     <jcr:content
         cq:lastModified="{Date}2018-09-01T21:21:25.859+10:00"
         jcr:created="{Date}2018-09-01T21:21:25.859+10:00"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/onecolumn"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/onecolumn"
         jcr:primaryType="cq:PageContent"
         jcr:title="Event1"
         sling:resourceType="${appsFolderName}/components/template/base">

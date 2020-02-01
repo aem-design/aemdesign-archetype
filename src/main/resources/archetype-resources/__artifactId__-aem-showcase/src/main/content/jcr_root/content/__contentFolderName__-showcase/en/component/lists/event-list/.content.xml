@@ -6,7 +6,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[${contentFolderName}-showcase:content-type/page]"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/twocolumn"
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/twocolumn"
         jcr:primaryType="cq:PageContent"
         jcr:title="Event List"
         sling:resourceType="${appsFolderName}/components/template/base">

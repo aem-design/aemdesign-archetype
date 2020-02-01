@@ -34,7 +34,7 @@
                                 sling:resourceType="${appsFolderName}/components/lists/assetlist"
                                 componentId="assetList1"
                                 detailsBadge="imageCategory"
-                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg,/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg]"/>
                     </par>
                 </contentblock>
                 <contentblock_1297879301
@@ -52,7 +52,7 @@
                                 sling:resourceType="${appsFolderName}/components/lists/assetlist"
                                 componentId="assetList2"
                                 detailsBadge="imageCategoryTitleDescription"
-                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg,/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg]"/>
                     </par>
                 </contentblock_1297879301>
                 <contentblock_1230533556
@@ -70,7 +70,7 @@
                                 sling:resourceType="${appsFolderName}/components/lists/assetlist"
                                 componentId="assetList3"
                                 detailsBadge="imageCategoryTitleDirectorArtistStatement"
-                                mediaItems="[/content/dam/${contentFolderName}-showcase/galleries/misc/1st-photo-2.jpg,/content/dam/${contentFolderName}-showcase/galleries/misc/20150401.jpg]"/>
+                                mediaItems="[/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg,/content/dam/${contentFolderName}-showcase/en/components/media/image/city2.jpg]"/>
                     </par>
                 </contentblock_1230533556>
             </par>

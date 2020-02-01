@@ -1,0 +1,50 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/${confFolderName}-showcase/settings/wcm/templates/styleguide"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="News Details"
+        sling:resourceType="${appsFolderName}/components/template/styleguide">
+        <aside
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/aside">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container"/>
+        </aside>
+        <article
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appsFolderName}/components/layout/article">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/layout/container">
+                <news_details
+                    cq:tags="[${contentFolderName}-showcase:content-type/widgets/onlinemedia/provider/youtube,${contentFolderName}-showcase:content-type/asset/audio,${contentFolderName}-showcase:content-type/asset/document]"
+                    jcr:mixinTypes="[cq:Taggable]"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/details/news-details"
+                    badgeLinkStyle="[${contentFolderName}-showcase:component-style-modifier/button/normal/primary]"
+                    badgeLinkText="CTA link"
+                    badgeLinkTitle="CTA link"
+                    componentId="news_details"
+                    componentTheme="[${contentFolderName}-showcase:component-style-theme/layout/news-details/theme--news-details]"
+                    textIsRich="true">
+                    <secondaryImage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/media/image"/>
+                    <thumbnail
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/media/image"
+                        fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"/>
+                    <bgimage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/media/image"/>
+                </news_details>
+            </par>
+        </article>
+    </jcr:content>
+</jcr:root>

@@ -29,7 +29,7 @@
         </article>
         <image
             jcr:primaryType="nt:unstructured"
-            fileReference="/content/dam/${contentFolderName}-showcase/galleries/misc/wayne-mcgregor.jpg"
+            fileReference="/content/dam/${contentFolderName}-showcase/en/components/media/image/city1.jpg"
             imageRotate="0"/>
     </jcr:content>
 </jcr:root>
