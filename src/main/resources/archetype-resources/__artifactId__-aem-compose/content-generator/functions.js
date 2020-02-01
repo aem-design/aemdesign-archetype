@@ -1,10 +1,17 @@
-/* eslint-disable no-loop-func */
-/* eslint-disable no-param-reassign */
+/* eslint-disable */
+
+const argv   = require('yargs').argv
 const colors = require('colors')
-const fs     = require('fs')
 const mkdirp = require('mkdirp')
 
-const { readFileSync, existsSync, lstatSync, readdirSync, writeFile } = require('fs')
+const {
+  readFileSync,
+  existsSync,
+  lstatSync,
+  readdirSync,
+  writeFile,
+} = require('fs')
+
 const { join, resolve } = require('path')
 
 const isDebug = process.argv.find(function(value) { return value === "--debug"}) ? true : false
@@ -15,77 +22,65 @@ const {
   size,
 } = require('lodash')
 
-const rootPath = 'content'
+const rootPath = '../target/classes'
 
 const breakpoints = {
   sm: null,
-  md: 'Medium',
-  lg: 'Large',
-  xl: 'Extra Large',
+  md: 'Tablet',
+  lg: 'Desktop',
+  xl: 'Desktop (Large)',
 }
 
 const prefixes = {
-  acc: 'Align Content Center',
-  ace: 'Align Content End',
-  acs: 'Align Content Start',
+  // Font weights
+  '300': 'Light',
+  '400': 'Normal',
+  '600': 'SemiBold',
+  '700': 'Bold',
 
-  aic: 'Align Items Center',
-  aie: 'Align Items End',
-  ais: 'Align Items Start',
+  // Screen Reader
+  'sr-only'           : 'Only (visually hidden)',
+  'sr-only-focusable' : 'Show when focused',
 
-  jc: 'Justify Content Center',
-  je: 'Justify Content End',
-  js: 'Justify Content Start',
+  // Hidden components (invisiblility)
+  'invisible'         : 'Always',
+  'invisible-lg-down' : 'Desktop - Down',
+  'invisible-lg-up'   : 'Desktop - Up',
+  'invisible-md-down' : 'Tablet - Down',
+  'invisible-md-up'   : 'Tablet - Up',
+  'invisible-sm-down' : 'Mobile (landscape) - Down',
+  'invisible-sm-up'   : 'Mobile (landscape) - Up',
+  'invisible-xl-down' : 'Desktop (large) - Down',
+  'invisible-xl-up'   : 'Desktop (large) - Up',
+  'invisible-xs-down' : 'Mobile - Down',
+  'invisible-xs-up'   : 'Mobile - Up',
 
-  m  : '',
-  mt : 'Top',
-  mb : 'Bottom',
-  ml : 'Left',
-  mr : 'Right',
-  mx : '(X-Axis)',
-  my : '(Y-Axis)',
+  // Some colours are vauge, define specifc labels here
+  'dark'         : 'Charcoal',
+  'blue-50'      : 'Blue (50% opacity)',
+  'green-50'     : 'Green (50% opacity)',
+  'purple-50'    : 'Purple (50% opacity)',
+  'red-50'       : 'Red (50% opacity)',
+  'turquoise-50' : 'Turquoise (50% opacity)',
+  'yellow-50'    : 'Yellow (50% opacity)',
 
-  p  : '',
-  pt : 'Top',
-  pb : 'Bottom',
-  pl : 'Left',
-  pr : 'Right',
-  px : '(X-Axis)',
-  py : '(Y-Axis)',
+  // Add the word 'Square' to these icon
+  'facebook': 'Facebook - Square',
+  'linkedin': 'LinkedIn - Square',
 
-  c1: 'C1',
-  c2: 'C2',
-  c3: 'C3',
-  c4: 'C4',
-  c5: 'C5',
-  c6: 'C6',
-  c7: 'C7',
-  c8: 'C8',
-  c9: 'C9',
-  c10: 'C10',
-  c11: 'C11',
-  c12: 'C12',
-  c13: 'C13',
-  c14: 'C14',
-  c15: 'C15',
-  c16: 'C16',
-  c17: 'C17',
-  c18: 'C18',
-
-  // Specific styles
-  'col'            : 'Columns',
-  'quote-suffix'   : 'Quote Suffix',
-  'nowrap'         : 'No Wrap',
-  'playsinline'    : 'Plays Inline',
-  'v-centered-nav' : 'Verticial Aligned Nav Arrows',
+  // Misc styles
+  'col'    : 'Columns',
+  'nowrap' : 'No Wrap',
 }
 
+let templateCache = {}
+
 function isDirectory(source) {
-  return lstatSync(source).isDirectory();
+  return lstatSync(source).isDirectory()
 }
 
 function getDirectories (source) {
-  return readdirSync(source).map(name => join(source, name)).filter(isDirectory);
+  return readdirSync(source).map(name => join(source, name)).filter(isDirectory)
 }
 
 function currentPath(path) {
@@ -100,7 +95,6 @@ function mapBreakpointToName(breakpoint) {
   return breakpoints[breakpoint]
 }
 
-let templateCache = {}
 function loadTemplateForCategory(category = null) {
   if (!category) {
     throw new Error('Invalid category name supplied!')
@@ -118,10 +112,10 @@ function normalisePrefix(prefix, emptyTitle = false) {
   const newPrefix = prefixes[prefix]
 
   if (!newPrefix) {
-    return !emptyTitle ? titleCase(fixTitle(prefix)) : '';
+    return !emptyTitle ? titleCase(fixTitle(prefix)) : ''
   }
 
-  return titleCase(fixTitle(newPrefix));
+  return titleCase(fixTitle(newPrefix))
 }
 
 function fixTitle(title) {
@@ -157,7 +151,7 @@ function titleCase(str) {
       word.replace(word[0], word[0].toUpperCase())
     )).join(' ')
   } catch (ex) {
-    console.log(colors.red(`Error: ${str};`), ex)
+    logToConsole(colors.red(`Error: ${str}`), ex)
   }
 
   return str
@@ -175,16 +169,14 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
   let templatePatch = template
 
   if (contentData.type === 'tag') {
+    const value = contentData.valueFormatted !== '' ?
+      escape(contentData.valueFormatted):
+      escape(contentData.prefixValue + contentData.value)
+
     // Replace the template vars
     templatePatch = templatePatch.replace('%%title%%', contentData.title)
-
-    if (contentData.valueFormatted !== '') {
-      templatePatch = templatePatch.replace('%%value%%', escape(contentData.valueFormatted))
-    } else {
-      templatePatch = templatePatch.replace('%%value%%', escape(contentData.prefixValue + contentData.value))
-    }
-
     templatePatch = templatePatch.replace('%%description%%', contentData.description)
+    templatePatch = templatePatch.replace('%%value%%', value)
 
     // Strip the folder name if the category is 'component-style-module'
     if (!contentData.flat) {
@@ -201,22 +193,47 @@ function generateContent(categoryTemplate, categoryTemplateDefault, category, pa
     }
   } else {
     if (contentData.content !== undefined) {
+      const templateHasAttributes = templatePatch.indexOf('%%attributes%%')>-1
+
       for (const field of Object.keys(contentData.content)) {
-        folderName    = field
+        folderName = field
         templatePatch = templatePatch.replace('%%node%%', field)
 
-        const name = contentData.content[field]
+        const fieldValues = contentData.content[field]
+        let fieldAttributes = ""
 
-        for (const fieldvalue of Object.keys(name)) {
-          const value = name[fieldvalue]
-          templatePatch = templatePatch.replace('%%' + fieldvalue + '%%', value)
+        //for all fields apart from json flag
+        for (const fieldName of Object.keys(fieldValues).filter(x => x !== 'json')) {
+          const value = fieldValues[fieldName]
+          //check if the field is explicitly mentioned in template
+          if (templatePatch.indexOf('%%' + fieldName + '%%')>-1) {
+            //replace field value
+            templatePatch = templatePatch.replace(
+                '%%' + fieldName + '%%',
+                fieldValues.json === true && fieldName === 'value' ? Buffer.from(JSON.stringify(value)).toString('base64') : value
+            )
+          } else if (templateHasAttributes) {
+            //if not array add to attributes collection
+            if (!Array.isArray(value)) {
+              fieldAttributes += fieldName + '="' + value + '" '
+            } else {
+              //if array join and add as array string
+              fieldAttributes += fieldName + '="[' + Object.values(value).join(",") + ']" '
+            }
+          }
+        }
+        //replace attributes placeholder with collected fields
+        if (templateHasAttributes) {
+          templatePatch = templatePatch.replace('%%attributes%%', fieldAttributes)
         }
       }
     } else {
-      console.log('Nothing to do with:', path)
+      logToConsole('Nothing to do with:', path)
       return
     }
   }
+  //remove attributes filed from template
+  templatePatch = templatePatch.replace('%%attributes%%', '')
 
   writeTemplate(`${rootPath}/${category}/${path}/${folderName}`, categoryTemplateDefault, templatePatch)
 }
@@ -225,7 +242,7 @@ function verifyTemplate(path,content) {
   try {
     libxmljs.parseXml(content)
   } catch (ex) {
-    console.log('Invalid Template for ' + path)
+    logToConsole('Invalid Template for ' + path)
     return false
   }
 
@@ -240,18 +257,27 @@ function writeTemplate(outputPath, templateDefault, template) {
     let paths = outputPath.split('/')
     let promises = []
 
+    //remove file from path array
     paths.pop()
 
     if (paths.length > 0) {
       while (paths.length !== 0) {
-        let node = paths[paths.length - 1]  || ''
+
+        let node  = paths[paths.length - 1] || ''
         let title = paths[paths.length - 1] || ''
+
+        //skip generation of content for ../target
+        if ( title === ".." || ( paths.length === 2 && (paths[paths.length - 2] === ".." && title === "target")) ) {
+          paths.pop()
+          continue
+        }
 
         title = normalisePrefix(title)
 
         let templateDefaultPatch = templateDefault
           .replace('%%title%%', title)
           .replace('%%node%%', node)
+          .replace('%%value%%', title.toLowerCase().replace(/\s/g, '-'))
 
         const currentDirectory = paths.join('/')
         const workingDirectory = currentPath(currentDirectory)
@@ -300,9 +326,15 @@ function createTemplate(outputPath, template) {
 
 function consoleResult(success, outputPath, err = null) {
   if (!success) {
-    console.log(colors.red('Unable to save content for:'), outputPath, '\n', err)
+    logToConsole(colors.red('Unable to save content for:'), outputPath, '\n', err)
   } else {
-    console.log('Saved content for:', outputPath)
+    logToConsole('Saved content for:', outputPath)
+  }
+}
+
+function logToConsole(...args) {
+  if (argv.console !== false) {
+    console.log(...args)
   }
 }
 
@@ -375,3 +407,5 @@ module.exports = {
   isDirectory,
   debug
 }
+
+/* eslint-enable */

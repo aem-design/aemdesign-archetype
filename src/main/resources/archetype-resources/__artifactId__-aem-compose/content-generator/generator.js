@@ -4,7 +4,7 @@ const fs     = require('fs')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const yaml   = require('js-yaml')
-const yimp = require('yaml-import')
+const yimp   = require('yaml-import')
 
 // CLI arguments
 const args = require('yargs')
@@ -14,6 +14,11 @@ const args = require('yargs')
     default : false,
     description: 'clean after'
   })
+  .option('console', {
+    alias   : 'cs',
+    default : true,
+    type    : 'boolean',
+  })
   .option('debug', {
     alias   : 'd',
     type: 'boolean', /* array | boolean | string */
@@ -22,16 +27,18 @@ const args = require('yargs')
   })
   .option('config', {
     default : false,
-    description: 'specify config file',
+    description: 'specify config YAML configuration file',
     nargs: 1,
     demand: true,
     demand: 'config file is required',
-    default: 'aemdesign.yml'
+    default: 'core.yml'
   })
   .example('node generator.js --debug' , 'run debug mode')
   .example('node generator.js --config=<filename>.yml' , 'run conversion of config')
   .example('node generator.js --config=<filename>.yml --debug' , 'run with debug enabled')
   .example('node generator.js --config=<filename>.yml --no-clean', 'run without tree cleaning')
+  .example('node generator.js --config=<filename>.yml --no-console', 'run without realtime logging')
+  .demandOption(['config'], 'Please provide a config file to run')
   .version(false)
   .wrap(130)
   .argv
@@ -41,9 +48,9 @@ const {
   isArray,
 } = require('lodash')
 
-const rootPath       = 'content'
+const rootPath       = '../target/classes'
 const tmpPath        = 'output'
-const pathPrefixTags = 'content/cq:tags'
+const pathPrefixTags = 'content/_cq_tags'
 const pathPrefixApps = 'apps/'
 
 const {
@@ -58,7 +65,6 @@ const {
 } = require('./functions')
 
 console.clear()
-
 
 try {
   const baseConfigFilePath = currentPath(`config/${args.config}`)

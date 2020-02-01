@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+# Generate the AEM tags
+node generator.js --no-color --no-clean --no-console --config=core.yml
