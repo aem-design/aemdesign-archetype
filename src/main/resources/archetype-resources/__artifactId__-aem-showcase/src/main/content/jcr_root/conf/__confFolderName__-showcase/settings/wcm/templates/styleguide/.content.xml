@@ -9,8 +9,8 @@
         cq:lastModified="{Date}2019-08-19T18:16:57.708+10:00"
         cq:lastModifiedBy="admin"
         cq:templateType="/conf/${confFolderName}-showcase/settings/wcm/template-types/styleguide"
-        jcr:description="AEM.Design Styleguide"
+        jcr:description="${artifactTitle} Styleguide"
         jcr:primaryType="cq:PageContent"
-        jcr:title="AEM.Design Styleguide"
+        jcr:title="${artifactTitle} Styleguide"
         status="enabled"/>
 </jcr:root>

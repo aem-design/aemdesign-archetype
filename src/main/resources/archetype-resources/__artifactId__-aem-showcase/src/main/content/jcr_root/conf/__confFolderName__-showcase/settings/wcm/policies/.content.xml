@@ -166,7 +166,7 @@
                             jcr:lastModified="{Date}2019-08-19T18:13:37.241+10:00"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="AEM.Design Showcase"
+                            jcr:title="${artifactTitle} Showcase"
                             sling:resourceType="wcm/core/components/policy/policy"
                             clientlibs="[aemdesign.core.vendorlib.bootstrap]">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -178,7 +178,7 @@
                         jcr:lastModified="{Date}2019-08-19T18:16:57.702+10:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM.Design Showcase"
+                        jcr:title="${artifactTitle} Showcase"
                         sling:resourceType="wcm/core/components/policy/policy"
                         clientlibs="[aemdesign.common.components,aemdesign.common.body,${appsFolderName}.compose.header,${appsFolderName}.compose.header.styleguide,${appsFolderName}.compose.footer,${appsFolderName}.compose.footer.styleguide]"
                         clientlibsJsHead="[${appsFolderName}.compose.header,${appsFolderName}.compose.header.styleguide]">
