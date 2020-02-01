@@ -8,8 +8,6 @@
     <!--    http://jackrabbit.apache.org/filevault/filter.html    -->
     <!--                        W A R N I N G                     -->
 
-    <!-- required for templates -->
-    <filter root="/conf/${confFolderName}"/>
 
     <!--<filter root="/etc/blueprints/${contentFolderName}-english"/>-->
 
