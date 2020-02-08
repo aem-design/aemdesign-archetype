@@ -6,7 +6,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-archetype</artifactId>
-    <version>1.0.41</version>
+    <version>1.0.46</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM.Design Project archetype</name>
@@ -208,6 +208,7 @@
                     <flattenedPomFilename>.flattened-pom.xml</flattenedPomFilename>
                     <outputDirectory>${project.build.directory}</outputDirectory>
                     <updatePomFile>true</updatePomFile>
+                    <flattenMode>ossrh</flattenMode>
                 </configuration>
                 <executions>
                     <execution>
