@@ -76,12 +76,13 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn deploy --settings default.xml -B -P release
 
-      - uses: meeDamian/github-release@1.0
+      - name: create github release ${{ env.GITHUB_TAG }}
+        uses: meeDamian/github-release@1.0
         if: github.ref == 'refs/heads/master'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ env.CURRENT_VERSION }}
-          name: ${{ env.CURRENT_VERSION }}
+          tag: ${{ env.GITHUB_TAG }}
+          name: ${{ env.GITHUB_TAG }}
           body: ${{ env.GIT_RELEASE_NOTES }}
           files: >
-            **/target/*.jar
+            target/aemdesign-archetype-${{ env.GITHUB_TAG }}.jar
