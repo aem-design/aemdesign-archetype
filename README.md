@@ -2,7 +2,7 @@
 
 [![build_status](https://github.com/aem-design/aemdesign-archetype/workflows/ci/badge.svg)](https://github.com/aem-design/aemdesign-archetype/actions?workflow=ci)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=design.aem%3Aaemdesign-archetype&metric=alert_status)](https://sonarcloud.io/dashboard?id=design.aem%3Aaemdesign-archetype)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-common/badge.svg?magic)](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-aem-common)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-archetype/badge.svg?magic)](https://maven-badges.herokuapp.com/maven-central/design.aem/aemdesign-archetype)
 [![github license](https://img.shields.io/github/license/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype) 
 [![github issues](https://img.shields.io/github/issues/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype) 
 [![github last commit](https://img.shields.io/github/last-commit/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype) 
