@@ -41,6 +41,7 @@
         <package.tagNamespace.core>${contentFolderName}</package.tagNamespace.core>
         <package.tagNamespace.showcase>${contentFolderName}-showcase</package.tagNamespace.showcase>
         <package.npmCommand>aem:build</package.npmCommand>
+        <package.tagPath>/content/cq:tags</package.tagPath>
     </properties>
 
     <developers>
