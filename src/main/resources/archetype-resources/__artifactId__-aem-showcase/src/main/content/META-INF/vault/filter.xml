@@ -9,7 +9,6 @@
     <!--                        W A R N I N G                     -->
     <filter root="/content/${contentFolderName}-showcase"/>
     <filter root="/content/dam/${contentFolderName}-showcase"/>
-    <filter root="/content/cq:tags/${contentFolderName}-showcase"/>
     <filter root="/content/experience-fragments/${contentFolderName}-showcase"/>
     <filter root="/conf/${confFolderName}-showcase"/>
 </workspaceFilter>
