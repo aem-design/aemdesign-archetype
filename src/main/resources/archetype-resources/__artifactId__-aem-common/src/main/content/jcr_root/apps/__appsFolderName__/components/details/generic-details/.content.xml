@@ -9,5 +9,4 @@
     jcr:primaryType="cq:Component"
     cq:icon="viewDetail"
           componentGroup="${componentGroupTitle} - Details"
-          sling:resourceSuperType="${appsParent}/components/details/generic-details"
-          componentGroup=".hidden"/>
+          sling:resourceSuperType="${appsParent}/components/details/generic-details"/>
