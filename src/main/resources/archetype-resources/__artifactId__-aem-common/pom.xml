@@ -306,7 +306,7 @@
 
                         <embedded>
                             <groupId>${project.parent.groupId}</groupId>
-                            <artifactId>sew-aem-services</artifactId>
+                            <artifactId>${artifactId}-aem-services</artifactId>
                         </embedded>
                         <embedded>
                             <groupId>com.github.mickleroy</groupId>
