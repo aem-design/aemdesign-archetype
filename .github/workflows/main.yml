@@ -77,7 +77,14 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: $DOCKER_COMMAND echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import && echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust && mvn deploy --settings default.xml -B -P release
 
-      - name: create release ${{ env.GITHUB_TAG }}
+      - name: get artifact name
+        run: |
+          ARTIFACT_PATHNAME=$(ls target/*.jar | head -n 1)
+          ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
+          echo ::set-env name=ARTIFACT_NAME::${ARTIFACT_NAME}
+          echo ::set-env name=ARTIFACT_PATHNAME::${ARTIFACT_PATHNAME}
+
+      - name: create release ${{ env.ARTIFACT_NAME }}
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -88,13 +95,13 @@ jobs:
           body: ${{ env.GIT_RELEASE_NOTES }}
           draft: false
           prerelease: false
-      - name: upload release asset ${{ env.GITHUB_TAG }}
+      - name: upload release asset ${{ env.ARTIFACT_NAME }}
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/aemdesign-archetype-${{ env.GITHUB_TAG }}.jar
-          asset_name: aemdesign-archetype-${{ env.GITHUB_TAG }}.jar
+          asset_path: ${{ env.ARTIFACT_PATHNAME }}
+          asset_name: ${{ env.ARTIFACT_NAME }}
           asset_content_type: application/java-archive
