@@ -21,7 +21,7 @@
 
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}-aem-services</artifactId>
-    <packaging>bundle</packaging>
+    <packaging>jar</packaging>
     <name>${parentArtifactName} :: services</name>
     <description>${artifactTitle} AEM Service - OSGI Services</description>
     <version>${version}</version>
@@ -80,89 +80,150 @@
     <!-- ====================================================================== -->
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>4.1.0</version>
-                <extensions>true</extensions>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.version}</version>
                 <executions>
                     <execution>
-                        <id>scr-metadata</id>
+                        <id>ban-maven-scr-plugin</id>
                         <goals>
-                            <goal>manifest</goal>
+                            <goal>enforce</goal>
                         </goals>
                         <configuration>
-                            <supportIncrementalBuild>true</supportIncrementalBuild>
+                            <rules>
+                                <bannedPlugins>
+                                    <excludes>
+                                        <exclude>org.apache.felix:maven-scr-plugin</exclude>
+                                    </excludes>
+                                    <message>Felix SCR annotations and the maven-scr-plugin are no longer supported -
+                                        please migrate to OSGi
+                                        annotations or stick with Sling Parent 29.
+                                    </message>
+                                </bannedPlugins>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>ban-maven-bundle-plugin</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedPlugins>
+                                    <excludes>
+                                        <exclude>org.apache.felix:maven-bundle-plugin</exclude>
+                                    </excludes>
+                                    <message>The maven-bundle-plugin is no longer supported - please migrate to
+                                        bnd-maven-plugin or stick
+                                        with Sling Parent 34.
+                                    </message>
+                                </bannedPlugins>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <!-- Require Java 8 or higher for building (as bnd since version 4.0 only supports Java 8, https://github.com/bndtools/bnd/wiki/Changes-in-4.0.0) -->
+                                <requireJavaVersion>
+                                    <message>
+                                        Apache Sling must be compiled with Java 8 or higher as the bnd-maven-plugin
+                                        requires that.
+                                    </message>
+                                    <version>1.8.0</version>
+                                </requireJavaVersion>
+                            </rules>
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <exportScr>true</exportScr>
-                    <instructions>
-                        <!-- Enable registration of Sling Models classes via bnd plugin -->
-                        <!-- The below ModelScannerPlugin include currently causes the following bug to surface https://youtrack.jetbrains.com/issue/IDEA-141732 -->
-                        <_plugin>org.apache.sling.bnd.models.ModelsScannerPlugin</_plugin>
-                        <!-- Enable processing of OSGI DS component annotations -->
-                        <_dsannotations>*</_dsannotations>
-                        <!-- Enable processing of OSGI metatype annotations -->
-                        <_metatypeannotations>*</_metatypeannotations>
-                        <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
-
-                        <Bundle-SymbolicName>${classNamespace}</Bundle-SymbolicName>
-                        <Embed-Dependency>gson,javax.inject,jsoup</Embed-Dependency>
-                        <Sling-Model-Packages>${classNamespace}.models</Sling-Model-Packages>
-
-
-                        <Export-Package>${classNamespace}.*,
-                            org.jsoup,
-                            org.jsoup.examples,
-                            org.jsoup.helper,
-                            org.jsoup.nodes,
-                            org.jsoup.parser,
-                            org.jsoup.safety,
-                            org.jsoup.select,
-                            org.apache.commons.jexl3.*,
-                            org.apache.sling.installer.api.info,
-                            org.apache.sling.installer.api.tasks,
-                            com.adobe.acs.commons.fam,
-                            com.adobe.acs.commons.util,
-                            com.adobe.acs.commons.workflow,
-                            com.adobe.acs.commons.util.visitors
-                        </Export-Package>
-                    </instructions>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>org.apache.sling.bnd.models</artifactId>
-                        <version>1.0.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>sling-maven-plugin</artifactId>
+                <version>2.4.0</version>
+            </plugin>
 
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd><![CDATA[
+Bundle-SymbolicName: ${symbol_dollar}{project.groupId}.${symbol_dollar}{project.artifactId}
+Bundle-Category: ${symbol_dollar}{project.groupId}
+Bundle-Description: ${symbol_dollar}{project.description}
+Bundle-DocURL: ${symbol_dollar}{project.url}
+Bundle-License: Apache License, Version 2.0
+Bundle-Vendor: ${symbol_dollar}{package.groupTitle}
+Embed-Transitive: true
+Export-Service: ${classNamespace}.*
+Export-Package: ${classNamespace}.*
+# export all versioned packages by default
+-exportcontents: ${classNamespace}.*
+#-sources: false
+                                ]]></bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${symbol_dollar}{project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                 <configuration>
+                <version>3.1.1</version>
+                <configuration>
+                    <show>private</show>
+                    <nohelp>true</nohelp>
                     <excludePackageNames>
                         *.impl
                     </excludePackageNames>
-                 </configuration>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
                 <executions>
                     <execution>
                         <id>checkstyle</id>
@@ -182,31 +243,11 @@
                     <linkXRef>false</linkXRef>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.5</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <!-- attached to Maven test phase -->
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
