@@ -9,6 +9,8 @@
 [![github repo size](https://img.shields.io/github/repo-size/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype) 
 [![github repo size](https://img.shields.io/github/languages/code-size/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype) 
 [![github release](https://img.shields.io/github/release/aem-design/aemdesign-archetype)](https://github.com/aem-design/aemdesign-archetype)
+[![Visit AEM.Design](https://img.shields.io/badge/visit-aem.design-brightgreen)](https://aem.design/)
+[![Gitter](https://img.shields.io/gitter/room/aem-design/Lobby)](https://gitter.im/aem-design/Lobby)
 
 
 This project is used to create a new aem-design project base
