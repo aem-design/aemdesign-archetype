@@ -59,7 +59,7 @@ jobs:
           echo CURRENT_VERSION=$CURRENT_VERSION
       - name: set eval variables
         run: |
-          echo ::set-env name=DOCKER_COMMAND::docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}
+          echo "DOCKER_COMMAND=docker run --user $(id -u):$(id -g) -v ${GITHUB_WORKSPACE}:/build ${DOCKER_IMAGE}" >> $GITHUB_ENV
           $DOCKER_COMMAND java -version
           $DOCKER_COMMAND node -v
           git config --global user.email "${GITHUB_EMAIL}"
@@ -81,8 +81,8 @@ jobs:
         run: |
           ARTIFACT_PATHNAME=$(ls target/*.jar | head -n 1)
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
-          echo ::set-env name=ARTIFACT_NAME::${ARTIFACT_NAME}
-          echo ::set-env name=ARTIFACT_PATHNAME::${ARTIFACT_PATHNAME}
+          echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
+          echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
 
       - name: create release ${{ env.ARTIFACT_NAME }}
         id: create_release
