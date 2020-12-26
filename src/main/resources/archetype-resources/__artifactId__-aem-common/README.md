@@ -14,7 +14,7 @@ Deploying
 Deploy project to local AEM instance use the deploy scripts or the following command
 
 ```bash
-mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage,autoInstallBundle -Dcrx.host=localhost
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage,autoInstallBundle -Daem.host=localhost
 ```
 
 

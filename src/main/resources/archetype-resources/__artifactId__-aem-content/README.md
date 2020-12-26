@@ -13,9 +13,9 @@ Deploying
 Use the deploy scripts or use the following command
 
 ```bash
-mvn -Dvault.useProxy=false -DskipTests verify -P turnoffdamworkflow -Dcrx.host=localhost
-mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage -Dcrx.host=localhost
-mvn -Dvault.useProxy=false -DskipTests verify -P turnondamworkflow -Dcrx.host=localhost
+mvn -Dvault.useProxy=false -DskipTests verify -P turnoffdamworkflow -Daem.host=localhost
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage -Daem.host=localhost
+mvn -Dvault.useProxy=false -DskipTests verify -P turnondamworkflow -Daem.host=localhost
 ```
 
 Content Cleaning

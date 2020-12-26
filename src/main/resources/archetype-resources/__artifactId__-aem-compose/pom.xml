@@ -329,9 +329,9 @@
                                     <goal>install</goal>
                                 </goals>
                                 <configuration>
-                                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/crx/packmgr/service.jsp</targetURL>
-                                    <userId>${symbol_dollar}{crx.username}</userId>
-                                    <password>${symbol_dollar}{crx.password}</password>
+                                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/crx/packmgr/service.jsp</targetURL>
+                                    <userId>${symbol_dollar}{aem.username}</userId>
+                                    <password>${symbol_dollar}{aem.password}</password>
                                 </configuration>
                             </execution>
                         </executions>

@@ -12,7 +12,7 @@
     groupTitle="${symbol_dollar}{package.groupTitle}"
     builtWith="${symbol_dollar}{package.builtWith}"
     name="${symbol_dollar}{name}"
-    path="${symbol_dollar}{crx.package.path}/${symbol_dollar}{package.group}/${symbol_dollar}{artifactId}-${symbol_dollar}{version}"
+    path="${symbol_dollar}{aem.package.path}/${symbol_dollar}{package.group}/${symbol_dollar}{artifactId}-${symbol_dollar}{version}"
     version="${symbol_dollar}{version}"
     providerName="${symbol_dollar}{package.providerName}"
     providerUrl="${symbol_dollar}{package.providerUrl}"

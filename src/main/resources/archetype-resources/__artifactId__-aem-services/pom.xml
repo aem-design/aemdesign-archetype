@@ -281,7 +281,7 @@ Export-Package: ${classNamespace}.*
                         <groupId>org.apache.sling</groupId>
                         <artifactId>maven-sling-plugin</artifactId>
                         <configuration>
-                            <slingUrl>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/apps/${symbol_dollar}{package.appFolder}/install</slingUrl>
+                            <slingUrl>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/apps/${symbol_dollar}{package.appFolder}/install</slingUrl>
                             <usePut>true</usePut>
                         </configuration>
                         <executions>

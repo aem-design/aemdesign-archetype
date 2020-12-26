@@ -101,7 +101,7 @@ KEYNAME=${artifactId}; ssh-keygen -t rsa -b 4096 -C "${KEYNAME}" -N '' -f "${KEY
 Use the deploy scripts or use the following command
 
 ```bash
-mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage -pl ${artifactId}-aem-common,${artifactId}-aem-content,${artifactId}-aem-showcase  -Dcrx.host=localhost
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage -pl ${artifactId}-aem-common,${artifactId}-aem-content,${artifactId}-aem-showcase  -Daem.host=localhost
 ```
 
 ###Deploy - Deployment Package

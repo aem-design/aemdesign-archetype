@@ -45,7 +45,7 @@ xmlParser.parseString(pomConfig, (_, { project }) => {
 xmlParser.parseString(parentPomConfig, (_, { project }) => {
   const properties = project.properties[0]
 
-  authorPort          = properties['crx.port'][0]
+  authorPort          = properties['aem.port'][0]
 })
 
 console.log(`authorPort:  ${authorPort}`)

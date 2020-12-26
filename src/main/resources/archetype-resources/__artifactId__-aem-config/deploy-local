@@ -9,7 +9,7 @@ set_term_title "Deploying Project"
 #mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage,autoInstallPackagePublish
 #mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallBundle,autoInstallPackage
 
-mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage -Dcrx.host=localhost
+mvn -Dvault.useProxy=false -DskipTests clean install -P autoInstallPackage -Daem.host=localhost
 
 set_term_title "Deployed"
 

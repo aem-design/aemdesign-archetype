@@ -166,12 +166,12 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     static String getHostName() {
-        return System.properties.getProperty("crx.host", "localhost")
+        return System.properties.getProperty("aem.host", "localhost")
     }
 
 
     static String getUIMode() {
-        return System.properties.getProperty("crx.authoruimode", "CLASSIC")
+        return System.properties.getProperty("aem.authoruimode", "CLASSIC")
     }
 
 
@@ -216,11 +216,11 @@ abstract class FunctionalSpec extends GebReportingSpec {
     }
 
     def getAdminUsername() {
-        return System.properties.getProperty("crx.user", "admin")
+        return System.properties.getProperty("aem.user", "admin")
     }
 
     def getAdminPassword() {
-        return System.properties.getProperty("crx.password", "admin")
+        return System.properties.getProperty("aem.password", "admin")
     }
 
 //    def designReference(String filePath) {

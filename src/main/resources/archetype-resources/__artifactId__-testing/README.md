@@ -37,13 +37,13 @@ mvn -pl ${artifactId}-testing clean test -Dgeb.env=dev -Dtest=EventDetailsPublis
 From Root:
 
 ```bash
-mvn -pl ${artifactId}-testing clean test -Dgeb.env=dev -Dcrx.host=192.168.27.2 -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
+mvn -pl ${artifactId}-testing clean test -Dgeb.env=dev -Daem.host=192.168.27.2 -Daem.port=4502 -Daem.user=admin -Daem.password=admin -Dtest=Text*
 ```
 
 In Project Folder
 
 ```bash
-mvn clean test -Dgeb.env=dev -Dcrx.host=192.168.27.2 -Dcrx.port=4502 -Dcrx.user=admin -Dcrx.password=admin -Dtest=Text*
+mvn clean test -Dgeb.env=dev -Daem.host=192.168.27.2 -Daem.port=4502 -Daem.user=admin -Daem.password=admin -Dtest=Text*
 ```
 
 - Quick test on clean instance

@@ -16,8 +16,8 @@ function getConfigFromMaven(variable) {
   // return spawn.execSync(`mvn help:evaluate -q -DforceStdout -D"expression=${variable}"`).toString();
 }
 
-const CRX_USERNAME = getConfigFromMaven('crx.username')
-const CRX_PASSWORD = getConfigFromMaven('crx.username')
+const CRX_USERNAME = getConfigFromMaven('aem.username')
+const CRX_PASSWORD = getConfigFromMaven('aem.username')
 const PACKAGE_CONTENTFOLDER = getConfigFromMaven('package.contentFolder')
 
 const TEST_ENV = {
