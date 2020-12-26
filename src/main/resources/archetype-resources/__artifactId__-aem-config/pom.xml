@@ -103,7 +103,7 @@
                 <configuration>
                     <group>${symbol_dollar}{package.group}</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
-                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/crx/packmgr/service.jsp</targetURL>
+                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/crx/packmgr/service.jsp</targetURL>
 
                     <properties>
                         <description>${symbol_dollar}{project.description}</description>
@@ -186,9 +186,9 @@
                                     <goal>install</goal>
                                 </goals>
                                 <configuration>
-                                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/crx/packmgr/service.jsp</targetURL>
-                                    <userId>${symbol_dollar}{crx.username}</userId>
-                                    <password>${symbol_dollar}{crx.password}</password>
+                                    <targetURL>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/crx/packmgr/service.jsp</targetURL>
+                                    <userId>${symbol_dollar}{aem.username}</userId>
+                                    <password>${symbol_dollar}{aem.password}</password>
                                 </configuration>
                             </execution>
                         </executions>
@@ -221,16 +221,16 @@
                                     <executable>curl</executable>
                                     <arguments>
                                         <argument>-u</argument>
-                                        <argument>${symbol_dollar}{crx.username}:${symbol_dollar}{crx.password}</argument>
+                                        <argument>${symbol_dollar}{aem.username}:${symbol_dollar}{aem.password}</argument>
                                         <argument>-H</argument>
                                         <argument>User-Agent:curl</argument>
                                         <argument>-H</argument>
-                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}</argument>
+                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}</argument>
                                         <argument>-X</argument>
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -244,16 +244,16 @@
                                     <executable>curl</executable>
                                     <arguments>
                                         <argument>-u</argument>
-                                        <argument>${symbol_dollar}{crx.username}:${symbol_dollar}{crx.password}</argument>
+                                        <argument>${symbol_dollar}{aem.username}:${symbol_dollar}{aem.password}</argument>
                                         <argument>-H</argument>
                                         <argument>User-Agent:curl</argument>
                                         <argument>-H</argument>
-                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}</argument>
+                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}</argument>
                                         <argument>-X</argument>
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=false</argument>
-                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -286,16 +286,16 @@
                                     <executable>curl</executable>
                                     <arguments>
                                         <argument>-u</argument>
-                                        <argument>${symbol_dollar}{crx.username}:${symbol_dollar}{crx.password}</argument>
+                                        <argument>${symbol_dollar}{aem.username}:${symbol_dollar}{aem.password}</argument>
                                         <argument>-H</argument>
                                         <argument>User-Agent:curl</argument>
                                         <argument>-H</argument>
-                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}</argument>
+                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}</argument>
                                         <argument>-X</argument>
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
+                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/libs/settings/workflow/launcher/config/update_asset_create</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -309,16 +309,16 @@
                                     <executable>curl</executable>
                                     <arguments>
                                         <argument>-u</argument>
-                                        <argument>${symbol_dollar}{crx.username}:${symbol_dollar}{crx.password}</argument>
+                                        <argument>${symbol_dollar}{aem.username}:${symbol_dollar}{aem.password}</argument>
                                         <argument>-H</argument>
                                         <argument>User-Agent:curl</argument>
                                         <argument>-H</argument>
-                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}</argument>
+                                        <argument>Referer:${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}</argument>
                                         <argument>-X</argument>
                                         <argument>POST</argument>
                                         <argument>-F</argument>
                                         <argument>enabled=true</argument>
-                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{crx.host}:${symbol_dollar}{crx.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
+                                        <argument>${symbol_dollar}{package.uploadProtocol}://${symbol_dollar}{aem.host}:${symbol_dollar}{aem.port}/libs/settings/workflow/launcher/config/update_asset_mod</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
