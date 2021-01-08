@@ -26,7 +26,7 @@ abstract class ComponentSpec extends FunctionalSpec {
     @Shared
     def String componentDocs
     @Shared
-    def String pageExtention = ".html"
+    def String pageExtension = ".html"
 
     @Shared
     def String pageSelectors = ""
@@ -77,7 +77,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         if (StringUtils.isEmpty(inLanguage)) {
             inLanguage = language
         }
-        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
+        def page = to ClassicUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension)
         page.waitForSidekick()
         return page
     }
@@ -90,9 +90,9 @@ abstract class ComponentSpec extends FunctionalSpec {
         if (StringUtils.isEmpty(inLanguage)) {
             inLanguage = language
         }
-        //printDebug("URL", [page.AEMPage.toLanguage(pathSite,inLanguage,pathPage + pageExtention)])
+        //printDebug("URL", [page.AEMPage.toLanguage(pathSite,inLanguage,pathPage + pageExtension)])
 
-        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention)
+        def page = to TouchUIEditor, page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension)
         page.waitForPageContent()
 //        waitForDocumentReady()
         return page
@@ -103,7 +103,7 @@ abstract class ComponentSpec extends FunctionalSpec {
         if (StringUtils.isEmpty(inLanguage)) {
             inLanguage = language
         }
-        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtention), AEMPage.WCMMODE.DISABLED)
+        String url = page.AEMPage.toMode(page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageSelectors + pageExtension), AEMPage.WCMMODE.DISABLED)
         printDebug("URL", [url, driver.manage().window().getSize()])
 //        System.out.println("Loading Page: "+url)
         def page = to PublishPage, url
@@ -138,7 +138,7 @@ abstract class ComponentSpec extends FunctionalSpec {
             queryString = "&${symbol_dollar}requestQuery"
         }
         String url = page.AEMPage.toMode(
-                    page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtention),
+                    page.AEMPage.toLanguage(pathSite, inLanguage, pathPage + pageExtension),
                     AEMPage.WCMMODE.DISABLED)
 
         url = "${symbol_dollar}url${symbol_dollar}queryString"
