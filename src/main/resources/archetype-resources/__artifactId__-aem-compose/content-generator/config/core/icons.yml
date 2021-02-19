@@ -1,0 +1,44 @@
+  arrows: 
+    prefixes: 
+      - "external-link-alt"
+      - "long-arrow-alt-left"
+      - "long-arrow-alt-right"
+    title: "%%prefix_normalised%%"
+    valueFormat: "fas fa-%%prefix%%"
+  feed/rss: 
+    flat: true
+    prefix: "fas fa-rss"
+    title: "RSS"
+  general: 
+    prefixes: 
+      - "bars"
+      - "chevron-left"
+      - "chevron-right"
+      - "code"
+      - "envelope"
+      - "globe"
+      - "link"
+      - "search"
+      - "times"
+    title: "%%prefix_normalised%%"
+    valueFormat: "fas fa-%%prefix%%"
+  social: 
+    prefixes: 
+      - "facebook"
+      - "facebook-f"
+      - "instagram"
+      - "linkedin"
+      - "linkedin-in"
+      - "pinterest-p"
+      - "tumblr"
+      - "tumblr-square"
+      - "twitter"
+      - "youtube"
+    title: "%%prefix_normalised%%"
+    valueFormat: "fab fa-%%prefix%%"
+  spinner: 
+    prefixes: 
+      - "cog"
+      - "spinner"
+    title: "%%prefix_normalised%%"
+    valueFormat: "fas fa-%%prefix%%"

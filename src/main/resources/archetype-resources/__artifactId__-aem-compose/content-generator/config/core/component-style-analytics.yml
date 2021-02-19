@@ -19,45 +19,45 @@ content/_cq_tags/${contentFolderName}/component-analytics: &component-analytics
 
   pagetype:
     prefixes:
-    - common
-    - marketing
+      - common
+      - marketing
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
   type:
     prefixes:
-    - aa
-    - ga
+      - aa
+      - ga
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
   linktype:
     prefixes:
-    - button
+      - button
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
   linklocation:
     prefixes:
-    - link
+      - link
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
   eventtype:
     prefixes:
-    - site-interaction
+      - site-interaction
     valueFormat: 'site interaction' ${symbol_pound}has to be this
     title: '%%prefix_normalised%%'
 
   event-category:
     prefixes:
-    - custom-category
+      - custom-category
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
   event-action:
     prefixes:
-    - custom-action
+      - custom-action
     valueFormat: '%%prefix%%'
     title: '%%prefix_normalised%%'
 
