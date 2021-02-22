@@ -1,0 +1,62 @@
+  background/primary-colours: 
+    prefixes: 
+      - "blue"
+      - "red"
+    startWith: "bg-"
+    title: "%%prefix_normalised%%"
+  background/secondary-colours: 
+    prefixes: 
+      - "orange"
+      - "green"
+    startWith: "bg-"
+    title: "%%prefix_normalised%%"
+  background/grey-tones: 
+    prefixes: 
+      - "grey-1"
+      - "grey-2"
+      - "grey-3"
+      - "grey-4"
+      - "grey-5"
+      - "grey-6"
+      - "grey-7"
+      - "grey-8"
+      - "grey-9"
+    startWith: "bg-"
+    title: "%%prefix_normalised%%"
+  background/standard: 
+    prefixes: 
+      - "black"
+      - "white"
+    startWith: "bg-"
+    title: "%%prefix_normalised%%"
+  colour/primary-colours: 
+    prefixes: 
+      - "blue"
+      - "red"
+    startWith: "text-"
+    title: "%%prefix_normalised%%"
+  colour/secondary-colours: 
+    prefixes: 
+      - "orange"
+      - "green"
+    startWith: "text-"
+    title: "%%prefix_normalised%%"
+  colour/grey-tones: 
+    prefixes: 
+      - "grey-1"
+      - "grey-2"
+      - "grey-3"
+      - "grey-4"
+      - "grey-5"
+      - "grey-6"
+      - "grey-7"
+      - "grey-8"
+      - "grey-9"
+    startWith: "text-"
+    title: "%%prefix_normalised%%"
+  colour/standard: 
+    prefixes: 
+      - "black"
+      - "white"
+    startWith: "text-"
+    title: "%%prefix_normalised%%"

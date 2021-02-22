@@ -1,0 +1,21 @@
+grid/container:
+  flat: true
+  prefix: container
+  title: 'Container'
+
+grid/container/size:
+  prefixes:
+    - full-width
+    - small
+  prefixValue: container--
+  title: '%%prefix_normalised%%'
+
+grid/container/wrapper:
+  flat: true
+  prefix: container background-colour-white one-column vertical-padding-top grid-wrapper
+  title: 'Container Wrapper'
+
+grid/center:
+  flat: true
+  prefix: mx-auto
+  title: 'Center Horizontally'

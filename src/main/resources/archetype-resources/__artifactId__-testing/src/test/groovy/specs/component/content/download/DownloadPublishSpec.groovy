@@ -144,7 +144,7 @@ class DownloadPublishSpec extends ComponentSpec {
         takeScreenshot(${symbol_dollar}(selector).firstElement(), "Should have sample content")
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
@@ -183,7 +183,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.info").text().contains("jpeg file")
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()
@@ -225,7 +225,7 @@ class DownloadPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .btn").text().toLowerCase() == "Download".toLowerCase()
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
         viewport << getViewPorts()

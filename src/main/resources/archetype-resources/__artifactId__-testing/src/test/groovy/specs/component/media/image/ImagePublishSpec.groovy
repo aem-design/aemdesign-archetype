@@ -304,7 +304,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .card-text").text() == "Licensed Asset Description"
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .license").text().trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
@@ -352,7 +352,7 @@ class ImagePublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} figure .description")[0].getAttribute("innerText").equals("Licensed Asset Description")
 
         and: "Has license line"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} figure .license")[0].getAttribute("innerText").trim() == "© 2017 Creator Contributor Copyright Image Owner Copyright Owner"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} figure .license")[0].getAttribute("innerText").trim() == "2017 Creator Contributor Copyright Image Owner Copyright Owner"
 
 
         where: "Browser size width: ${symbol_pound}viewport.width and height: ${symbol_pound}viewport.height"
