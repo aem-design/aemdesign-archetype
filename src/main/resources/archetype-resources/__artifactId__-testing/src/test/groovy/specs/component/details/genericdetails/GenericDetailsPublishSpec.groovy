@@ -82,7 +82,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${symbol_dollar}{selector} ${symbol_pound}text_in_toolbar", "Text in Toolbar")
 
         and: "Has Page Date Value"
-        assert compareInnerTextContains("${symbol_dollar}{selector} time.pagedate", "September 15, 2019")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .pagedate time", "September 15, 2019")
 
         and: "Has Title"
         assert compareInnerTextContains("${symbol_dollar}{selector} header > h1", "Page Properties - Page Title")
@@ -154,7 +154,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert compareInnerTextContains("${symbol_dollar}{selector} ${symbol_pound}text_in_parent_toolbar", "Text in Parent Toolbar")
 
         and: "Has Page Date Value"
-        assert compareInnerTextContains("${symbol_dollar}{selector} time.pagedate", "September 15, 2019")
+        assert compareInnerTextContains("${symbol_dollar}{selector} .pagedate time", "September 15, 2019")
 
         and: "Has Title"
         assert compareInnerTextContains("${symbol_dollar}{selector} header .card-title", "Page Properties - Page Title")
@@ -194,7 +194,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} time.pagedate").isEmpty() == false
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert ${symbol_dollar}("${symbol_dollar}{selector} header .card-title").isEmpty() == false
@@ -233,7 +233,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} time.pagedate").isEmpty() == false
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert ${symbol_dollar}("${symbol_dollar}{selector} h1").isEmpty() == true
@@ -338,7 +338,7 @@ class GenericDetailsPublishSpec extends ComponentSpec {
         assert ${symbol_dollar}("${symbol_dollar}{selector} .navbar").isEmpty() == true
 
         and: "Has Page Date visible"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} time.pagedate").isEmpty() == false
+        assert ${symbol_dollar}("${symbol_dollar}{selector} .pagedate time").isEmpty() == false
 
         and: "Has Title showing"
         assert ${symbol_dollar}("${symbol_dollar}{selector} .card-title").isEmpty() == false
