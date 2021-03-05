@@ -61,8 +61,8 @@ class ContactDetailsPublishSpec extends ComponentSpec {
         and: "Has Description has field jobTitle"
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.description [itemprop=jobTitle]").text().trim() == "Founder"
 
-        and: "Has Description has field employee"
-        assert ${symbol_dollar}("${symbol_dollar}{selector} div.description [itemprop=employee]").text().trim() == "AEM.Design"
+        and: "Has Description has field employer"
+        assert ${symbol_dollar}("${symbol_dollar}{selector} div.description [itemprop=legalName]").text().trim() == "AEM.Design"
 
         and: "Has Description has field email"
         assert ${symbol_dollar}("${symbol_dollar}{selector} div.description [itemprop=email]").text().trim() == "max.barrass@gmail.com"
