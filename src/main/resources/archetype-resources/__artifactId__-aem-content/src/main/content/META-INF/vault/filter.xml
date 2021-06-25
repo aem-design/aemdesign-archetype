@@ -18,11 +18,11 @@
     <!--<filter root="/content/dam/formsanddocuments-themes/${contentFolderName}"/>-->
     <!--<filter root="/content/dam/formsanddocuments-fdm/${contentFolderName}"/>-->
 
-    <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
-    <!--<filter root="/content/forms/fp/${contentFolderName}" mode="update">-->
-    <!--<exclude pattern="/content/forms/fp[^/]*$" />-->
-    <!--<include pattern="/content/forms/fp[^/*]/rep:policy" />-->
-    <!--</filter>-->
+<!--    &lt;!&ndash; forms: apply ace &ndash;&gt;-->
+<!--    <filter root="/content/forms/fp/${contentFolderName}" mode="update">-->
+<!--    <exclude pattern="/content/forms/fp[^/]*$" />-->
+<!--    <include pattern="/content/forms/fp[^/*]/rep:policy" />-->
+<!--    </filter>-->
 
     <!--&lt;!&ndash; forms: apply ace &ndash;&gt;-->
     <!--<filter root="/content/forms/portal" mode="update">-->
