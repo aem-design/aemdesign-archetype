@@ -1,7 +1,0 @@
-#!/bin/bash
-
-echo "GENERATE NEW PROJECT"
-mvn clean integration-test
-
-echo "DEPLOYING PACKAGE THE LOCAL"
-cd target/test-classes/projects/basic/project/projectx && chmod +x deploy* && ./deploy-local && cd -

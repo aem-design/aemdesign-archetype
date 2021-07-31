@@ -4,4 +4,4 @@
 ${artifactTitle} AEM Author Updates
 ===================================
 
-All updates to OOTB authoring experience components
+All updates to OOTB authoring experience components.
