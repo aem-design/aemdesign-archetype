@@ -6,7 +6,7 @@
 
     <groupId>design.aem</groupId>
     <artifactId>aemdesign-archetype</artifactId>
-    <version>1.0.93</version>
+    <version>0.1.0</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM.Design Project archetype</name>

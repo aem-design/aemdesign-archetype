@@ -1,7 +1,7 @@
 echo "GENERATE NEW PROJECT"
 mvn clean integration-test
 
-cd ./target/test-classes/projects/basic/project/aglenergy
+cd ./target/test-classes/projects/basic/project/projectx
 
 echo "INIT GIT"
 git init

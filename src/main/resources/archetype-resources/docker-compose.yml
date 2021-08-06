@@ -139,6 +139,14 @@ services:
       - author
       - seleniumhub
 
+  gitinspector:
+    extends:
+      file: ./docker/git/docker-compose.yml
+      service: gitinspector
+    volumes:
+      - ${PWD}:/repo
+
+
 networks:
   seleniumgrid:
   author-network:

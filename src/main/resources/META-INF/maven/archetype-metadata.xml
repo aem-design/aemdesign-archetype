@@ -212,6 +212,8 @@
         <exclude>**/postcss.config.js</exclude>
         <exclude>**/asciidoctor*</exclude>
         <exclude>**/Gemfile*</exclude>
+        <exclude>**/*.ps1</exclude>
+        <exclude>**/docker/*</exclude>
       </excludes>
     </fileSet>
     <!--include all files that dont need filtering-->
@@ -283,8 +285,10 @@
         <include>**/.gitattributes</include>
         <include>**/tsconfig.json</include>
         <include>**/postcss.config.js</include>
-        <exclude>**/asciidoctor*</exclude>
-        <exclude>**/Gemfile*</exclude>
+        <include>**/asciidoctor*</include>
+        <include>**/Gemfile*</include>
+        <include>**/*.ps1</include>
+        <include>**/docker/*</include>
       </includes>
       <excludes>
         <exclude>**/.DS_Store</exclude>

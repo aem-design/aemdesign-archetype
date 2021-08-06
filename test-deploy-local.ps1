@@ -10,7 +10,7 @@ git commit -m init
 git tag -a 0.1 -m init
 
 echo "DEPLOYING PACKAGE THE LOCAL"
-./deploy-local.ps1
+./deploy.ps1
 
 echo "DONE"
 cd -

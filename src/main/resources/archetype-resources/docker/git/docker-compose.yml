@@ -1,0 +1,10 @@
+version: "2.4"
+
+services:
+
+  gitinspector:
+    image: felix/gitinspector
+    hostname: gitinspector
+    command: "--format=html --grading > foo.html"
+    volumes:
+      - ${PWD}:/repo
